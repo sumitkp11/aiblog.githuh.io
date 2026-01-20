@@ -1,0 +1,604 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Microsoft 365 Copilot Chat Explorer.</title>
+		<meta name="description" content="Let’s see the following points covered in the course, including Copilot Chat functionality, smart prompting techniques, and productivity-driven use cases.">
+		<link rel="alternate" href="/aiblog.github.io/feed/feed.xml" type="application/atom+xml" title="The Sumit&#39;s AI Blog">
+		
+		
+		
+		<style>/* This is an arbitrary CSS string added to the bundle */
+/* Defaults */
+:root {
+	--font-family: -apple-system, system-ui, sans-serif;
+	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
+}
+
+/* Theme colors */
+:root {
+	--color-gray-20: #e0e0e0;
+	--color-gray-50: #C0C0C0;
+	--color-gray-90: #333;
+
+	--background-color: #fff;
+
+	--text-color: var(--color-gray-90);
+	--text-color-link: #082840;
+	--text-color-link-active: #5f2b48;
+	--text-color-link-visited: #17050F;
+
+	--syntax-tab-size: 2;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color-gray-20: #e0e0e0;
+		--color-gray-50: #C0C0C0;
+		--color-gray-90: #dad8d8;
+
+		/* --text-color is assigned to --color-gray-_ above */
+		--text-color-link: #1493fb;
+		--text-color-link-active: #6969f7;
+		--text-color-link-visited: #a6a6f8;
+
+		--background-color: #15202b;
+	}
+}
+
+
+/* Global stylesheet */
+* {
+	box-sizing: border-box;
+}
+
+@view-transition {
+	navigation: auto;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0 auto;
+	font-family: var(--font-family);
+	color: var(--text-color);
+	background-color: var(--background-color);
+}
+html {
+	overflow-y: scroll;
+}
+body {
+	max-width: 40em;
+}
+
+/* https://www.a11yproject.com/posts/how-to-hide-content/ */
+.visually-hidden:not(:focus):not(:active) {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+/* Fluid images via https://www.zachleat.com/web/fluid-images/ */
+img{
+  max-width: 100%;
+}
+img[width][height] {
+  height: auto;
+}
+img[src$=".svg"] {
+  width: 100%;
+  height: auto;
+  max-width: none;
+}
+video,
+iframe {
+	width: 100%;
+	height: auto;
+}
+iframe {
+	aspect-ratio: 16/9;
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+p {
+	line-height: 1.5;
+}
+
+li {
+	line-height: 1.5;
+}
+
+a[href] {
+	color: var(--text-color-link);
+}
+a[href]:visited {
+	color: var(--text-color-link-visited);
+}
+a[href]:hover,
+a[href]:active {
+	color: var(--text-color-link-active);
+}
+
+main,
+footer {
+	padding: 1rem;
+}
+main :first-child {
+	margin-top: 0;
+}
+
+header {
+	border-bottom: 1px dashed var(--color-gray-20);
+}
+
+#skip-link {
+	text-decoration: none;
+	background: var(--background-color);
+	color: var(--text-color);
+	padding: 0.5rem 1rem;
+	border: 1px solid var(--color-gray-90);
+	border-radius: 2px;
+}
+
+/* Prevent visually-hidden skip link fom pushing content around when focused */
+#skip-link.visually-hidden:focus {
+	position: absolute;
+	top: 1rem;
+	left: 1rem;
+	/* Ensure it is positioned on top of everything else when it is shown */
+	z-index: 999;
+}
+
+.links-nextprev {
+	display: flex;
+	justify-content: space-between;
+	gap: .5em 1em;
+	list-style: "";
+	border-top: 1px dashed var(--color-gray-20);
+	padding: 1em 0;
+}
+.links-nextprev > * {
+	flex-grow: 1;
+}
+.links-nextprev-next {
+	text-align: right;
+}
+
+table {
+	margin: 1em 0;
+}
+table td,
+table th {
+	padding-right: 1em;
+}
+
+pre,
+code {
+	font-family: var(--font-family-monospace);
+}
+pre:not([class*="language-"]) {
+	margin: .5em 0;
+	line-height: 1.375; /* 22px /16 */
+	-moz-tab-size: var(--syntax-tab-size);
+	-o-tab-size: var(--syntax-tab-size);
+	tab-size: var(--syntax-tab-size);
+	-webkit-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	overflow-x: auto;
+}
+code {
+	word-break: break-all;
+}
+
+/* Header */
+header {
+	display: flex;
+	gap: 1em;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1em;
+}
+.home-link {
+	flex-grow: 1;
+	font-size: 1em; /* 16px /16 */
+	font-weight: 700;
+}
+.home-link:link:not(:hover) {
+	text-decoration: none;
+}
+
+/* Nav */
+.nav {
+	display: flex;
+	gap: .5em 1em;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.nav-item {
+	display: inline-block;
+}
+.nav-item a[href]:not(:hover) {
+	text-decoration: none;
+}
+.nav a[href][aria-current="page"] {
+	text-decoration: underline;
+}
+
+/* Posts list */
+.postlist {
+	counter-reset: start-from var(--postlist-index);
+	list-style: none;
+	padding: 0;
+	padding-left: 1.5rem;
+}
+.postlist-item {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	counter-increment: start-from -1;
+	margin-bottom: 1em;
+}
+.postlist-item:before {
+	display: inline-block;
+	pointer-events: none;
+	content: "" counter(start-from, decimal-leading-zero) ". ";
+	line-height: 100%;
+	text-align: right;
+	margin-left: -1.5rem;
+}
+.postlist-date,
+.postlist-item:before {
+	font-size: 0.8125em; /* 13px /16 */
+	color: var(--color-gray-90);
+}
+.postlist-date {
+	word-spacing: -0.5px;
+}
+.postlist-link {
+	font-size: 1.1875em; /* 19px /16 */
+	font-weight: 700;
+	flex-basis: calc(100% - 1.5rem);
+	padding-left: .25em;
+	padding-right: .5em;
+	text-underline-position: from-font;
+	text-underline-offset: 0;
+	text-decoration-thickness: 1px;
+}
+.postlist-item-active .postlist-link {
+	font-weight: bold;
+}
+
+/* Tags */
+.post-tag {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: capitalize;
+	font-style: italic;
+}
+.postlist-item > .post-tag {
+	align-self: center;
+}
+
+/* Tags list */
+.post-metadata {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: .5em;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.post-metadata time {
+	margin-right: 1em;
+}
+/**
+ * okaidia theme for JavaScript, CSS and HTML
+ * Loosely based on Monokai textmate theme by http://www.monokai.nl/
+ * @author ocodia
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: #f8f8f2;
+	background: none;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-size: 1em;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+	border-radius: 0.3em;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #272822;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: #8292a2;
+}
+
+.token.punctuation {
+	color: #f8f8f2;
+}
+
+.token.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #f92672;
+}
+
+.token.boolean,
+.token.number {
+	color: #ae81ff;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #a6e22e;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+	color: #f8f8f2;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function,
+.token.class-name {
+	color: #e6db74;
+}
+
+.token.keyword {
+	color: #66d9ef;
+}
+
+.token.regex,
+.token.important {
+	color: #fd971f;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+/*
+ * New diff- syntax
+ */
+
+pre[class*="language-diff-"] {
+	--eleventy-code-padding: 1.25em;
+	padding-left: var(--eleventy-code-padding);
+	padding-right: var(--eleventy-code-padding);
+}
+.token.deleted {
+	background-color: hsl(0, 51%, 37%);
+	color: inherit;
+}
+.token.inserted {
+	background-color: hsl(126, 31%, 39%);
+	color: inherit;
+}
+
+/* Make the + and - characters unselectable for copy/paste */
+.token.prefix.unchanged,
+.token.prefix.inserted,
+.token.prefix.deleted {
+	-webkit-user-select: none;
+	user-select: none;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+.token.prefix.inserted,
+.token.prefix.deleted {
+	width: var(--eleventy-code-padding);
+	background-color: rgba(0,0,0,.2);
+}
+
+/* Optional: full-width background color */
+.token.inserted:not(.prefix),
+.token.deleted:not(.prefix) {
+	display: block;
+	margin-left: calc(-1 * var(--eleventy-code-padding));
+	margin-right: calc(-1 * var(--eleventy-code-padding));
+	text-decoration: none; /* override del, ins, mark defaults */
+	color: inherit; /* override del, ins, mark defaults */
+}</style>
+		
+	</head>
+	<body>
+		<a href="#main" id="skip-link" class="visually-hidden">Skip to main content</a>
+
+		<header>
+			<a href="/aiblog.github.io/" class="home-link">The Sumit&#39;s AI Blog</a>
+			<nav>
+				<h2 class="visually-hidden" id="top-level-navigation-menu">Top level navigation menu</h2>
+				<ul class="nav">
+					<li class="nav-item"><a href="/aiblog.github.io/">Home</a></li>
+					<li class="nav-item"><a href="/aiblog.github.io/blog/">Archive</a></li>
+					<li class="nav-item"><a href="/aiblog.github.io/about/">About</a></li>
+					<li class="nav-item"><a href="/aiblog.github.io/feed/feed.xml">Feed</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<main id="main">
+			<heading-anchors>
+				
+
+
+<h1 id="microsoft-365-copilot-chat-explorer">Microsoft 365 Copilot Chat Explorer.</h1>
+
+<ul class="post-metadata">
+	<li><time datetime="2026-01-21">21 January 2026</time></li>
+	<li><a href="/aiblog.github.io/tags/copilot/" class="post-tag">copilot</a>, </li>
+	<li><a href="/aiblog.github.io/tags/post/" class="post-tag">post</a></li>
+</ul>
+
+<h1 id="microsoft-365-copilot-chat-explorer-learning-path-completed">Microsoft 365 Copilot Chat Explorer — Learning Path Completed</h1>
+<p><em>By Sumit Prasad — Published Jan 16, 2026</em></p>
+<p>Completed the Microsoft 365: Copilot Chat Explorer learning path on Microsoft Learn. Let’s see the following points covered in the course, including Copilot Chat functionality, smart prompting techniques, and productivity-driven use cases.</p>
+<h2 id="introduction-to-microsoft-365-copilot-chat">Introduction to Microsoft 365 Copilot Chat</h2>
+<p>Microsoft 365 Copilot Chat is a secure AI assistant for work. It is available with Microsoft 365 subscription at no additional cost. It is designed to serve as a powerful AI assistant to streamline work and boost productivity.</p>
+<p>It helps you with tasks such as summarizing, brainstorming, writing, coding and searching. It also provides intelligent suggestions and automates repetitive tasks.</p>
+<p>The Copilot Chat includes the following features:</p>
+<ul>
+<li>It is secure and powered by the latest advanced model (GPT-5) offered by OpenAI.</li>
+<li>IT teams can control enterprise data protection and agent management.</li>
+<li>It includes features like Copilot pages, file upload and image generation (a SharePoint license might be required to use Pages).</li>
+<li>It adheres to Microsoft’s AI principles.</li>
+</ul>
+<p>The Copilot Chat uses the Microsoft Graph to find and pull together information to give helpful, work-related answers. It automatically selects the right model based on context to resolve issues more quickly for simple problems and with deeper reasoning for complex ones.</p>
+<p>The Copilot Chat can be accessed by visiting <strong>m365copilot.com</strong>.</p>
+<p>Copilot Chat is enabled in:</p>
+<ul>
+<li>Teams (web, Windows, Mac, mobile)</li>
+<li>Outlook (web, Windows, Mac, mobile)</li>
+<li>Word, PowerPoint, Excel, Microsoft Edge browser and OneNote via a side pane</li>
+</ul>
+<h2 id="writing-effective-prompts">Writing Effective Prompts</h2>
+<p>Writing effective prompts is a great way to perform tasks in Copilot Chat such as creating, summarizing, editing or transforming content.</p>
+<p>The four important key elements for effective prompts are:</p>
+<p><strong>Context</strong><br>
+Tell the chatbot <em>why</em> you need something and <em>who</em> is involved. Provide detailed context and specifics for better responses.</p>
+<p><strong>Goal</strong><br>
+Tell the chatbot <em>what</em> you want it to do. Including examples of output can help shape the response.</p>
+<p><strong>Source</strong><br>
+Tell the chatbot <em>where</em> to look for information. This can include files you upload or public URLs you want it to reference.</p>
+<p><strong>Expectations</strong><br>
+Tell the chatbot <em>how</em> to deliver the answer—tone, style, length, and audience.</p>
+<p><strong>Example Prompt:</strong></p>
+<blockquote>
+<p><em>&quot;I work in marketing focusing on competitor research. Give me a concise summary of recent news about Microsoft, using web articles from the last 2 months. Provide the answer in two to three paragraphs and use a business tone.&quot;</em></p>
+</blockquote>
+<h3 id="do-s-and-don-ts-of-prompting">Do’s and Don’ts of Prompting</h3>
+<p><strong>Do’s</strong></p>
+<ul>
+<li>Provide specific instructions about topic, purpose, and output style</li>
+<li>Frame prompts as a natural conversation</li>
+<li>Occasionally give feedback to refine responses</li>
+<li>Use correct punctuation and grammar</li>
+</ul>
+<p><strong>Don’ts</strong></p>
+<ul>
+<li>Avoid vague language</li>
+<li>Avoid changing topics abruptly</li>
+<li>Do not request inappropriate or unethical content</li>
+<li>Do not interrupt during answer generation</li>
+</ul>
+<p>Copilot Chat also offers a <em>Prompt Gallery</em> where users can use pre-designed prompts, save favorites, edit existing ones, or share prompts with team members.</p>
+<h2 id="common-use-cases-with-copilot-chat">Common Use-Cases with Copilot Chat</h2>
+<ol>
+<li>Summarizing large amounts of data into clear insights</li>
+<li>Brainstorming ideas, drafting or refining content</li>
+<li>Analyzing uploaded files to summarize or generate content</li>
+<li>Generating AI imagery for projects or social posts</li>
+<li>Writing or checking code quality and performing data analysis</li>
+</ol>
+<h2 id="using-copilot-chat-in-microsoft-365-apps">Using Copilot Chat in Microsoft 365 Apps</h2>
+<p><strong>Outlook</strong></p>
+<ul>
+<li>Ask questions about emails or attachments</li>
+<li>Rewrite message replies in different tones</li>
+</ul>
+<p><strong>Word</strong></p>
+<ul>
+<li>Quickly create, edit, or refine content</li>
+<li>Ask questions about parts of documents for summaries or rewrites</li>
+</ul>
+<p><strong>PowerPoint</strong></p>
+<ul>
+<li>Summarize slides</li>
+<li>Generate images from prompts</li>
+<li>Provide content ideas</li>
+</ul>
+<p><strong>Excel</strong></p>
+<ul>
+<li>Ask questions to analyze data trends and patterns</li>
+<li>Quickly generate visualizations</li>
+</ul>
+
+<ul class="links-nextprev"><li class="links-nextprev-prev">← Previous<br> <a href="/aiblog.github.io/blog/fourthpost/">This is my fourth post</a></li>
+</ul>
+
+			</heading-anchors>
+		</main>
+
+		<footer>
+		</footer>
+
+		<!-- This page `/blog/microsoft-copilot-learning/` was built on 2026-01-20T21:45:14.455Z -->
+		<script type="module" src="/aiblog.github.io/dist/cC8wS6ZjFU.js"></script>
+	</body>
+</html>

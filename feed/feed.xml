@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet href="pretty-atom-feed.xsl" type="text/xsl"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+  <title>Blog Title</title>
+  <subtitle>This is a longer description about your blog.</subtitle>
+  <link href="https://example.com/aiblog.github.io/feed/feed.xml" rel="self" />
+  <link href="https://example.com/aiblog.github.io/" />
+  <updated>2026-01-21T00:00:00Z</updated>
+  <id>https://example.com/aiblog.github.io/</id>
+  <author>
+    <name>Your Name</name>
+  </author>
+  <entry>
+    <title>Microsoft 365 Copilot Chat Explorer.</title>
+    <link href="https://example.com/aiblog.github.io/blog/microsoft-copilot-learning/" />
+    <updated>2026-01-21T00:00:00Z</updated>
+    <id>https://example.com/aiblog.github.io/blog/microsoft-copilot-learning/</id>
+    <content type="html">&lt;h1 id=&quot;microsoft-365-copilot-chat-explorer-learning-path-completed&quot;&gt;Microsoft 365 Copilot Chat Explorer — Learning Path Completed&lt;/h1&gt;
+&lt;p&gt;&lt;em&gt;By Sumit Prasad — Published Jan 16, 2026&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Completed the Microsoft 365: Copilot Chat Explorer learning path on Microsoft Learn. Let’s see the following points covered in the course, including Copilot Chat functionality, smart prompting techniques, and productivity-driven use cases.&lt;/p&gt;
+&lt;h2 id=&quot;introduction-to-microsoft-365-copilot-chat&quot;&gt;Introduction to Microsoft 365 Copilot Chat&lt;/h2&gt;
+&lt;p&gt;Microsoft 365 Copilot Chat is a secure AI assistant for work. It is available with Microsoft 365 subscription at no additional cost. It is designed to serve as a powerful AI assistant to streamline work and boost productivity.&lt;/p&gt;
+&lt;p&gt;It helps you with tasks such as summarizing, brainstorming, writing, coding and searching. It also provides intelligent suggestions and automates repetitive tasks.&lt;/p&gt;
+&lt;p&gt;The Copilot Chat includes the following features:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;It is secure and powered by the latest advanced model (GPT-5) offered by OpenAI.&lt;/li&gt;
+&lt;li&gt;IT teams can control enterprise data protection and agent management.&lt;/li&gt;
+&lt;li&gt;It includes features like Copilot pages, file upload and image generation (a SharePoint license might be required to use Pages).&lt;/li&gt;
+&lt;li&gt;It adheres to Microsoft’s AI principles.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The Copilot Chat uses the Microsoft Graph to find and pull together information to give helpful, work-related answers. It automatically selects the right model based on context to resolve issues more quickly for simple problems and with deeper reasoning for complex ones.&lt;/p&gt;
+&lt;p&gt;The Copilot Chat can be accessed by visiting &lt;strong&gt;m365copilot.com&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Copilot Chat is enabled in:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Teams (web, Windows, Mac, mobile)&lt;/li&gt;
+&lt;li&gt;Outlook (web, Windows, Mac, mobile)&lt;/li&gt;
+&lt;li&gt;Word, PowerPoint, Excel, Microsoft Edge browser and OneNote via a side pane&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;writing-effective-prompts&quot;&gt;Writing Effective Prompts&lt;/h2&gt;
+&lt;p&gt;Writing effective prompts is a great way to perform tasks in Copilot Chat such as creating, summarizing, editing or transforming content.&lt;/p&gt;
+&lt;p&gt;The four important key elements for effective prompts are:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Context&lt;/strong&gt;&lt;br&gt;
+Tell the chatbot &lt;em&gt;why&lt;/em&gt; you need something and &lt;em&gt;who&lt;/em&gt; is involved. Provide detailed context and specifics for better responses.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Goal&lt;/strong&gt;&lt;br&gt;
+Tell the chatbot &lt;em&gt;what&lt;/em&gt; you want it to do. Including examples of output can help shape the response.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Source&lt;/strong&gt;&lt;br&gt;
+Tell the chatbot &lt;em&gt;where&lt;/em&gt; to look for information. This can include files you upload or public URLs you want it to reference.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Expectations&lt;/strong&gt;&lt;br&gt;
+Tell the chatbot &lt;em&gt;how&lt;/em&gt; to deliver the answer—tone, style, length, and audience.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Example Prompt:&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;&amp;quot;I work in marketing focusing on competitor research. Give me a concise summary of recent news about Microsoft, using web articles from the last 2 months. Provide the answer in two to three paragraphs and use a business tone.&amp;quot;&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;do-s-and-don-ts-of-prompting&quot;&gt;Do’s and Don’ts of Prompting&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Do’s&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Provide specific instructions about topic, purpose, and output style&lt;/li&gt;
+&lt;li&gt;Frame prompts as a natural conversation&lt;/li&gt;
+&lt;li&gt;Occasionally give feedback to refine responses&lt;/li&gt;
+&lt;li&gt;Use correct punctuation and grammar&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Don’ts&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Avoid vague language&lt;/li&gt;
+&lt;li&gt;Avoid changing topics abruptly&lt;/li&gt;
+&lt;li&gt;Do not request inappropriate or unethical content&lt;/li&gt;
+&lt;li&gt;Do not interrupt during answer generation&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Copilot Chat also offers a &lt;em&gt;Prompt Gallery&lt;/em&gt; where users can use pre-designed prompts, save favorites, edit existing ones, or share prompts with team members.&lt;/p&gt;
+&lt;h2 id=&quot;common-use-cases-with-copilot-chat&quot;&gt;Common Use-Cases with Copilot Chat&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Summarizing large amounts of data into clear insights&lt;/li&gt;
+&lt;li&gt;Brainstorming ideas, drafting or refining content&lt;/li&gt;
+&lt;li&gt;Analyzing uploaded files to summarize or generate content&lt;/li&gt;
+&lt;li&gt;Generating AI imagery for projects or social posts&lt;/li&gt;
+&lt;li&gt;Writing or checking code quality and performing data analysis&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;using-copilot-chat-in-microsoft-365-apps&quot;&gt;Using Copilot Chat in Microsoft 365 Apps&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Outlook&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Ask questions about emails or attachments&lt;/li&gt;
+&lt;li&gt;Rewrite message replies in different tones&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Word&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Quickly create, edit, or refine content&lt;/li&gt;
+&lt;li&gt;Ask questions about parts of documents for summaries or rewrites&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;PowerPoint&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Summarize slides&lt;/li&gt;
+&lt;li&gt;Generate images from prompts&lt;/li&gt;
+&lt;li&gt;Provide content ideas&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Excel&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Ask questions to analyze data trends and patterns&lt;/li&gt;
+&lt;li&gt;Quickly generate visualizations&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+  </entry>
+  <entry>
+    <title>This is my fourth post</title>
+    <link href="https://example.com/aiblog.github.io/blog/fourthpost/" />
+    <updated>2018-09-30T00:00:00Z</updated>
+    <id>https://example.com/aiblog.github.io/blog/fourthpost/</id>
+    <content type="html">&lt;p&gt;Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.&lt;/p&gt;
+&lt;p&gt;Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.&lt;/p&gt;
+&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://example.com/aiblog.github.io/blog/fourthpost/xbVnp_hAou-350.avif 350w&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://example.com/aiblog.github.io/blog/fourthpost/xbVnp_hAou-350.webp 350w&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; src=&quot;https://example.com/aiblog.github.io/blog/fourthpost/xbVnp_hAou-350.png&quot; alt=&quot;A possum parent and two possum kids hanging from the iconic red balloon&quot; width=&quot;350&quot; height=&quot;685&quot;&gt;&lt;/picture&gt;
+&lt;h2 id=&quot;section-header&quot;&gt;Section Header&lt;/h2&gt;
+&lt;p&gt;Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line.&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>This is my first post.</title>
+    <link href="https://example.com/aiblog.github.io/blog/firstpost/" />
+    <updated>2018-05-01T00:00:00Z</updated>
+    <id>https://example.com/aiblog.github.io/blog/firstpost/</id>
+    <content type="html">&lt;p&gt;Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.&lt;/p&gt;
+&lt;p&gt;Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.&lt;/p&gt;
+&lt;h2 id=&quot;section-header&quot;&gt;Section Header&lt;/h2&gt;
+&lt;p&gt;Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line.&lt;/p&gt;
+&lt;pre class=&quot;language-diff-js&quot; tabindex=&quot;0&quot;&gt;&lt;code class=&quot;language-diff-js&quot;&gt;&lt;span class=&quot;token unchanged language-js&quot;&gt;&lt;span class=&quot;token prefix unchanged&quot;&gt; &lt;/span&gt;&lt;span class=&quot;token comment&quot;&gt;// this is a command&lt;/span&gt;
+&lt;span class=&quot;token prefix unchanged&quot;&gt; &lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;myCommand&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&quot;token inserted-sign inserted language-js&quot;&gt;&lt;span class=&quot;token prefix inserted&quot;&gt;+&lt;/span&gt;  &lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; counter &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&quot;token deleted-sign deleted language-js&quot;&gt;&lt;span class=&quot;token prefix deleted&quot;&gt;-&lt;/span&gt;  &lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; counter &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&quot;token unchanged language-js&quot;&gt;&lt;span class=&quot;token prefix unchanged&quot;&gt; &lt;/span&gt;  counter&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token prefix unchanged&quot;&gt; &lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;/span&gt;
+&lt;span class=&quot;token unchanged language-js&quot;&gt;&lt;span class=&quot;token prefix unchanged&quot;&gt; &lt;/span&gt;&lt;span class=&quot;token comment&quot;&gt;// Test with a line break above this line.&lt;/span&gt;
+&lt;span class=&quot;token prefix unchanged&quot;&gt; &lt;/span&gt;console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;Test&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+</content>
+  </entry>
+</feed>
