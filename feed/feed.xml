@@ -402,6 +402,199 @@ app.kernel.do_shutdown(True)
 </content>
   </entry>
   <entry>
+    <title>Fine-tune a Pre-trained model for Custom Domain</title>
+    <link href="https://example.com/blog/fine-tune-pre-trained-model-custom-domain/" />
+    <updated>2026-01-21T00:00:00Z</updated>
+    <id>https://example.com/blog/fine-tune-pre-trained-model-custom-domain/</id>
+    <content type="html">&lt;h1 id=&quot;fine-tune-a-pre-trained-model-for-custom-domain&quot;&gt;Fine-tune a pre-trained model for custom domain&lt;/h1&gt;
+&lt;p&gt;An NER model is typically comprised of a pre-trained BERT model followed by a token classification layer.&lt;/p&gt;
+&lt;p&gt;For training, the config file consists of sections such as:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;model&lt;/strong&gt;: language model, datasets, token classifier, optimizer and schedulers.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;trainer&lt;/strong&gt;: any argument that is to be passed to PyTorch Lightning.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For beginners, NeMo provides a starter configuration file.&lt;/p&gt;
+&lt;h2 id=&quot;configuration-file&quot;&gt;Configuration File&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;# define config path
+MODEL_CONFIG = &amp;quot;token_classification_config.yaml&amp;quot;
+WORK_DIR = &amp;quot;WORK_DIR&amp;quot;
+os.makedirs(WORK_DIR, exist_ok=True)
+
+# download the model&#39;s configuration file 
+BRANCH = &#39;main&#39;
+config_dir = WORK_DIR + &#39;/configs/&#39;
+os.makedirs(config_dir, exist_ok=True)
+
+if not os.path.exists(config_dir + MODEL_CONFIG):
+    print(&#39;Downloading config file...&#39;)
+    wget.download(f&#39;https://raw.githubusercontent.com/NVIDIA/NeMo/{BRANCH}/examples/nlp/token_classification/conf/&#39; + MODEL_CONFIG, config_dir)
+else:
+    print (&#39;config file already exists&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Here, the config file for NER, &lt;code&gt;token_classification_config.yaml&lt;/code&gt;, specifies model, training and experiment management details such as file locations, pretrained models and hyperparameters.&lt;/p&gt;
+&lt;pre class=&quot;language-python&quot; tabindex=&quot;0&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; omegaconf &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; OmegaConf
+
+CONFIG_DIR &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;/dli/task/WORK_DIR/configs&quot;&lt;/span&gt;
+CONFIG_FILE &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;token_classification_config.yaml&quot;&lt;/span&gt;
+
+config&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;OmegaConf&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;load&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;CONFIG_DIR &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;/&quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; CONFIG_FILE&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;# print the entire configuration file&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;OmegaConf&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;to_yaml&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;config&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&quot;output&quot;&gt;output&lt;/h4&gt;
+&lt;pre class=&quot;language-bash&quot; tabindex=&quot;0&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;pretrained_model: null
+trainer:
+  devices: &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;
+  num_nodes: &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;
+  max_epochs: &lt;span class=&quot;token number&quot;&gt;5&lt;/span&gt;
+  max_steps: &lt;span class=&quot;token parameter variable&quot;&gt;-1&lt;/span&gt;
+  accumulate_grad_batches: &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;
+  gradient_clip_val: &lt;span class=&quot;token number&quot;&gt;0.0&lt;/span&gt;
+  precision: &lt;span class=&quot;token number&quot;&gt;16&lt;/span&gt;
+  accelerator: gpu
+  enable_checkpointing: &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;
+  logger: &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;
+  log_every_n_steps: &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;
+  val_check_interval: &lt;span class=&quot;token number&quot;&gt;1.0&lt;/span&gt;
+exp_manager:
+  exp_dir: null
+  name: token_classification_model
+  create_tensorboard_logger: &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;
+  create_checkpoint_callback: &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;
+model:
+  label_ids: null
+  class_labels:
+    class_labels_file: label_ids.csv
+  dataset:
+    data_dir: ???
+    class_balancing: null
+    max_seq_length: &lt;span class=&quot;token number&quot;&gt;128&lt;/span&gt;
+    pad_label: O
+    ignore_extra_tokens: &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;
+    ignore_start_end: &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;
+    use_cache: &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;
+    num_workers: &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;
+    pin_memory: &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;
+    drop_last: &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;
+  train_ds:
+    text_file: text_train.txt
+    labels_file: labels_train.txt
+    shuffle: &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;
+    num_samples: &lt;span class=&quot;token parameter variable&quot;&gt;-1&lt;/span&gt;
+    batch_size: &lt;span class=&quot;token number&quot;&gt;64&lt;/span&gt;
+  validation_ds:
+    text_file: text_dev.txt
+    labels_file: labels_dev.txt
+    shuffle: &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;
+    num_samples: &lt;span class=&quot;token parameter variable&quot;&gt;-1&lt;/span&gt;
+    batch_size: &lt;span class=&quot;token number&quot;&gt;64&lt;/span&gt;
+  test_ds:
+    text_file: text_dev.txt
+    labels_file: labels_dev.txt
+    shuffle: &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;
+    num_samples: &lt;span class=&quot;token parameter variable&quot;&gt;-1&lt;/span&gt;
+    batch_size: &lt;span class=&quot;token number&quot;&gt;64&lt;/span&gt;
+  tokenizer:
+    tokenizer_name: &lt;span class=&quot;token variable&quot;&gt;${model.language_model.pretrained_model_name}&lt;/span&gt;
+    vocab_file: null
+    tokenizer_model: null
+    special_tokens: null
+  language_model:
+    pretrained_model_name: bert-base-uncased
+    lm_checkpoint: null
+    config_file: null
+    config: null
+  head:
+    num_fc_layers: &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;
+    fc_dropout: &lt;span class=&quot;token number&quot;&gt;0.5&lt;/span&gt;
+    activation: relu
+    use_transformer_init: &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;
+  optim:
+    name: adam
+    lr: &lt;span class=&quot;token number&quot;&gt;5&lt;/span&gt;.0e-05
+    weight_decay: &lt;span class=&quot;token number&quot;&gt;0.0&lt;/span&gt;
+    sched:
+      name: WarmupAnnealing
+      warmup_steps: null
+      warmup_ratio: &lt;span class=&quot;token number&quot;&gt;0.1&lt;/span&gt;
+      last_epoch: &lt;span class=&quot;token parameter variable&quot;&gt;-1&lt;/span&gt;
+      monitor: val_loss
+      reduce_on_plateau: &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;
+hydra:
+  run:
+    dir: &lt;span class=&quot;token builtin class-name&quot;&gt;.&lt;/span&gt;
+  job_logging:
+    root:
+      handlers: null&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;language-python&quot; tabindex=&quot;0&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# in this exercise, train and dev datasets are located in the same folder under the default names, &lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;# so it is enough to add the path of the data directory to the config&lt;/span&gt;
+config&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;model&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;dataset&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;data_dir &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; os&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;path&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;join&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;DATA_DIR&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&#39;NER&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;# print the model section&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;OmegaConf&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;to_yaml&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;config&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;model&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&quot;output-2&quot;&gt;output&lt;/h4&gt;
+&lt;pre class=&quot;language-bash&quot; tabindex=&quot;0&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;label_ids: null
+class_labels:
+  class_labels_file: label_ids.csv
+dataset:
+  data_dir: data/NCBI/NER
+  class_balancing: null
+  max_seq_length: &lt;span class=&quot;token number&quot;&gt;128&lt;/span&gt;
+  pad_label: O
+  ignore_extra_tokens: &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;
+  ignore_start_end: &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;
+  use_cache: &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;
+  num_workers: &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;
+  pin_memory: &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;
+  drop_last: &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;
+train_ds:
+  text_file: text_train.txt
+  labels_file: labels_train.txt
+  shuffle: &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;
+  num_samples: &lt;span class=&quot;token parameter variable&quot;&gt;-1&lt;/span&gt;
+  batch_size: &lt;span class=&quot;token number&quot;&gt;64&lt;/span&gt;
+validation_ds:
+  text_file: text_dev.txt
+  labels_file: labels_dev.txt
+  shuffle: &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;
+  num_samples: &lt;span class=&quot;token parameter variable&quot;&gt;-1&lt;/span&gt;
+  batch_size: &lt;span class=&quot;token number&quot;&gt;64&lt;/span&gt;
+test_ds:
+  text_file: text_dev.txt
+  labels_file: labels_dev.txt
+  shuffle: &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;
+  num_samples: &lt;span class=&quot;token parameter variable&quot;&gt;-1&lt;/span&gt;
+  batch_size: &lt;span class=&quot;token number&quot;&gt;64&lt;/span&gt;
+tokenizer:
+  tokenizer_name: &lt;span class=&quot;token variable&quot;&gt;${model.language_model.pretrained_model_name}&lt;/span&gt;
+  vocab_file: null
+  tokenizer_model: null
+  special_tokens: null
+language_model:
+  pretrained_model_name: bert-base-uncased
+  lm_checkpoint: null
+  config_file: null
+  config: null
+head:
+  num_fc_layers: &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;
+  fc_dropout: &lt;span class=&quot;token number&quot;&gt;0.5&lt;/span&gt;
+  activation: relu
+  use_transformer_init: &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;
+optim:
+  name: adam
+  lr: &lt;span class=&quot;token number&quot;&gt;5&lt;/span&gt;.0e-05
+  weight_decay: &lt;span class=&quot;token number&quot;&gt;0.0&lt;/span&gt;
+  sched:
+    name: WarmupAnnealing
+    warmup_steps: null
+    warmup_ratio: &lt;span class=&quot;token number&quot;&gt;0.1&lt;/span&gt;
+    last_epoch: &lt;span class=&quot;token parameter variable&quot;&gt;-1&lt;/span&gt;
+    monitor: val_loss
+    reduce_on_plateau: &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;download-domain-specific-pre-trained-models&quot;&gt;Download domain-specific pre-trained models&lt;/h2&gt;
+</content>
+  </entry>
+  <entry>
     <title>Domain specific Token Classification Model</title>
     <link href="https://example.com/blog/domain-token-classification-model/" />
     <updated>2026-01-21T00:00:00Z</updated>
@@ -483,6 +676,21 @@ of	O
 the	O
 adenomatous	B-Disease
 polyposis	I-Disease
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;preprocess-data&quot;&gt;Preprocess Data&lt;/h2&gt;
+&lt;p&gt;We need to convert these to a format that is compatible with NeMo token classification module.&lt;/p&gt;
+&lt;p&gt;Script for conversion can be found &lt;a href=&quot;https://github.com/NVIDIA-NeMo/NeMo/blob/stable/examples/nlp/token_classification/data/import_from_iob_format.py&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;pre class=&quot;language-bash&quot; tabindex=&quot;0&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# invoke the conversion script &lt;/span&gt;
+&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;python import_from_iob_format.py &lt;span class=&quot;token parameter variable&quot;&gt;--data_file&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;$NER_DATA_DIR&lt;/span&gt;/train.tsv
+&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;python import_from_iob_format.py &lt;span class=&quot;token parameter variable&quot;&gt;--data_file&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;$NER_DATA_DIR&lt;/span&gt;/dev.tsv
+&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;python import_from_iob_format.py &lt;span class=&quot;token parameter variable&quot;&gt;--data_file&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;$NER_DATA_DIR&lt;/span&gt;/test.tsv
+
+&lt;span class=&quot;token comment&quot;&gt;# preview dataset&lt;/span&gt;
+&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;head &lt;span class=&quot;token parameter variable&quot;&gt;-n&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;$NER_DATA_DIR&lt;/span&gt;/text_train.txt
+&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;head &lt;span class=&quot;token parameter variable&quot;&gt;-n&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;$NER_DATA_DIR&lt;/span&gt;/labels_train.txt&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&quot;output-2&quot;&gt;output&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;Identification of APC2 , a homologue of the adenomatous polyposis coli tumour suppressor . 
+O O O O O O O O B-Disease I-Disease I-Disease I-Disease O O 
 &lt;/code&gt;&lt;/pre&gt;
 </content>
   </entry>

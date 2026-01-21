@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Domain specific Token Classification Model</title>
+		<title>Fine-tune a Pre-trained model for Custom Domain</title>
 		<meta name="description" content="Let’s see the following points covered in the course provided by Nvidia&#39;s Deep Learning Institue on Transformers-based Natural Language Processing">
 		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="The Sumit&#39;s AI Blog">
 		
@@ -498,7 +498,7 @@ pre[class*="language-diff-"] {
 				
 
 
-<h1 id="domain-specific-token-classification-model">Domain specific Token Classification Model</h1>
+<h1 id="fine-tune-a-pre-trained-model-for-custom-domain">Fine-tune a Pre-trained model for Custom Domain</h1>
 
 <ul class="post-metadata">
 	<li><time datetime="2026-01-21">21 January 2026</time></li>
@@ -508,101 +508,194 @@ pre[class*="language-diff-"] {
 	<li><a href="/tags/token/" class="post-tag">token</a></li>
 </ul>
 
-<h2 id="domain-specific-token-classification-model-2">Domain specific token classification model</h2>
-<p>In the following lines, we will see how to fine-tine a pre-trained language model to perform token classification for specific domains.
-We will develop an NER model that finds disease names in medical disease abstracts.</p>
-<p>We are going to use the NCBI dataset, which contains set of 793 PubMed abstracts, annotated by 14 annotators.</p>
-<h3 id="download-data">Download Data</h3>
-<pre><code>import os
-import wget
+<h1 id="fine-tune-a-pre-trained-model-for-custom-domain-2">Fine-tune a pre-trained model for custom domain</h1>
+<p>An NER model is typically comprised of a pre-trained BERT model followed by a token classification layer.</p>
+<p>For training, the config file consists of sections such as:</p>
+<ul>
+<li><strong>model</strong>: language model, datasets, token classifier, optimizer and schedulers.</li>
+<li><strong>trainer</strong>: any argument that is to be passed to PyTorch Lightning.</li>
+</ul>
+<p>For beginners, NeMo provides a starter configuration file.</p>
+<h2 id="configuration-file">Configuration File</h2>
+<pre><code># define config path
+MODEL_CONFIG = &quot;token_classification_config.yaml&quot;
+WORK_DIR = &quot;WORK_DIR&quot;
+os.makedirs(WORK_DIR, exist_ok=True)
 
-# set data path
-DATA_DIR = &quot;data/NCBI&quot;
-os.makedirs(DATA_DIR, exist_ok=True)
+# download the model's configuration file 
+BRANCH = 'main'
+config_dir = WORK_DIR + '/configs/'
+os.makedirs(config_dir, exist_ok=True)
 
-with open(f'{DATA_DIR}/NCBI_corpus_testing.txt') as f: 
-    sample_text=f.readline()
-    
-print(sample_text)
+if not os.path.exists(config_dir + MODEL_CONFIG):
+    print('Downloading config file...')
+    wget.download(f'https://raw.githubusercontent.com/NVIDIA/NeMo/{BRANCH}/examples/nlp/token_classification/conf/' + MODEL_CONFIG, config_dir)
+else:
+    print ('config file already exists')
 </code></pre>
-<p>This shows how the NCBI dataset looks like:</p>
-<pre><code>9288106	Clustering of missense mutations in the &lt;category=&quot;Modifier&quot;&gt;ataxia-telangiectasia&lt;/category&gt; gene in a &lt;category=&quot;SpecificDisease&quot;&gt;sporadic T-cell leukaemia&lt;/category&gt;.	&lt;category=&quot;SpecificDisease&quot;&gt;Ataxia-telangiectasia&lt;/category&gt; ( &lt;category=&quot;SpecificDisease&quot;&gt;A-T&lt;/category&gt; ) is a &lt;category=&quot;DiseaseClass&quot;&gt;recessive multi-system disorder&lt;/category&gt; caused by mutations in the ATM gene at 11q22-q23 ( ref . 3 ) . The risk of &lt;category=&quot;DiseaseClass&quot;&gt;cancer&lt;/category&gt; , especially &lt;category=&quot;DiseaseClass&quot;&gt;lymphoid neoplasias&lt;/category&gt; , is substantially elevated in &lt;category=&quot;Modifier&quot;&gt;A-T&lt;/category&gt; patients and has long been associated with chromosomal instability . By analysing &lt;category=&quot;Modifier&quot;&gt;tumour&lt;/category&gt; DNA from patients with &lt;category=&quot;SpecificDisease&quot;&gt;sporadic T-cell prolymphocytic leukaemia&lt;/category&gt; ( &lt;category=&quot;SpecificDisease&quot;&gt;T-PLL&lt;/category&gt; ) , a rare &lt;category=&quot;DiseaseClass&quot;&gt;clonal malignancy&lt;/category&gt; with similarities to a &lt;category=&quot;SpecificDisease&quot;&gt;mature T-cell leukaemia&lt;/category&gt; seen in &lt;category=&quot;SpecificDisease&quot;&gt;A-T&lt;/category&gt; , we demonstrate a high frequency of ATM mutations in &lt;category=&quot;SpecificDisease&quot;&gt;T-PLL&lt;/category&gt; . In marked contrast to the ATM mutation pattern in &lt;category=&quot;SpecificDisease&quot;&gt;A-T&lt;/category&gt; , the most frequent nucleotide changes in this &lt;category=&quot;DiseaseClass&quot;&gt;leukaemia&lt;/category&gt; were missense mutations . These clustered in the region corresponding to the kinase domain , which is highly conserved in ATM-related proteins in mouse , yeast and Drosophila . The resulting amino-acid substitutions are predicted to interfere with ATP binding or substrate recognition . Two of seventeen mutated &lt;category=&quot;SpecificDisease&quot;&gt;T-PLL&lt;/category&gt; samples had a previously reported &lt;category=&quot;Modifier&quot;&gt;A-T&lt;/category&gt; allele . In contrast , no mutations were detected in the p53 gene , suggesting that this &lt;category=&quot;Modifier&quot;&gt;tumour&lt;/category&gt; suppressor is not frequently altered in this &lt;category=&quot;DiseaseClass&quot;&gt;leukaemia&lt;/category&gt; . Occasional missense mutations in ATM were also found in &lt;category=&quot;Modifier&quot;&gt;tumour&lt;/category&gt; DNA from patients with &lt;category=&quot;SpecificDisease&quot;&gt;B-cell non-Hodgkins lymphomas&lt;/category&gt; ( &lt;category=&quot;SpecificDisease&quot;&gt;B-NHL&lt;/category&gt; ) and a &lt;category=&quot;Modifier&quot;&gt;B-NHL&lt;/category&gt; cell line . The evidence of a significant proportion of loss-of-function mutations and a complete absence of the normal copy of ATM in the majority of mutated &lt;category=&quot;DiseaseClass&quot;&gt;tumours&lt;/category&gt; establishes somatic inactivation of this gene in the pathogenesis of &lt;category=&quot;SpecificDisease&quot;&gt;sporadic T-PLL&lt;/category&gt; and suggests that ATM acts as a &lt;category=&quot;Modifier&quot;&gt;tumour&lt;/category&gt; suppressor . As constitutional DNA was not available , a putative hereditary predisposition to &lt;category=&quot;SpecificDisease&quot;&gt;T-PLL&lt;/category&gt; will require further investigation . . 
-</code></pre>
-<pre><code>import re
+<p>Here, the config file for NER, <code>token_classification_config.yaml</code>, specifies model, training and experiment management details such as file locations, pretrained models and hyperparameters.</p>
+<pre class="language-python" tabindex="0"><code class="language-python"><span class="token keyword">from</span> omegaconf <span class="token keyword">import</span> OmegaConf
 
-# use regular expression to find labels
-categories=re.findall('&lt;category.*?&lt;\/category&gt;', sample_text)
-for sample in categories: 
-    print(sample)
-</code></pre>
-<pre><code>&lt;category=&quot;Modifier&quot;&gt;ataxia-telangiectasia&lt;/category&gt;
-&lt;category=&quot;SpecificDisease&quot;&gt;sporadic T-cell leukaemia&lt;/category&gt;
-&lt;category=&quot;SpecificDisease&quot;&gt;Ataxia-telangiectasia&lt;/category&gt;
-&lt;category=&quot;SpecificDisease&quot;&gt;A-T&lt;/category&gt;
-&lt;category=&quot;DiseaseClass&quot;&gt;recessive multi-system disorder&lt;/category&gt;
-&lt;category=&quot;DiseaseClass&quot;&gt;cancer&lt;/category&gt;
-&lt;category=&quot;DiseaseClass&quot;&gt;lymphoid neoplasias&lt;/category&gt;
-&lt;category=&quot;Modifier&quot;&gt;A-T&lt;/category&gt;
-&lt;category=&quot;Modifier&quot;&gt;tumour&lt;/category&gt;
-&lt;category=&quot;SpecificDisease&quot;&gt;sporadic T-cell prolymphocytic leukaemia&lt;/category&gt;
-&lt;category=&quot;SpecificDisease&quot;&gt;T-PLL&lt;/category&gt;
-&lt;category=&quot;DiseaseClass&quot;&gt;clonal malignancy&lt;/category&gt;
-&lt;category=&quot;SpecificDisease&quot;&gt;mature T-cell leukaemia&lt;/category&gt;
-&lt;category=&quot;SpecificDisease&quot;&gt;A-T&lt;/category&gt;
-&lt;category=&quot;SpecificDisease&quot;&gt;T-PLL&lt;/category&gt;
-&lt;category=&quot;SpecificDisease&quot;&gt;A-T&lt;/category&gt;
-&lt;category=&quot;DiseaseClass&quot;&gt;leukaemia&lt;/category&gt;
-&lt;category=&quot;SpecificDisease&quot;&gt;T-PLL&lt;/category&gt;
-&lt;category=&quot;Modifier&quot;&gt;A-T&lt;/category&gt;
-&lt;category=&quot;Modifier&quot;&gt;tumour&lt;/category&gt;
-&lt;category=&quot;DiseaseClass&quot;&gt;leukaemia&lt;/category&gt;
-&lt;category=&quot;Modifier&quot;&gt;tumour&lt;/category&gt;
-&lt;category=&quot;SpecificDisease&quot;&gt;B-cell non-Hodgkins lymphomas&lt;/category&gt;
-&lt;category=&quot;SpecificDisease&quot;&gt;B-NHL&lt;/category&gt;
-&lt;category=&quot;Modifier&quot;&gt;B-NHL&lt;/category&gt;
-&lt;category=&quot;DiseaseClass&quot;&gt;tumours&lt;/category&gt;
-&lt;category=&quot;SpecificDisease&quot;&gt;sporadic T-PLL&lt;/category&gt;
-&lt;category=&quot;Modifier&quot;&gt;tumour&lt;/category&gt;
-&lt;category=&quot;SpecificDisease&quot;&gt;T-PLL&lt;/category&gt;
-</code></pre>
-<p>In the following code, we see that the abstract has been broken into sentences. Each sentence is further parsed into words with labels that correspond to the original HTML-styled tags in the dataset.</p>
-<pre><code>NER_DATA_DIR = f'{DATA_DIR}/NER'
-os.makedirs(os.path.join(DATA_DIR, 'NER'), exist_ok=True)
+CONFIG_DIR <span class="token operator">=</span> <span class="token string">"/dli/task/WORK_DIR/configs"</span>
+CONFIG_FILE <span class="token operator">=</span> <span class="token string">"token_classification_config.yaml"</span>
 
-# show downloaded files
-!ls -lh $NER_DATA_DIR
+config<span class="token operator">=</span>OmegaConf<span class="token punctuation">.</span>load<span class="token punctuation">(</span>CONFIG_DIR <span class="token operator">+</span> <span class="token string">"/"</span> <span class="token operator">+</span> CONFIG_FILE<span class="token punctuation">)</span>
 
-!head $NER_DATA_DIR/train.tsv
-</code></pre>
+<span class="token comment"># print the entire configuration file</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>OmegaConf<span class="token punctuation">.</span>to_yaml<span class="token punctuation">(</span>config<span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 <h4 id="output">output</h4>
-<pre><code>Identification	O
-of	O
-APC2	O
-,	O
-a	O
-homologue	O
-of	O
-the	O
-adenomatous	B-Disease
-polyposis	I-Disease
-</code></pre>
-<h2 id="preprocess-data">Preprocess Data</h2>
-<p>We need to convert these to a format that is compatible with NeMo token classification module.</p>
-<p>Script for conversion can be found <a href="https://github.com/NVIDIA-NeMo/NeMo/blob/stable/examples/nlp/token_classification/data/import_from_iob_format.py">here</a>.</p>
-<pre class="language-bash" tabindex="0"><code class="language-bash"><span class="token comment"># invoke the conversion script </span>
-<span class="token operator">!</span>python import_from_iob_format.py <span class="token parameter variable">--data_file</span><span class="token operator">=</span><span class="token variable">$NER_DATA_DIR</span>/train.tsv
-<span class="token operator">!</span>python import_from_iob_format.py <span class="token parameter variable">--data_file</span><span class="token operator">=</span><span class="token variable">$NER_DATA_DIR</span>/dev.tsv
-<span class="token operator">!</span>python import_from_iob_format.py <span class="token parameter variable">--data_file</span><span class="token operator">=</span><span class="token variable">$NER_DATA_DIR</span>/test.tsv
+<pre class="language-bash" tabindex="0"><code class="language-bash">pretrained_model: null
+trainer:
+  devices: <span class="token number">1</span>
+  num_nodes: <span class="token number">1</span>
+  max_epochs: <span class="token number">5</span>
+  max_steps: <span class="token parameter variable">-1</span>
+  accumulate_grad_batches: <span class="token number">1</span>
+  gradient_clip_val: <span class="token number">0.0</span>
+  precision: <span class="token number">16</span>
+  accelerator: gpu
+  enable_checkpointing: <span class="token boolean">false</span>
+  logger: <span class="token boolean">false</span>
+  log_every_n_steps: <span class="token number">1</span>
+  val_check_interval: <span class="token number">1.0</span>
+exp_manager:
+  exp_dir: null
+  name: token_classification_model
+  create_tensorboard_logger: <span class="token boolean">true</span>
+  create_checkpoint_callback: <span class="token boolean">true</span>
+model:
+  label_ids: null
+  class_labels:
+    class_labels_file: label_ids.csv
+  dataset:
+    data_dir: ???
+    class_balancing: null
+    max_seq_length: <span class="token number">128</span>
+    pad_label: O
+    ignore_extra_tokens: <span class="token boolean">false</span>
+    ignore_start_end: <span class="token boolean">false</span>
+    use_cache: <span class="token boolean">false</span>
+    num_workers: <span class="token number">2</span>
+    pin_memory: <span class="token boolean">false</span>
+    drop_last: <span class="token boolean">false</span>
+  train_ds:
+    text_file: text_train.txt
+    labels_file: labels_train.txt
+    shuffle: <span class="token boolean">true</span>
+    num_samples: <span class="token parameter variable">-1</span>
+    batch_size: <span class="token number">64</span>
+  validation_ds:
+    text_file: text_dev.txt
+    labels_file: labels_dev.txt
+    shuffle: <span class="token boolean">false</span>
+    num_samples: <span class="token parameter variable">-1</span>
+    batch_size: <span class="token number">64</span>
+  test_ds:
+    text_file: text_dev.txt
+    labels_file: labels_dev.txt
+    shuffle: <span class="token boolean">false</span>
+    num_samples: <span class="token parameter variable">-1</span>
+    batch_size: <span class="token number">64</span>
+  tokenizer:
+    tokenizer_name: <span class="token variable">${model.language_model.pretrained_model_name}</span>
+    vocab_file: null
+    tokenizer_model: null
+    special_tokens: null
+  language_model:
+    pretrained_model_name: bert-base-uncased
+    lm_checkpoint: null
+    config_file: null
+    config: null
+  head:
+    num_fc_layers: <span class="token number">2</span>
+    fc_dropout: <span class="token number">0.5</span>
+    activation: relu
+    use_transformer_init: <span class="token boolean">true</span>
+  optim:
+    name: adam
+    lr: <span class="token number">5</span>.0e-05
+    weight_decay: <span class="token number">0.0</span>
+    sched:
+      name: WarmupAnnealing
+      warmup_steps: null
+      warmup_ratio: <span class="token number">0.1</span>
+      last_epoch: <span class="token parameter variable">-1</span>
+      monitor: val_loss
+      reduce_on_plateau: <span class="token boolean">false</span>
+hydra:
+  run:
+    dir: <span class="token builtin class-name">.</span>
+  job_logging:
+    root:
+      handlers: null</code></pre>
+<pre class="language-python" tabindex="0"><code class="language-python"><span class="token comment"># in this exercise, train and dev datasets are located in the same folder under the default names, </span>
+<span class="token comment"># so it is enough to add the path of the data directory to the config</span>
+config<span class="token punctuation">.</span>model<span class="token punctuation">.</span>dataset<span class="token punctuation">.</span>data_dir <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>DATA_DIR<span class="token punctuation">,</span> <span class="token string">'NER'</span><span class="token punctuation">)</span>
 
-<span class="token comment"># preview dataset</span>
-<span class="token operator">!</span>head <span class="token parameter variable">-n</span> <span class="token number">1</span> <span class="token variable">$NER_DATA_DIR</span>/text_train.txt
-<span class="token operator">!</span>head <span class="token parameter variable">-n</span> <span class="token number">1</span> <span class="token variable">$NER_DATA_DIR</span>/labels_train.txt</code></pre>
+<span class="token comment"># print the model section</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>OmegaConf<span class="token punctuation">.</span>to_yaml<span class="token punctuation">(</span>config<span class="token punctuation">.</span>model<span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 <h4 id="output-2">output</h4>
-<pre><code>Identification of APC2 , a homologue of the adenomatous polyposis coli tumour suppressor . 
-O O O O O O O O B-Disease I-Disease I-Disease I-Disease O O 
-</code></pre>
+<pre class="language-bash" tabindex="0"><code class="language-bash">label_ids: null
+class_labels:
+  class_labels_file: label_ids.csv
+dataset:
+  data_dir: data/NCBI/NER
+  class_balancing: null
+  max_seq_length: <span class="token number">128</span>
+  pad_label: O
+  ignore_extra_tokens: <span class="token boolean">false</span>
+  ignore_start_end: <span class="token boolean">false</span>
+  use_cache: <span class="token boolean">false</span>
+  num_workers: <span class="token number">2</span>
+  pin_memory: <span class="token boolean">false</span>
+  drop_last: <span class="token boolean">false</span>
+train_ds:
+  text_file: text_train.txt
+  labels_file: labels_train.txt
+  shuffle: <span class="token boolean">true</span>
+  num_samples: <span class="token parameter variable">-1</span>
+  batch_size: <span class="token number">64</span>
+validation_ds:
+  text_file: text_dev.txt
+  labels_file: labels_dev.txt
+  shuffle: <span class="token boolean">false</span>
+  num_samples: <span class="token parameter variable">-1</span>
+  batch_size: <span class="token number">64</span>
+test_ds:
+  text_file: text_dev.txt
+  labels_file: labels_dev.txt
+  shuffle: <span class="token boolean">false</span>
+  num_samples: <span class="token parameter variable">-1</span>
+  batch_size: <span class="token number">64</span>
+tokenizer:
+  tokenizer_name: <span class="token variable">${model.language_model.pretrained_model_name}</span>
+  vocab_file: null
+  tokenizer_model: null
+  special_tokens: null
+language_model:
+  pretrained_model_name: bert-base-uncased
+  lm_checkpoint: null
+  config_file: null
+  config: null
+head:
+  num_fc_layers: <span class="token number">2</span>
+  fc_dropout: <span class="token number">0.5</span>
+  activation: relu
+  use_transformer_init: <span class="token boolean">true</span>
+optim:
+  name: adam
+  lr: <span class="token number">5</span>.0e-05
+  weight_decay: <span class="token number">0.0</span>
+  sched:
+    name: WarmupAnnealing
+    warmup_steps: null
+    warmup_ratio: <span class="token number">0.1</span>
+    last_epoch: <span class="token parameter variable">-1</span>
+    monitor: val_loss
+    reduce_on_plateau: <span class="token boolean">false</span></code></pre>
+<h2 id="download-domain-specific-pre-trained-models">Download domain-specific pre-trained models</h2>
 
-<ul class="links-nextprev"><li class="links-nextprev-prev">← Previous<br> <a href="/blog/microsoft-copilot-learning/">Microsoft 365 Copilot Chat Explorer Learning Path</a></li><li class="links-nextprev-next">Next →<br><a href="/blog/fine-tune-pre-trained-model-custom-domain/">Fine-tune a Pre-trained model for Custom Domain</a></li>
+<ul class="links-nextprev"><li class="links-nextprev-prev">← Previous<br> <a href="/blog/domain-token-classification-model/">Domain specific Token Classification Model</a></li><li class="links-nextprev-next">Next →<br><a href="/blog/transformers-natural-language-processing/">Transformers-based Natural Language Processing</a></li>
 </ul>
 
 			</heading-anchors>
@@ -611,7 +704,7 @@ O O O O O O O O B-Disease I-Disease I-Disease I-Disease O O
 		<footer>
 		</footer>
 
-		<!-- This page `/blog/domain-token-classification-model/` was built on 2026-01-21T18:11:17.134Z -->
+		<!-- This page `/blog/fine-tune-pre-trained-model-custom-domain/` was built on 2026-01-21T18:11:17.135Z -->
 		<script type="module" src="/dist/cC8wS6ZjFU.js"></script>
 	</body>
 </html>
