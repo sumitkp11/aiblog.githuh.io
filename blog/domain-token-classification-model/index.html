@@ -3,8 +3,8 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>This is my fourth post</title>
-		<meta name="description" content="This is a post on My Blog about touchpoints and circling wagons.">
+		<title>Domain specific Token Classification Model</title>
+		<meta name="description" content="Let’s see the following points covered in the course provided by Nvidia&#39;s Deep Learning Institue on Transformers-based Natural Language Processing">
 		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="The Sumit&#39;s AI Blog">
 		
 		
@@ -498,20 +498,96 @@ pre[class*="language-diff-"] {
 				
 
 
-<h1 id="this-is-my-fourth-post">This is my fourth post</h1>
+<h1 id="domain-specific-token-classification-model">Domain specific Token Classification Model</h1>
 
 <ul class="post-metadata">
-	<li><time datetime="2018-09-30">30 September 2018</time></li>
-	<li><a href="/tags/second-tag/" class="post-tag">second tag</a></li>
+	<li><time datetime="2026-01-21">21 January 2026</time></li>
+	<li><a href="/tags/nvidia/" class="post-tag">nvidia</a>, </li>
+	<li><a href="/tags/transformers/" class="post-tag">transformers</a>, </li>
+	<li><a href="/tags/model/" class="post-tag">model</a>, </li>
+	<li><a href="/tags/token/" class="post-tag">token</a></li>
 </ul>
 
-<p>Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.</p>
-<p>Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.</p>
-<picture><source type="image/avif" srcset="/blog/fourthpost/xbVnp_hAou-350.avif 350w"><source type="image/webp" srcset="/blog/fourthpost/xbVnp_hAou-350.webp 350w"><img loading="lazy" decoding="async" src="/blog/fourthpost/xbVnp_hAou-350.png" alt="A possum parent and two possum kids hanging from the iconic red balloon" width="350" height="685"></picture>
-<h2 id="section-header">Section Header</h2>
-<p>Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line.</p>
+<h2 id="domain-specific-token-classification-model-2">Domain specific token classification model</h2>
+<p>In the following lines, we will see how to fine-tine a pre-trained language model to perform token classification for specific domains.
+We will develop an NER model that finds disease names in medical disease abstracts.</p>
+<p>We are going to use the NCBI dataset, which contains set of 793 PubMed abstracts, annotated by 14 annotators.</p>
+<h3 id="download-data">Download Data</h3>
+<pre><code>import os
+import wget
 
-<ul class="links-nextprev"><li class="links-nextprev-prev">← Previous<br> <a href="/blog/firstpost/">This is my first post.</a></li><li class="links-nextprev-next">Next →<br><a href="/blog/microsoft-copilot-learning/">Microsoft 365 Copilot Chat Explorer Learning Path</a></li>
+# set data path
+DATA_DIR = &quot;data/NCBI&quot;
+os.makedirs(DATA_DIR, exist_ok=True)
+
+with open(f'{DATA_DIR}/NCBI_corpus_testing.txt') as f: 
+    sample_text=f.readline()
+    
+print(sample_text)
+</code></pre>
+<p>This shows how the NCBI dataset looks like:</p>
+<pre><code>9288106	Clustering of missense mutations in the &lt;category=&quot;Modifier&quot;&gt;ataxia-telangiectasia&lt;/category&gt; gene in a &lt;category=&quot;SpecificDisease&quot;&gt;sporadic T-cell leukaemia&lt;/category&gt;.	&lt;category=&quot;SpecificDisease&quot;&gt;Ataxia-telangiectasia&lt;/category&gt; ( &lt;category=&quot;SpecificDisease&quot;&gt;A-T&lt;/category&gt; ) is a &lt;category=&quot;DiseaseClass&quot;&gt;recessive multi-system disorder&lt;/category&gt; caused by mutations in the ATM gene at 11q22-q23 ( ref . 3 ) . The risk of &lt;category=&quot;DiseaseClass&quot;&gt;cancer&lt;/category&gt; , especially &lt;category=&quot;DiseaseClass&quot;&gt;lymphoid neoplasias&lt;/category&gt; , is substantially elevated in &lt;category=&quot;Modifier&quot;&gt;A-T&lt;/category&gt; patients and has long been associated with chromosomal instability . By analysing &lt;category=&quot;Modifier&quot;&gt;tumour&lt;/category&gt; DNA from patients with &lt;category=&quot;SpecificDisease&quot;&gt;sporadic T-cell prolymphocytic leukaemia&lt;/category&gt; ( &lt;category=&quot;SpecificDisease&quot;&gt;T-PLL&lt;/category&gt; ) , a rare &lt;category=&quot;DiseaseClass&quot;&gt;clonal malignancy&lt;/category&gt; with similarities to a &lt;category=&quot;SpecificDisease&quot;&gt;mature T-cell leukaemia&lt;/category&gt; seen in &lt;category=&quot;SpecificDisease&quot;&gt;A-T&lt;/category&gt; , we demonstrate a high frequency of ATM mutations in &lt;category=&quot;SpecificDisease&quot;&gt;T-PLL&lt;/category&gt; . In marked contrast to the ATM mutation pattern in &lt;category=&quot;SpecificDisease&quot;&gt;A-T&lt;/category&gt; , the most frequent nucleotide changes in this &lt;category=&quot;DiseaseClass&quot;&gt;leukaemia&lt;/category&gt; were missense mutations . These clustered in the region corresponding to the kinase domain , which is highly conserved in ATM-related proteins in mouse , yeast and Drosophila . The resulting amino-acid substitutions are predicted to interfere with ATP binding or substrate recognition . Two of seventeen mutated &lt;category=&quot;SpecificDisease&quot;&gt;T-PLL&lt;/category&gt; samples had a previously reported &lt;category=&quot;Modifier&quot;&gt;A-T&lt;/category&gt; allele . In contrast , no mutations were detected in the p53 gene , suggesting that this &lt;category=&quot;Modifier&quot;&gt;tumour&lt;/category&gt; suppressor is not frequently altered in this &lt;category=&quot;DiseaseClass&quot;&gt;leukaemia&lt;/category&gt; . Occasional missense mutations in ATM were also found in &lt;category=&quot;Modifier&quot;&gt;tumour&lt;/category&gt; DNA from patients with &lt;category=&quot;SpecificDisease&quot;&gt;B-cell non-Hodgkins lymphomas&lt;/category&gt; ( &lt;category=&quot;SpecificDisease&quot;&gt;B-NHL&lt;/category&gt; ) and a &lt;category=&quot;Modifier&quot;&gt;B-NHL&lt;/category&gt; cell line . The evidence of a significant proportion of loss-of-function mutations and a complete absence of the normal copy of ATM in the majority of mutated &lt;category=&quot;DiseaseClass&quot;&gt;tumours&lt;/category&gt; establishes somatic inactivation of this gene in the pathogenesis of &lt;category=&quot;SpecificDisease&quot;&gt;sporadic T-PLL&lt;/category&gt; and suggests that ATM acts as a &lt;category=&quot;Modifier&quot;&gt;tumour&lt;/category&gt; suppressor . As constitutional DNA was not available , a putative hereditary predisposition to &lt;category=&quot;SpecificDisease&quot;&gt;T-PLL&lt;/category&gt; will require further investigation . . 
+</code></pre>
+<pre><code>import re
+
+# use regular expression to find labels
+categories=re.findall('&lt;category.*?&lt;\/category&gt;', sample_text)
+for sample in categories: 
+    print(sample)
+</code></pre>
+<pre><code>&lt;category=&quot;Modifier&quot;&gt;ataxia-telangiectasia&lt;/category&gt;
+&lt;category=&quot;SpecificDisease&quot;&gt;sporadic T-cell leukaemia&lt;/category&gt;
+&lt;category=&quot;SpecificDisease&quot;&gt;Ataxia-telangiectasia&lt;/category&gt;
+&lt;category=&quot;SpecificDisease&quot;&gt;A-T&lt;/category&gt;
+&lt;category=&quot;DiseaseClass&quot;&gt;recessive multi-system disorder&lt;/category&gt;
+&lt;category=&quot;DiseaseClass&quot;&gt;cancer&lt;/category&gt;
+&lt;category=&quot;DiseaseClass&quot;&gt;lymphoid neoplasias&lt;/category&gt;
+&lt;category=&quot;Modifier&quot;&gt;A-T&lt;/category&gt;
+&lt;category=&quot;Modifier&quot;&gt;tumour&lt;/category&gt;
+&lt;category=&quot;SpecificDisease&quot;&gt;sporadic T-cell prolymphocytic leukaemia&lt;/category&gt;
+&lt;category=&quot;SpecificDisease&quot;&gt;T-PLL&lt;/category&gt;
+&lt;category=&quot;DiseaseClass&quot;&gt;clonal malignancy&lt;/category&gt;
+&lt;category=&quot;SpecificDisease&quot;&gt;mature T-cell leukaemia&lt;/category&gt;
+&lt;category=&quot;SpecificDisease&quot;&gt;A-T&lt;/category&gt;
+&lt;category=&quot;SpecificDisease&quot;&gt;T-PLL&lt;/category&gt;
+&lt;category=&quot;SpecificDisease&quot;&gt;A-T&lt;/category&gt;
+&lt;category=&quot;DiseaseClass&quot;&gt;leukaemia&lt;/category&gt;
+&lt;category=&quot;SpecificDisease&quot;&gt;T-PLL&lt;/category&gt;
+&lt;category=&quot;Modifier&quot;&gt;A-T&lt;/category&gt;
+&lt;category=&quot;Modifier&quot;&gt;tumour&lt;/category&gt;
+&lt;category=&quot;DiseaseClass&quot;&gt;leukaemia&lt;/category&gt;
+&lt;category=&quot;Modifier&quot;&gt;tumour&lt;/category&gt;
+&lt;category=&quot;SpecificDisease&quot;&gt;B-cell non-Hodgkins lymphomas&lt;/category&gt;
+&lt;category=&quot;SpecificDisease&quot;&gt;B-NHL&lt;/category&gt;
+&lt;category=&quot;Modifier&quot;&gt;B-NHL&lt;/category&gt;
+&lt;category=&quot;DiseaseClass&quot;&gt;tumours&lt;/category&gt;
+&lt;category=&quot;SpecificDisease&quot;&gt;sporadic T-PLL&lt;/category&gt;
+&lt;category=&quot;Modifier&quot;&gt;tumour&lt;/category&gt;
+&lt;category=&quot;SpecificDisease&quot;&gt;T-PLL&lt;/category&gt;
+</code></pre>
+<p>In the following code, we see that the abstract has been broken into sentences. Each sentence is further parsed into words with labels that correspond to the original HTML-styled tags in the dataset.</p>
+<pre><code>NER_DATA_DIR = f'{DATA_DIR}/NER'
+os.makedirs(os.path.join(DATA_DIR, 'NER'), exist_ok=True)
+
+# show downloaded files
+!ls -lh $NER_DATA_DIR
+
+!head $NER_DATA_DIR/train.tsv
+</code></pre>
+<h4 id="output">output</h4>
+<pre><code>Identification	O
+of	O
+APC2	O
+,	O
+a	O
+homologue	O
+of	O
+the	O
+adenomatous	B-Disease
+polyposis	I-Disease
+</code></pre>
+
+<ul class="links-nextprev"><li class="links-nextprev-prev">← Previous<br> <a href="/blog/microsoft-copilot-learning/">Microsoft 365 Copilot Chat Explorer Learning Path</a></li><li class="links-nextprev-next">Next →<br><a href="/blog/transformers-natural-language-processing/">Transformers-based Natural Language Processing</a></li>
 </ul>
 
 			</heading-anchors>
@@ -520,7 +596,7 @@ pre[class*="language-diff-"] {
 		<footer>
 		</footer>
 
-		<!-- This page `/blog/fourthpost/` was built on 2026-01-21T17:38:35.384Z -->
+		<!-- This page `/blog/domain-token-classification-model/` was built on 2026-01-21T17:38:35.384Z -->
 		<script type="module" src="/dist/cC8wS6ZjFU.js"></script>
 	</body>
 </html>
