@@ -1,8 +1,8 @@
 ---
-title: Microsoft 365 Copilot Chat Explorer.
+title: Microsoft 365 Copilot Chat Explorer Learning Path
 description: Let’s see the following points covered in the course, including Copilot Chat functionality, smart prompting techniques, and productivity-driven use cases.
-date: 2026-01-21
-tags: ["copilot", "post"]
+date: 2026-01-20
+tags: ["copilot", "post", "microsoft"]
 ---
 # Microsoft 365 Copilot Chat Explorer — Learning Path Completed
 
