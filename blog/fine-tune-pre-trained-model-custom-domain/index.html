@@ -517,22 +517,21 @@ pre[class*="language-diff-"] {
 </ul>
 <p>For beginners, NeMo provides a starter configuration file.</p>
 <h2 id="configuration-file">Configuration File</h2>
-<pre><code># define config path
-MODEL_CONFIG = &quot;token_classification_config.yaml&quot;
-WORK_DIR = &quot;WORK_DIR&quot;
-os.makedirs(WORK_DIR, exist_ok=True)
+<pre class="language-python" tabindex="0"><code class="language-python"><span class="token comment"># define config path</span>
+MODEL_CONFIG <span class="token operator">=</span> <span class="token string">"token_classification_config.yaml"</span>
+WORK_DIR <span class="token operator">=</span> <span class="token string">"WORK_DIR"</span>
+os<span class="token punctuation">.</span>makedirs<span class="token punctuation">(</span>WORK_DIR<span class="token punctuation">,</span> exist_ok<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
 
-# download the model's configuration file 
-BRANCH = 'main'
-config_dir = WORK_DIR + '/configs/'
-os.makedirs(config_dir, exist_ok=True)
+<span class="token comment"># download the model's configuration file </span>
+BRANCH <span class="token operator">=</span> <span class="token string">'main'</span>
+config_dir <span class="token operator">=</span> WORK_DIR <span class="token operator">+</span> <span class="token string">'/configs/'</span>
+os<span class="token punctuation">.</span>makedirs<span class="token punctuation">(</span>config_dir<span class="token punctuation">,</span> exist_ok<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
 
-if not os.path.exists(config_dir + MODEL_CONFIG):
-    print('Downloading config file...')
-    wget.download(f'https://raw.githubusercontent.com/NVIDIA/NeMo/{BRANCH}/examples/nlp/token_classification/conf/' + MODEL_CONFIG, config_dir)
-else:
-    print ('config file already exists')
-</code></pre>
+<span class="token keyword">if</span> <span class="token keyword">not</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>exists<span class="token punctuation">(</span>config_dir <span class="token operator">+</span> MODEL_CONFIG<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Downloading config file...'</span><span class="token punctuation">)</span>
+    wget<span class="token punctuation">.</span>download<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'https://raw.githubusercontent.com/NVIDIA/NeMo/</span><span class="token interpolation"><span class="token punctuation">{</span>BRANCH<span class="token punctuation">}</span></span><span class="token string">/examples/nlp/token_classification/conf/'</span></span> <span class="token operator">+</span> MODEL_CONFIG<span class="token punctuation">,</span> config_dir<span class="token punctuation">)</span>
+<span class="token keyword">else</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">'config file already exists'</span><span class="token punctuation">)</span></code></pre>
 <p>Here, the config file for NER, <code>token_classification_config.yaml</code>, specifies model, training and experiment management details such as file locations, pretrained models and hyperparameters.</p>
 <pre class="language-python" tabindex="0"><code class="language-python"><span class="token keyword">from</span> omegaconf <span class="token keyword">import</span> OmegaConf
 
@@ -704,7 +703,7 @@ optim:
 		<footer>
 		</footer>
 
-		<!-- This page `/blog/fine-tune-pre-trained-model-custom-domain/` was built on 2026-01-21T18:11:17.135Z -->
+		<!-- This page `/blog/fine-tune-pre-trained-model-custom-domain/` was built on 2026-01-21T19:46:03.714Z -->
 		<script type="module" src="/dist/cC8wS6ZjFU.js"></script>
 	</body>
 </html>

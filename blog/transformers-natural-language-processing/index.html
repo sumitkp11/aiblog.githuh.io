@@ -508,276 +508,332 @@ pre[class*="language-diff-"] {
 	<li><a href="/tags/token/" class="post-tag">token</a></li>
 </ul>
 
+<h2 id="topic-transformer-based-natural-language-processing">Topic: Transformer-based Natural Language Processing</h2>
+<ol>
+<li>
+<p>In natural language processing, <strong>token classification</strong> assigns labels to tokens in a piece of text. It can be used to accurately and efficiently detect and classify key information.</p>
+</li>
+<li>
+<p><strong>Token Classification</strong></p>
+<ol>
+<li><strong>Named Entity Recognition (NER)</strong>
+<ol>
+<li>NER is used to identify specific entities in a text, such as states, individuals, and places.</li>
+<li>NER is also referred to as <em>entity chunking</em>, <em>entity identification</em>, or <em>entity extraction</em>.</li>
+<li>An NER model takes a piece of text as input, and for each token in the text, the model identifies the category the token belongs to.</li>
+<li>For example, in the sentence:<br>
+<em>“Mary lives in Santa Clara and works at NVIDIA”</em>,<br>
+the model should detect:
+<ul>
+<li><strong>Mary</strong> → Person</li>
+<li><strong>Santa Clara</strong> → Location</li>
+<li><strong>NVIDIA</strong> → Organization</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<p>Token classification can transform unstructured text into structured data for more detailed and advanced text analytics.</p>
+</li>
+<li>
+<p><strong>Use cases for NER</strong></p>
+<ul>
+<li>Categorizing articles based on relevant people, organizations, and places in media</li>
+<li>Improving efficiency in search with relevant tags</li>
+<li>Providing better recommendations in retail</li>
+<li>Retrieving and analyzing common cases in customer support</li>
+<li>Monitoring trends in the finance sector</li>
+</ul>
+</li>
+<li>
+<p><strong>BERT</strong> is a token classification model.</p>
+</li>
+<li>
+<p><strong>NeMo</strong> is a toolkit for conversational AI. It uses high-level APIs for training custom models to simplify development with pre-built modules.</p>
+</li>
+<li>
+<p>NeMo also supports a large catalog of pre-trained models. Technically, it uses a <strong>PyTorch Lightning</strong> backend for easy and performant multi-GPU, multi-node, mixed-precision training.</p>
+</li>
+<li>
+<p>Using NeMo, we can leverage pre-built models to perform operations such as:</p>
+<ul>
+<li>Tokenization</li>
+<li>Position embedding</li>
+<li>Padding</li>
+<li>Attention masking</li>
+</ul>
+</li>
+<li>
+<p>If you are using raw data, <strong>Datasaur</strong> can be used as a labeling platform to apply labels to the data. Labeled data can be exported using the <code>conll_2003</code> format.</p>
+</li>
+<li>
+<p>Datasaur is designed specifically for labeling text data and supports basic NLP labeling tasks such as NER.<br>
+Datasaur can be accessed at: https://datasaur.ai</p>
+</li>
+<li>
+<p>When developing a token classification model, the following options are available:</p>
+<ul>
+<li>Out-of-the-box model</li>
+<li>Fine-tuned pre-trained model</li>
+<li>Train a custom model from scratch</li>
+</ul>
+</li>
+</ol>
 <h2 id="download-and-preprocess-data">Download and Preprocess Data</h2>
-<pre><code>import os
-import wget
+<pre class="language-py" tabindex="0"><code class="language-py"><span class="token keyword">import</span> os
+<span class="token keyword">import</span> wget
 
-# set data path
-DATA_DIR=&quot;data/GMB&quot;
+<span class="token comment"># set data path</span>
+DATA_DIR<span class="token operator">=</span><span class="token string">"data/GMB"</span>
 
-# check that data folder should contain 4 files
-!ls -l $DATA_DIR
-</code></pre>
+<span class="token comment"># check that data folder should contain 4 files</span>
+!ls <span class="token operator">-</span>l $DATA_DIR</code></pre>
 <h3 id="output">output</h3>
-<pre><code>total 11140
--rw-r--r-- 1 root root      77 Jan 21 16:38 label_ids.csv
--rw-r--r-- 1 root root  407442 Jan 21 16:38 labels_dev.txt
--rw-r--r-- 1 root root 3169783 Jan 21 16:38 labels_train.txt
--rw-r--r-- 1 root root  891020 Jan 21 16:38 text_dev.txt
--rw-r--r-- 1 root root 6928251 Jan 21 16:38 text_train.txt
-</code></pre>
-<pre><code># preview data 
-print('Text:')
-!head -n 5 {DATA_DIR}/text_train.txt
+<pre class="language-bash" tabindex="0"><code class="language-bash">total <span class="token number">11140</span>
+-rw-r--r-- <span class="token number">1</span> root root      <span class="token number">77</span> Jan <span class="token number">21</span> <span class="token number">16</span>:38 label_ids.csv
+-rw-r--r-- <span class="token number">1</span> root root  <span class="token number">407442</span> Jan <span class="token number">21</span> <span class="token number">16</span>:38 labels_dev.txt
+-rw-r--r-- <span class="token number">1</span> root root <span class="token number">3169783</span> Jan <span class="token number">21</span> <span class="token number">16</span>:38 labels_train.txt
+-rw-r--r-- <span class="token number">1</span> root root  <span class="token number">891020</span> Jan <span class="token number">21</span> <span class="token number">16</span>:38 text_dev.txt
+-rw-r--r-- <span class="token number">1</span> root root <span class="token number">6928251</span> Jan <span class="token number">21</span> <span class="token number">16</span>:38 text_train.txt</code></pre>
+<pre class="language-py" tabindex="0"><code class="language-py"><span class="token comment"># preview data </span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Text:'</span><span class="token punctuation">)</span>
+!head <span class="token operator">-</span>n <span class="token number">5</span> <span class="token punctuation">{</span>DATA_DIR<span class="token punctuation">}</span><span class="token operator">/</span>text_train<span class="token punctuation">.</span>txt
 
-print('Labels:')
-!head -n 5 {DATA_DIR}/labels_train.txt
-</code></pre>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Labels:'</span><span class="token punctuation">)</span>
+!head <span class="token operator">-</span>n <span class="token number">5</span> <span class="token punctuation">{</span>DATA_DIR<span class="token punctuation">}</span><span class="token operator">/</span>labels_train<span class="token punctuation">.</span>txt</code></pre>
 <h3 id="output-2">output</h3>
-<pre><code>Text:
-New Zealand 's cricket team has scored a morale-boosting win over Bangladesh in the first of three one-day internationals in New Zealand .
-Despite Bangladesh 's highest total ever in a limited-overs match , the Kiwis were able to win the match by six wickets in Auckland .
-Opening batsman Jamie How led all scorers with 88 runs as New Zealand reached 203-4 in 42.1 overs .
-The score was in response to Bangladesh 's total of 201 all out in 46.3 overs .
-Mohammad Ashraful led the visitors with 70 runs , including 10 fours and one six on the short boundaries of the Eden Park ground .
+<pre class="language-bash" tabindex="0"><code class="language-bash">Text:
+New Zealand <span class="token string">'s cricket team has scored a morale-boosting win over Bangladesh in the first of three one-day internationals in New Zealand .
+Despite Bangladesh '</span>s highest total ever <span class="token keyword">in</span> a limited-overs match , the Kiwis were able to win the match by six wickets <span class="token keyword">in</span> Auckland <span class="token builtin class-name">.</span>
+Opening batsman Jamie How led all scorers with <span class="token number">88</span> runs as New Zealand reached <span class="token number">203</span>-4 <span class="token keyword">in</span> <span class="token number">42.1</span> overs <span class="token builtin class-name">.</span>
+The score was <span class="token keyword">in</span> response to Bangladesh 's total of <span class="token number">201</span> all out <span class="token keyword">in</span> <span class="token number">46.3</span> overs <span class="token builtin class-name">.</span>
+Mohammad Ashraful led the visitors with <span class="token number">70</span> runs , including <span class="token number">10</span> fours and one six on the short boundaries of the Eden Park ground <span class="token builtin class-name">.</span>
 Labels:
 B-LOC I-LOC O O O O O O O O O B-LOC O O B-TIME I-TIME I-TIME I-TIME O O B-LOC I-LOC O
 O B-LOC O O O O O O O O O O B-GPE O O O O O O O O O O B-LOC O
 O O B-PER I-PER O O O O O O O B-LOC I-LOC O O O O O O
 O O O O O O B-LOC O O O O O O O O O O
-B-PER I-PER O O O O O O O O O O O O O O O O O O O B-LOC I-LOC O O
-</code></pre>
+B-PER I-PER O O O O O O O O O O O O O O O O O O O B-LOC I-LOC O O</code></pre>
 <h3 id="download-pre-trained-model">Download Pre-trained model</h3>
-<pre><code># import dependencies
-from nemo.collections.nlp.models import TokenClassificationModel
+<pre class="language-py" tabindex="0"><code class="language-py"><span class="token comment"># import dependencies</span>
+<span class="token keyword">from</span> nemo<span class="token punctuation">.</span>collections<span class="token punctuation">.</span>nlp<span class="token punctuation">.</span>models <span class="token keyword">import</span> TokenClassificationModel
 
-# list available pre-trained models
-for model in TokenClassificationModel.list_available_models():
-    print(model)
-</code></pre>
+<span class="token comment"># list available pre-trained models</span>
+<span class="token keyword">for</span> model <span class="token keyword">in</span> TokenClassificationModel<span class="token punctuation">.</span>list_available_models<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>model<span class="token punctuation">)</span></code></pre>
 <h3 id="output-3">output</h3>
-<pre><code>NOTE! Installing ujson may make loading annotations faster.
-PretrainedModelInfo(
-	pretrained_model_name=ner_en_bert,
-	description=The model was trained on GMB (Groningen Meaning Bank) corpus for entity recognition and achieves 74.61 F1 Macro score.,
-	location=https://api.ngc.nvidia.com/v2/models/nvidia/nemo/ner_en_bert/versions/1.10/files/ner_en_bert.nemo
-)
-</code></pre>
-<pre><code># download and load the pre-trained BERT-based model
-pretrained_ner_model=TokenClassificationModel.from_pretrained(&quot;ner_en_bert&quot;)
-</code></pre>
+<pre class="language-bash" tabindex="0"><code class="language-bash">NOTE<span class="token operator">!</span> Installing ujson may <span class="token function">make</span> loading annotations faster.
+PretrainedModelInfo<span class="token punctuation">(</span>
+	<span class="token assign-left variable">pretrained_model_name</span><span class="token operator">=</span>ner_en_bert,
+	<span class="token assign-left variable">description</span><span class="token operator">=</span>The model was trained on GMB <span class="token punctuation">(</span>Groningen Meaning Bank<span class="token punctuation">)</span> corpus <span class="token keyword">for</span> entity recognition and achieves <span class="token number">74.61</span> F1 Macro score.,
+	<span class="token assign-left variable">location</span><span class="token operator">=</span>https://api.ngc.nvidia.com/v2/models/nvidia/nemo/ner_en_bert/versions/1.10/files/ner_en_bert.nemo
+<span class="token punctuation">)</span></code></pre>
+<pre class="language-py" tabindex="0"><code class="language-py"><span class="token comment"># download and load the pre-trained BERT-based model</span>
+pretrained_ner_model<span class="token operator">=</span>TokenClassificationModel<span class="token punctuation">.</span>from_pretrained<span class="token punctuation">(</span><span class="token string">"ner_en_bert"</span><span class="token punctuation">)</span></code></pre>
 <h3 id="output-4">output</h3>
-<pre><code># download and load the pre-trained BERT-based model
-pretrained_ner_model=TokenClassificationModel.from_pretrained(&quot;ner_en_bert&quot;)
-# download and load the pre-trained BERT-based model
-pretrained_ner_model=TokenClassificationModel.from_pretrained(&quot;ner_en_bert&quot;)
-[NeMo I 2026-01-21 17:08:48 cloud:68] Downloading from: https://api.ngc.nvidia.com/v2/models/nvidia/nemo/ner_en_bert/versions/1.10/files/ner_en_bert.nemo to /root/.cache/torch/NeMo/NeMo_1.20.0/ner_en_bert/8186f86c83b11d70b43b9ead695e7eda/ner_en_bert.nemo
-[NeMo I 2026-01-21 17:08:49 common:913] Instantiating model from pre-trained checkpoint
-[NeMo I 2026-01-21 17:08:52 tokenizer_utils:130] Getting HuggingFace AutoTokenizer with pretrained_model_name: bert-base-uncased, vocab_file: /tmp/tmp9g1j_hsl/tokenizer.vocab_file, merges_files: None, special_tokens_dict: {}, and use_fast: False
-Downloading tokenizer_config.json:   0%|          | 0.00/48.0 [00:00&lt;?, ?B/s]
-Downloading config.json:   0%|          | 0.00/570 [00:00&lt;?, ?B/s]
-Downloading vocab.txt:   0%|          | 0.00/232k [00:00&lt;?, ?B/s]
-Using eos_token, but it is not set yet.
-Using bos_token, but it is not set yet.
-[NeMo W 2026-01-21 17:08:53 modelPT:244] You tried to register an artifact under config key=tokenizer.vocab_file but an artifact for it has already been registered.
-[NeMo W 2026-01-21 17:08:53 modelPT:161] If you intend to do training or fine-tuning, please call the ModelPT.setup_training_data() method and provide a valid configuration file to setup the train data loader.
-    Train config : 
+<pre class="language-bash" tabindex="0"><code class="language-bash"><span class="token comment"># download and load the pre-trained BERT-based model</span>
+<span class="token assign-left variable">pretrained_ner_model</span><span class="token operator">=</span>TokenClassificationModel.from_pretrained<span class="token punctuation">(</span><span class="token string">"ner_en_bert"</span><span class="token punctuation">)</span>
+<span class="token comment"># download and load the pre-trained BERT-based model</span>
+<span class="token assign-left variable">pretrained_ner_model</span><span class="token operator">=</span>TokenClassificationModel.from_pretrained<span class="token punctuation">(</span><span class="token string">"ner_en_bert"</span><span class="token punctuation">)</span>
+<span class="token punctuation">[</span>NeMo I <span class="token number">2026</span>-01-21 <span class="token number">17</span>:08:48 cloud:68<span class="token punctuation">]</span> Downloading from: https://api.ngc.nvidia.com/v2/models/nvidia/nemo/ner_en_bert/versions/1.10/files/ner_en_bert.nemo to /root/.cache/torch/NeMo/NeMo_1.20.0/ner_en_bert/8186f86c83b11d70b43b9ead695e7eda/ner_en_bert.nemo
+<span class="token punctuation">[</span>NeMo I <span class="token number">2026</span>-01-21 <span class="token number">17</span>:08:49 common:913<span class="token punctuation">]</span> Instantiating model from pre-trained checkpoint
+<span class="token punctuation">[</span>NeMo I <span class="token number">2026</span>-01-21 <span class="token number">17</span>:08:52 tokenizer_utils:130<span class="token punctuation">]</span> Getting HuggingFace AutoTokenizer with pretrained_model_name: bert-base-uncased, vocab_file: /tmp/tmp9g1j_hsl/tokenizer.vocab_file, merges_files: None, special_tokens_dict: <span class="token punctuation">{</span><span class="token punctuation">}</span>, and use_fast: False
+Downloading tokenizer_config.json:   <span class="token number">0</span>%<span class="token operator">|</span>          <span class="token operator">|</span> <span class="token number">0.00</span>/48.0 <span class="token punctuation">[</span>00:0<span class="token operator"><span class="token file-descriptor important">0</span>&lt;</span>?, ?B/s<span class="token punctuation">]</span>
+Downloading config.json:   <span class="token number">0</span>%<span class="token operator">|</span>          <span class="token operator">|</span> <span class="token number">0.00</span>/570 <span class="token punctuation">[</span>00:0<span class="token operator"><span class="token file-descriptor important">0</span>&lt;</span>?, ?B/s<span class="token punctuation">]</span>
+Downloading vocab.txt:   <span class="token number">0</span>%<span class="token operator">|</span>          <span class="token operator">|</span> <span class="token number">0.00</span>/232k <span class="token punctuation">[</span>00:0<span class="token operator"><span class="token file-descriptor important">0</span>&lt;</span>?, ?B/s<span class="token punctuation">]</span>
+Using eos_token, but it is not <span class="token builtin class-name">set</span> yet.
+Using bos_token, but it is not <span class="token builtin class-name">set</span> yet.
+<span class="token punctuation">[</span>NeMo W <span class="token number">2026</span>-01-21 <span class="token number">17</span>:08:53 modelPT:244<span class="token punctuation">]</span> You tried to register an artifact under config <span class="token assign-left variable">key</span><span class="token operator">=</span>tokenizer.vocab_file but an artifact <span class="token keyword">for</span> it has already been registered.
+<span class="token punctuation">[</span>NeMo W <span class="token number">2026</span>-01-21 <span class="token number">17</span>:08:53 modelPT:161<span class="token punctuation">]</span> If you intend to <span class="token keyword">do</span> training or fine-tuning, please call the ModelPT.setup_training_data<span class="token punctuation">(</span><span class="token punctuation">)</span> method and provide a valid configuration <span class="token function">file</span> to setup the train data loader.
+    Train config <span class="token builtin class-name">:</span> 
     text_file: text_train.txt
     labels_file: labels_train.txt
-    shuffle: true
-    num_samples: -1
-    batch_size: 64
+    shuffle: <span class="token boolean">true</span>
+    num_samples: <span class="token parameter variable">-1</span>
+    batch_size: <span class="token number">64</span>
     
-[NeMo W 2026-01-21 17:08:53 modelPT:168] If you intend to do validation, please call the ModelPT.setup_validation_data() or ModelPT.setup_multiple_validation_data() method and provide a valid configuration file to setup the validation data loader(s). 
-    Validation config : 
+<span class="token punctuation">[</span>NeMo W <span class="token number">2026</span>-01-21 <span class="token number">17</span>:08:53 modelPT:168<span class="token punctuation">]</span> If you intend to <span class="token keyword">do</span> validation, please call the ModelPT.setup_validation_data<span class="token punctuation">(</span><span class="token punctuation">)</span> or ModelPT.setup_multiple_validation_data<span class="token punctuation">(</span><span class="token punctuation">)</span> method and provide a valid configuration <span class="token function">file</span> to setup the validation data loader<span class="token punctuation">(</span>s<span class="token punctuation">)</span>. 
+    Validation config <span class="token builtin class-name">:</span> 
     text_file: text_dev.txt
     labels_file: labels_dev.txt
-    shuffle: false
-    num_samples: -1
-    batch_size: 64
+    shuffle: <span class="token boolean">false</span>
+    num_samples: <span class="token parameter variable">-1</span>
+    batch_size: <span class="token number">64</span>
     
-[NeMo W 2026-01-21 17:08:53 modelPT:174] Please call the ModelPT.setup_test_data() or ModelPT.setup_multiple_test_data() method and provide a valid configuration file to setup the test data loader(s).
-    Test config : 
+<span class="token punctuation">[</span>NeMo W <span class="token number">2026</span>-01-21 <span class="token number">17</span>:08:53 modelPT:174<span class="token punctuation">]</span> Please call the ModelPT.setup_test_data<span class="token punctuation">(</span><span class="token punctuation">)</span> or ModelPT.setup_multiple_test_data<span class="token punctuation">(</span><span class="token punctuation">)</span> method and provide a valid configuration <span class="token function">file</span> to setup the <span class="token builtin class-name">test</span> data loader<span class="token punctuation">(</span>s<span class="token punctuation">)</span>.
+    Test config <span class="token builtin class-name">:</span> 
     text_file: text_dev.txt
     labels_file: labels_dev.txt
-    shuffle: false
-    num_samples: -1
-    batch_size: 64
+    shuffle: <span class="token boolean">false</span>
+    num_samples: <span class="token parameter variable">-1</span>
+    batch_size: <span class="token number">64</span>
     
-Downloading model.safetensors:   0%|          | 0.00/440M [00:00&lt;?, ?B/s]
-[NeMo W 2026-01-21 17:08:56 modelPT:244] You tried to register an artifact under config key=language_model.config_file but an artifact for it has already been registered.
-[NeMo I 2026-01-21 17:08:57 save_restore_connector:249] Model TokenClassificationModel was successfully restored from /root/.cache/torch/NeMo/NeMo_1.20.0/ner_en_bert/8186f86c83b11d70b43b9ead695e7eda/ner_en_bert.nemo.
-</code></pre>
+Downloading model.safetensors:   <span class="token number">0</span>%<span class="token operator">|</span>          <span class="token operator">|</span> <span class="token number">0.00</span>/440M <span class="token punctuation">[</span>00:0<span class="token operator"><span class="token file-descriptor important">0</span>&lt;</span>?, ?B/s<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>NeMo W <span class="token number">2026</span>-01-21 <span class="token number">17</span>:08:56 modelPT:244<span class="token punctuation">]</span> You tried to register an artifact under config <span class="token assign-left variable">key</span><span class="token operator">=</span>language_model.config_file but an artifact <span class="token keyword">for</span> it has already been registered.
+<span class="token punctuation">[</span>NeMo I <span class="token number">2026</span>-01-21 <span class="token number">17</span>:08:57 save_restore_connector:249<span class="token punctuation">]</span> Model TokenClassificationModel was successfully restored from /root/.cache/torch/NeMo/NeMo_1.20.0/ner_en_bert/8186f86c83b11d70b43b9ead695e7eda/ner_en_bert.nemo.</code></pre>
 <h3 id="make-predictions">Make Predictions</h3>
-<pre><code># define the list of queries for inference
-queries=[
-    'we bought four shirts from the nvidia gear store in santa clara.',
-    'Nvidia is a company.',
-]
+<pre class="language-py" tabindex="0"><code class="language-py"><span class="token comment"># define the list of queries for inference</span>
+queries<span class="token operator">=</span><span class="token punctuation">[</span>
+    <span class="token string">'we bought four shirts from the nvidia gear store in santa clara.'</span><span class="token punctuation">,</span>
+    <span class="token string">'Nvidia is a company.'</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span>
 
-# make sample predictions
-results=pretrained_ner_model.add_predictions(queries)
+<span class="token comment"># make sample predictions</span>
+results<span class="token operator">=</span>pretrained_ner_model<span class="token punctuation">.</span>add_predictions<span class="token punctuation">(</span>queries<span class="token punctuation">)</span>
 
-# show predictions
-for query, result in zip(queries, results):
-    print(f'Query : {query}')
-    print(f'Result: {result.strip()}\n')
-    print()
-</code></pre>
+<span class="token comment"># show predictions</span>
+<span class="token keyword">for</span> query<span class="token punctuation">,</span> result <span class="token keyword">in</span> <span class="token builtin">zip</span><span class="token punctuation">(</span>queries<span class="token punctuation">,</span> results<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'Query : </span><span class="token interpolation"><span class="token punctuation">{</span>query<span class="token punctuation">}</span></span><span class="token string">'</span></span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'Result: </span><span class="token interpolation"><span class="token punctuation">{</span>result<span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span><span class="token string">\n'</span></span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
 <h3 id="output-5">output</h3>
-<pre><code># define the list of queries for inference
-queries=[
-    'we bought four shirts from the nvidia gear store in santa clara.',
-    'Nvidia is a company.',
-]
+<pre class="language-bash" tabindex="0"><code class="language-bash"><span class="token comment"># define the list of queries for inference</span>
+<span class="token assign-left variable">queries</span><span class="token operator">=</span><span class="token punctuation">[</span>
+    <span class="token string">'we bought four shirts from the nvidia gear store in santa clara.'</span>,
+    <span class="token string">'Nvidia is a company.'</span>,
+<span class="token punctuation">]</span>
 
-# make sample predictions
-results=pretrained_ner_model.add_predictions(queries)
+<span class="token comment"># make sample predictions</span>
+<span class="token assign-left variable">results</span><span class="token operator">=</span>pretrained_ner_model.add_predictions<span class="token punctuation">(</span>queries<span class="token punctuation">)</span>
 
-# show predictions
-for query, result in zip(queries, results):
-    print(f'Query : {query}')
-    print(f'Result: {result.strip()}\n')
-    print()
-# define the list of queries for inference
-queries=[
-    'we bought four shirts from the nvidia gear store in santa clara.',
-    'Nvidia is a company.',
-]
+<span class="token comment"># show predictions</span>
+<span class="token keyword">for</span> query, result <span class="token keyword">in</span> zip<span class="token punctuation">(</span>queries, results<span class="token punctuation">)</span>:
+    print<span class="token punctuation">(</span>f<span class="token string">'Query : {query}'</span><span class="token punctuation">)</span>
+    print<span class="token punctuation">(</span>f<span class="token string">'Result: {result.strip()}\n'</span><span class="token punctuation">)</span>
+    print<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment"># define the list of queries for inference</span>
+<span class="token assign-left variable">queries</span><span class="token operator">=</span><span class="token punctuation">[</span>
+    <span class="token string">'we bought four shirts from the nvidia gear store in santa clara.'</span>,
+    <span class="token string">'Nvidia is a company.'</span>,
+<span class="token punctuation">]</span>
 ​
-# make sample predictions
-results=pretrained_ner_model.add_predictions(queries)
+<span class="token comment"># make sample predictions</span>
+<span class="token assign-left variable">results</span><span class="token operator">=</span>pretrained_ner_model.add_predictions<span class="token punctuation">(</span>queries<span class="token punctuation">)</span>
 ​
-# show predictions
-for query, result in zip(queries, results):
-    print(f'Query : {query}')
-    print(f'Result: {result.strip()}\n')
-    print()
-[NeMo I 2026-01-21 17:10:06 token_classification_dataset:123] Setting Max Seq length to: 17
-[NeMo I 2026-01-21 17:10:06 data_preprocessing:404] Some stats of the lengths of the sequences:
-[NeMo I 2026-01-21 17:10:06 data_preprocessing:406] Min: 9 |                  Max: 17 |                  Mean: 13.0 |                  Median: 13.0
-[NeMo I 2026-01-21 17:10:06 data_preprocessing:412] 75 percentile: 15.00
-[NeMo I 2026-01-21 17:10:06 data_preprocessing:413] 99 percentile: 16.92
-[NeMo W 2026-01-21 17:10:06 token_classification_dataset:152] 0 are longer than 17
-[NeMo I 2026-01-21 17:10:06 token_classification_dataset:155] *** Example ***
-[NeMo I 2026-01-21 17:10:06 token_classification_dataset:156] i: 0
-[NeMo I 2026-01-21 17:10:06 token_classification_dataset:157] subtokens: [CLS] we bought four shirts from the n ##vid ##ia gear store in santa clara . [SEP]
-[NeMo I 2026-01-21 17:10:06 token_classification_dataset:158] loss_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-[NeMo I 2026-01-21 17:10:06 token_classification_dataset:159] input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-[NeMo I 2026-01-21 17:10:06 token_classification_dataset:160] subtokens_mask: 0 1 1 1 1 1 1 1 0 0 1 1 1 1 1 0 0
-Query : we bought four shirts from the nvidia gear store in santa clara.
-Result: we bought four shirts from the nvidia[B-ORG] gear store in santa[B-LOC] clara[I-LOC].
+<span class="token comment"># show predictions</span>
+<span class="token keyword">for</span> query, result <span class="token keyword">in</span> zip<span class="token punctuation">(</span>queries, results<span class="token punctuation">)</span>:
+    print<span class="token punctuation">(</span>f<span class="token string">'Query : {query}'</span><span class="token punctuation">)</span>
+    print<span class="token punctuation">(</span>f<span class="token string">'Result: {result.strip()}\n'</span><span class="token punctuation">)</span>
+    print<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">[</span>NeMo I <span class="token number">2026</span>-01-21 <span class="token number">17</span>:10:06 token_classification_dataset:123<span class="token punctuation">]</span> Setting Max Seq length to: <span class="token number">17</span>
+<span class="token punctuation">[</span>NeMo I <span class="token number">2026</span>-01-21 <span class="token number">17</span>:10:06 data_preprocessing:404<span class="token punctuation">]</span> Some stats of the lengths of the sequences:
+<span class="token punctuation">[</span>NeMo I <span class="token number">2026</span>-01-21 <span class="token number">17</span>:10:06 data_preprocessing:406<span class="token punctuation">]</span> Min: <span class="token number">9</span> <span class="token operator">|</span>                  Max: <span class="token number">17</span> <span class="token operator">|</span>                  Mean: <span class="token number">13.0</span> <span class="token operator">|</span>                  Median: <span class="token number">13.0</span>
+<span class="token punctuation">[</span>NeMo I <span class="token number">2026</span>-01-21 <span class="token number">17</span>:10:06 data_preprocessing:412<span class="token punctuation">]</span> <span class="token number">75</span> percentile: <span class="token number">15.00</span>
+<span class="token punctuation">[</span>NeMo I <span class="token number">2026</span>-01-21 <span class="token number">17</span>:10:06 data_preprocessing:413<span class="token punctuation">]</span> <span class="token number">99</span> percentile: <span class="token number">16.92</span>
+<span class="token punctuation">[</span>NeMo W <span class="token number">2026</span>-01-21 <span class="token number">17</span>:10:06 token_classification_dataset:152<span class="token punctuation">]</span> <span class="token number">0</span> are longer than <span class="token number">17</span>
+<span class="token punctuation">[</span>NeMo I <span class="token number">2026</span>-01-21 <span class="token number">17</span>:10:06 token_classification_dataset:155<span class="token punctuation">]</span> *** Example ***
+<span class="token punctuation">[</span>NeMo I <span class="token number">2026</span>-01-21 <span class="token number">17</span>:10:06 token_classification_dataset:156<span class="token punctuation">]</span> i: <span class="token number">0</span>
+<span class="token punctuation">[</span>NeMo I <span class="token number">2026</span>-01-21 <span class="token number">17</span>:10:06 token_classification_dataset:157<span class="token punctuation">]</span> subtokens: <span class="token punctuation">[</span>CLS<span class="token punctuation">]</span> we bought four shirts from the n <span class="token comment">##vid ##ia gear store in santa clara . [SEP]</span>
+<span class="token punctuation">[</span>NeMo I <span class="token number">2026</span>-01-21 <span class="token number">17</span>:10:06 token_classification_dataset:158<span class="token punctuation">]</span> loss_mask: <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span>
+<span class="token punctuation">[</span>NeMo I <span class="token number">2026</span>-01-21 <span class="token number">17</span>:10:06 token_classification_dataset:159<span class="token punctuation">]</span> input_mask: <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span>
+<span class="token punctuation">[</span>NeMo I <span class="token number">2026</span>-01-21 <span class="token number">17</span>:10:06 token_classification_dataset:160<span class="token punctuation">]</span> subtokens_mask: <span class="token number">0</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">0</span> <span class="token number">0</span>
+Query <span class="token builtin class-name">:</span> we bought four shirts from the nvidia gear store <span class="token keyword">in</span> santa clara.
+Result: we bought four shirts from the nvidia<span class="token punctuation">[</span>B-ORG<span class="token punctuation">]</span> gear store <span class="token keyword">in</span> santa<span class="token punctuation">[</span>B-LOC<span class="token punctuation">]</span> clara<span class="token punctuation">[</span>I-LOC<span class="token punctuation">]</span>.
 
 
-Query : Nvidia is a company.
-Result: Nvidia[B-ORG] is a company.
-</code></pre>
+Query <span class="token builtin class-name">:</span> Nvidia is a company.
+Result: Nvidia<span class="token punctuation">[</span>B-ORG<span class="token punctuation">]</span> is a company.</code></pre>
 <h3 id="evaluate-predictions">Evaluate Predictions</h3>
-<pre><code># create a subset of our dev data
-!head -n 100 $DATA_DIR/text_dev.txt &gt; $DATA_DIR/sample_text_dev.txt
-!head -n 100 $DATA_DIR/labels_dev.txt &gt; $DATA_DIR/sample_labels_dev.txt
+<pre class="language-py" tabindex="0"><code class="language-py"><span class="token comment"># create a subset of our dev data</span>
+!head <span class="token operator">-</span>n <span class="token number">100</span> $DATA_DIR<span class="token operator">/</span>text_dev<span class="token punctuation">.</span>txt <span class="token operator">></span> $DATA_DIR<span class="token operator">/</span>sample_text_dev<span class="token punctuation">.</span>txt
+!head <span class="token operator">-</span>n <span class="token number">100</span> $DATA_DIR<span class="token operator">/</span>labels_dev<span class="token punctuation">.</span>txt <span class="token operator">></span> $DATA_DIR<span class="token operator">/</span>sample_labels_dev<span class="token punctuation">.</span>txt
 
-WORK_DIR = &quot;WORK_DIR&quot;
+WORK_DIR <span class="token operator">=</span> <span class="token string">"WORK_DIR"</span>
 
-# evaluate model performance on sample
-pretrained_ner_model.evaluate_from_file(
-    text_file=os.path.join(DATA_DIR, 'sample_text_dev.txt'),
-    labels_file=os.path.join(DATA_DIR, 'sample_labels_dev.txt'),
-    output_dir=WORK_DIR,
-    add_confusion_matrix=True,
-    normalize_confusion_matrix=True,
-    batch_size=1
-)
-</code></pre>
+<span class="token comment"># evaluate model performance on sample</span>
+pretrained_ner_model<span class="token punctuation">.</span>evaluate_from_file<span class="token punctuation">(</span>
+    text_file<span class="token operator">=</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>DATA_DIR<span class="token punctuation">,</span> <span class="token string">'sample_text_dev.txt'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    labels_file<span class="token operator">=</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>DATA_DIR<span class="token punctuation">,</span> <span class="token string">'sample_labels_dev.txt'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    output_dir<span class="token operator">=</span>WORK_DIR<span class="token punctuation">,</span>
+    add_confusion_matrix<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>
+    normalize_confusion_matrix<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>
+    batch_size<span class="token operator">=</span><span class="token number">1</span>
+<span class="token punctuation">)</span></code></pre>
 <h4 id="output-6">output</h4>
-<pre><code>[NeMo I 2026-01-21 17:12:02 token_classification_dataset:123] Setting Max Seq length to: 70
-[NeMo I 2026-01-21 17:12:02 data_preprocessing:404] Some stats of the lengths of the sequences:
-[NeMo I 2026-01-21 17:12:02 data_preprocessing:406] Min: 11 |                  Max: 70 |                  Mean: 26.9 |                  Median: 26.0
-[NeMo I 2026-01-21 17:12:02 data_preprocessing:412] 75 percentile: 33.00
-[NeMo I 2026-01-21 17:12:02 data_preprocessing:413] 99 percentile: 65.05
-[NeMo W 2026-01-21 17:12:02 token_classification_dataset:152] 0 are longer than 70
-[NeMo I 2026-01-21 17:12:02 token_classification_dataset:155] *** Example ***
-[NeMo I 2026-01-21 17:12:02 token_classification_dataset:156] i: 0
-[NeMo I 2026-01-21 17:12:02 token_classification_dataset:157] subtokens: [CLS] hamas refuses to recognize israel , and has vowed to undermine palestinian leader mahmoud abbas ' s efforts to make peace with the jewish state . [SEP]
-[NeMo I 2026-01-21 17:12:02 token_classification_dataset:158] loss_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-[NeMo I 2026-01-21 17:12:02 token_classification_dataset:159] input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-[NeMo I 2026-01-21 17:12:02 token_classification_dataset:160] subtokens_mask: 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-[NeMo I 2026-01-21 17:12:03 token_classification_model:464] Labels save to /dli/task/WORK_DIR/infer_sample_text_dev.txt
-[NeMo I 2026-01-21 17:12:03 token_classification_model:470] Predictions saved to /dli/task/WORK_DIR/infer_sample_text_dev.txt
-[NeMo I 2026-01-21 17:12:03 utils_funcs:109] Confusion matrix saved to /dli/task/WORK_DIR/Normalized_Confusion_matrix_20260121-171203
-[NeMo I 2026-01-21 17:12:03 token_classification_model:481]                        precision    recall  f1-score   support
+<pre class="language-bash" tabindex="0"><code class="language-bash"><span class="token punctuation">[</span>NeMo I <span class="token number">2026</span>-01-21 <span class="token number">17</span>:12:02 token_classification_dataset:123<span class="token punctuation">]</span> Setting Max Seq length to: <span class="token number">70</span>
+<span class="token punctuation">[</span>NeMo I <span class="token number">2026</span>-01-21 <span class="token number">17</span>:12:02 data_preprocessing:404<span class="token punctuation">]</span> Some stats of the lengths of the sequences:
+<span class="token punctuation">[</span>NeMo I <span class="token number">2026</span>-01-21 <span class="token number">17</span>:12:02 data_preprocessing:406<span class="token punctuation">]</span> Min: <span class="token number">11</span> <span class="token operator">|</span>                  Max: <span class="token number">70</span> <span class="token operator">|</span>                  Mean: <span class="token number">26.9</span> <span class="token operator">|</span>                  Median: <span class="token number">26.0</span>
+<span class="token punctuation">[</span>NeMo I <span class="token number">2026</span>-01-21 <span class="token number">17</span>:12:02 data_preprocessing:412<span class="token punctuation">]</span> <span class="token number">75</span> percentile: <span class="token number">33.00</span>
+<span class="token punctuation">[</span>NeMo I <span class="token number">2026</span>-01-21 <span class="token number">17</span>:12:02 data_preprocessing:413<span class="token punctuation">]</span> <span class="token number">99</span> percentile: <span class="token number">65.05</span>
+<span class="token punctuation">[</span>NeMo W <span class="token number">2026</span>-01-21 <span class="token number">17</span>:12:02 token_classification_dataset:152<span class="token punctuation">]</span> <span class="token number">0</span> are longer than <span class="token number">70</span>
+<span class="token punctuation">[</span>NeMo I <span class="token number">2026</span>-01-21 <span class="token number">17</span>:12:02 token_classification_dataset:155<span class="token punctuation">]</span> *** Example ***
+<span class="token punctuation">[</span>NeMo I <span class="token number">2026</span>-01-21 <span class="token number">17</span>:12:02 token_classification_dataset:156<span class="token punctuation">]</span> i: <span class="token number">0</span>
+<span class="token punctuation">[</span>NeMo I <span class="token number">2026</span>-01-21 <span class="token number">17</span>:12:02 token_classification_dataset:157<span class="token punctuation">]</span> subtokens: <span class="token punctuation">[</span>CLS<span class="token punctuation">]</span> hamas refuses to recognize israel , and has vowed to undermine palestinian leader mahmoud abbas's efforts to <span class="token function">make</span> peace with the jewish state <span class="token builtin class-name">.</span> <span class="token punctuation">[</span>SEP<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>NeMo I <span class="token number">2026</span>-01-21 <span class="token number">17</span>:12:02 token_classification_dataset:158<span class="token punctuation">]</span> loss_mask: <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span>
+<span class="token punctuation">[</span>NeMo I <span class="token number">2026</span>-01-21 <span class="token number">17</span>:12:02 token_classification_dataset:159<span class="token punctuation">]</span> input_mask: <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span>
+<span class="token punctuation">[</span>NeMo I <span class="token number">2026</span>-01-21 <span class="token number">17</span>:12:02 token_classification_dataset:160<span class="token punctuation">]</span> subtokens_mask: <span class="token number">0</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">0</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span>
+<span class="token punctuation">[</span>NeMo I <span class="token number">2026</span>-01-21 <span class="token number">17</span>:12:03 token_classification_model:464<span class="token punctuation">]</span> Labels save to /dli/task/WORK_DIR/infer_sample_text_dev.txt
+<span class="token punctuation">[</span>NeMo I <span class="token number">2026</span>-01-21 <span class="token number">17</span>:12:03 token_classification_model:470<span class="token punctuation">]</span> Predictions saved to /dli/task/WORK_DIR/infer_sample_text_dev.txt
+<span class="token punctuation">[</span>NeMo I <span class="token number">2026</span>-01-21 <span class="token number">17</span>:12:03 utils_funcs:109<span class="token punctuation">]</span> Confusion matrix saved to /dli/task/WORK_DIR/Normalized_Confusion_matrix_20260121-171203
+<span class="token punctuation">[</span>NeMo I <span class="token number">2026</span>-01-21 <span class="token number">17</span>:12:03 token_classification_model:481<span class="token punctuation">]</span>                        precision    recall  f1-score   support
     
-          O (label id: 0)     0.9878    0.9895    0.9887      1805
-      B-GPE (label id: 1)     0.9429    1.0000    0.9706        33
-      B-LOC (label id: 2)     0.9103    0.9103    0.9103        78
-     B-MISC (label id: 3)     0.6667    1.0000    0.8000         2
-      B-ORG (label id: 4)     0.8431    0.7544    0.7963        57
-      B-PER (label id: 5)     0.8095    0.8644    0.8361        59
-     B-TIME (label id: 6)     0.8936    0.9130    0.9032        46
-      I-GPE (label id: 7)     1.0000    1.0000    1.0000         4
-      I-LOC (label id: 8)     0.8000    0.8889    0.8421         9
-     I-ORG (label id: 10)     0.8421    0.6809    0.7529        47
-     I-PER (label id: 11)     0.8305    0.8750    0.8522        56
-    I-TIME (label id: 12)     0.8462    0.8462    0.8462        13
+          O <span class="token punctuation">(</span>label id: <span class="token number">0</span><span class="token punctuation">)</span>     <span class="token number">0.9878</span>    <span class="token number">0.9895</span>    <span class="token number">0.9887</span>      <span class="token number">1805</span>
+      B-GPE <span class="token punctuation">(</span>label id: <span class="token number">1</span><span class="token punctuation">)</span>     <span class="token number">0.9429</span>    <span class="token number">1.0000</span>    <span class="token number">0.9706</span>        <span class="token number">33</span>
+      B-LOC <span class="token punctuation">(</span>label id: <span class="token number">2</span><span class="token punctuation">)</span>     <span class="token number">0.9103</span>    <span class="token number">0.9103</span>    <span class="token number">0.9103</span>        <span class="token number">78</span>
+     B-MISC <span class="token punctuation">(</span>label id: <span class="token number">3</span><span class="token punctuation">)</span>     <span class="token number">0.6667</span>    <span class="token number">1.0000</span>    <span class="token number">0.8000</span>         <span class="token number">2</span>
+      B-ORG <span class="token punctuation">(</span>label id: <span class="token number">4</span><span class="token punctuation">)</span>     <span class="token number">0.8431</span>    <span class="token number">0.7544</span>    <span class="token number">0.7963</span>        <span class="token number">57</span>
+      B-PER <span class="token punctuation">(</span>label id: <span class="token number">5</span><span class="token punctuation">)</span>     <span class="token number">0.8095</span>    <span class="token number">0.8644</span>    <span class="token number">0.8361</span>        <span class="token number">59</span>
+     B-TIME <span class="token punctuation">(</span>label id: <span class="token number">6</span><span class="token punctuation">)</span>     <span class="token number">0.8936</span>    <span class="token number">0.9130</span>    <span class="token number">0.9032</span>        <span class="token number">46</span>
+      I-GPE <span class="token punctuation">(</span>label id: <span class="token number">7</span><span class="token punctuation">)</span>     <span class="token number">1.0000</span>    <span class="token number">1.0000</span>    <span class="token number">1.0000</span>         <span class="token number">4</span>
+      I-LOC <span class="token punctuation">(</span>label id: <span class="token number">8</span><span class="token punctuation">)</span>     <span class="token number">0.8000</span>    <span class="token number">0.8889</span>    <span class="token number">0.8421</span>         <span class="token number">9</span>
+     I-ORG <span class="token punctuation">(</span>label id: <span class="token number">10</span><span class="token punctuation">)</span>     <span class="token number">0.8421</span>    <span class="token number">0.6809</span>    <span class="token number">0.7529</span>        <span class="token number">47</span>
+     I-PER <span class="token punctuation">(</span>label id: <span class="token number">11</span><span class="token punctuation">)</span>     <span class="token number">0.8305</span>    <span class="token number">0.8750</span>    <span class="token number">0.8522</span>        <span class="token number">56</span>
+    I-TIME <span class="token punctuation">(</span>label id: <span class="token number">12</span><span class="token punctuation">)</span>     <span class="token number">0.8462</span>    <span class="token number">0.8462</span>    <span class="token number">0.8462</span>        <span class="token number">13</span>
     
-                 accuracy                         0.9651      2209
-                macro avg     0.8644    0.8935    0.8749      2209
-             weighted avg     0.9650    0.9651    0.9647      2209
-</code></pre>
+                 accuracy                         <span class="token number">0.9651</span>      <span class="token number">2209</span>
+                macro avg     <span class="token number">0.8644</span>    <span class="token number">0.8935</span>    <span class="token number">0.8749</span>      <span class="token number">2209</span>
+             weighted avg     <span class="token number">0.9650</span>    <span class="token number">0.9651</span>    <span class="token number">0.9647</span>      <span class="token number">2209</span></code></pre>
 <h2 id="fine-tune-a-pre-trained-model">Fine-tune a Pre-trained model</h2>
 <ul>
 <li>Without specifying any config file, Nemo will use the default configurations for the model and trainer.</li>
 <li>When fine-tuning a pre-trained NER model, we need to setup training and evaluation data before training.</li>
 </ul>
-<pre><code>import pytorch_lightning as pl
+<pre class="language-py" tabindex="0"><code class="language-py"><span class="token keyword">import</span> pytorch_lightning <span class="token keyword">as</span> pl
 
-# setup the data dir to get class weights statistics
-pretrained_ner_model.update_data_dir(DATA_DIR)
+<span class="token comment"># setup the data dir to get class weights statistics</span>
+pretrained_ner_model<span class="token punctuation">.</span>update_data_dir<span class="token punctuation">(</span>DATA_DIR<span class="token punctuation">)</span>
 
-# setup train and validation Pytorch DataLoaders
-pretrained_ner_model.setup_training_data()
-pretrained_ner_model.setup_validation_data()
-</code></pre>
+<span class="token comment"># setup train and validation Pytorch DataLoaders</span>
+pretrained_ner_model<span class="token punctuation">.</span>setup_training_data<span class="token punctuation">(</span><span class="token punctuation">)</span>
+pretrained_ner_model<span class="token punctuation">.</span>setup_validation_data<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
 <h4 id="output-7">output</h4>
-<pre><code>[NeMo I 2026-01-21 17:18:54 token_classification_model:84] Setting model.dataset.data_dir to data/GMB.
-[NeMo I 2026-01-21 17:18:54 token_classification_utils:118] Processing data/GMB/labels_train.txt
-[NeMo I 2026-01-21 17:18:54 token_classification_utils:138] Using provided labels mapping {'O': 0, 'B-GPE': 1, 'B-LOC': 2, 'B-MISC': 3, 'B-ORG': 4, 'B-PER': 5, 'B-TIME': 6, 'I-GPE': 7, 'I-LOC': 8, 'I-MISC': 9, 'I-ORG': 10, 'I-PER': 11, 'I-TIME': 12}
-[NeMo I 2026-01-21 17:18:54 token_classification_utils:154] Labels mapping {'O': 0, 'B-GPE': 1, 'B-LOC': 2, 'B-MISC': 3, 'B-ORG': 4, 'B-PER': 5, 'B-TIME': 6, 'I-GPE': 7, 'I-LOC': 8, 'I-MISC': 9, 'I-ORG': 10, 'I-PER': 11, 'I-TIME': 12} saved to : /dli/task/data/GMB/label_ids.csv
-[NeMo I 2026-01-21 17:19:09 token_classification_utils:163] Three most popular labels in data/GMB/labels_train.txt:
-[NeMo I 2026-01-21 17:19:09 data_preprocessing:194] label: 0, 1014899 out of 1199472 (84.61%).
-[NeMo I 2026-01-21 17:19:09 data_preprocessing:194] label: 2, 43529 out of 1199472 (3.63%).
-[NeMo I 2026-01-21 17:19:09 data_preprocessing:194] label: 6, 23321 out of 1199472 (1.94%).
-[NeMo I 2026-01-21 17:19:09 token_classification_utils:165] Total labels: 1199472. Label frequencies - {0: 1014899, 2: 43529, 6: 23321, 4: 23215, 11: 19583, 10: 19515, 5: 19407, 1: 18074, 8: 8482, 12: 7555, 3: 1002, 9: 669, 7: 221}
-[NeMo I 2026-01-21 17:19:09 token_classification_utils:171] Class weights restored from data/GMB/labels_train_weights.p
-[NeMo W 2026-01-21 17:19:09 modelPT:244] You tried to register an artifact under config key=class_labels.class_labels_file but an artifact for it has already been registered.
-[NeMo I 2026-01-21 17:19:12 token_classification_dataset:287] features restored from data/GMB/cached__text_train.txt__labels_train.txt__BertTokenizer_128_30522_-1
-[NeMo I 2026-01-21 17:19:12 token_classification_utils:118] Processing data/GMB/labels_dev.txt
-[NeMo I 2026-01-21 17:19:12 token_classification_utils:138] Using provided labels mapping {'O': 0, 'B-GPE': 1, 'B-LOC': 2, 'B-MISC': 3, 'B-ORG': 4, 'B-PER': 5, 'B-TIME': 6, 'I-GPE': 7, 'I-LOC': 8, 'I-MISC': 9, 'I-ORG': 10, 'I-PER': 11, 'I-TIME': 12}
-[NeMo I 2026-01-21 17:19:12 token_classification_utils:160] data/GMB/labels_dev_label_stats.tsv found, skipping stats calculation.
-[NeMo I 2026-01-21 17:19:12 token_classification_dataset:287] features restored from data/GMB/cached__text_dev.txt__labels_dev.txt__BertTokenizer_128_30522_-1
-</code></pre>
-<pre><code># set up loss
-pretrained_ner_model.setup_loss()
-</code></pre>
+<pre class="language-bash" tabindex="0"><code class="language-bash"><span class="token punctuation">[</span>NeMo I <span class="token number">2026</span>-01-21 <span class="token number">17</span>:18:54 token_classification_model:84<span class="token punctuation">]</span> Setting model.dataset.data_dir to data/GMB.
+<span class="token punctuation">[</span>NeMo I <span class="token number">2026</span>-01-21 <span class="token number">17</span>:18:54 token_classification_utils:118<span class="token punctuation">]</span> Processing data/GMB/labels_train.txt
+<span class="token punctuation">[</span>NeMo I <span class="token number">2026</span>-01-21 <span class="token number">17</span>:18:54 token_classification_utils:138<span class="token punctuation">]</span> Using provided labels mapping <span class="token punctuation">{</span><span class="token string">'O'</span><span class="token builtin class-name">:</span> <span class="token number">0</span>, <span class="token string">'B-GPE'</span><span class="token builtin class-name">:</span> <span class="token number">1</span>, <span class="token string">'B-LOC'</span><span class="token builtin class-name">:</span> <span class="token number">2</span>, <span class="token string">'B-MISC'</span><span class="token builtin class-name">:</span> <span class="token number">3</span>, <span class="token string">'B-ORG'</span><span class="token builtin class-name">:</span> <span class="token number">4</span>, <span class="token string">'B-PER'</span><span class="token builtin class-name">:</span> <span class="token number">5</span>, <span class="token string">'B-TIME'</span><span class="token builtin class-name">:</span> <span class="token number">6</span>, <span class="token string">'I-GPE'</span><span class="token builtin class-name">:</span> <span class="token number">7</span>, <span class="token string">'I-LOC'</span><span class="token builtin class-name">:</span> <span class="token number">8</span>, <span class="token string">'I-MISC'</span><span class="token builtin class-name">:</span> <span class="token number">9</span>, <span class="token string">'I-ORG'</span><span class="token builtin class-name">:</span> <span class="token number">10</span>, <span class="token string">'I-PER'</span><span class="token builtin class-name">:</span> <span class="token number">11</span>, <span class="token string">'I-TIME'</span><span class="token builtin class-name">:</span> <span class="token number">12</span><span class="token punctuation">}</span>
+<span class="token punctuation">[</span>NeMo I <span class="token number">2026</span>-01-21 <span class="token number">17</span>:18:54 token_classification_utils:154<span class="token punctuation">]</span> Labels mapping <span class="token punctuation">{</span><span class="token string">'O'</span><span class="token builtin class-name">:</span> <span class="token number">0</span>, <span class="token string">'B-GPE'</span><span class="token builtin class-name">:</span> <span class="token number">1</span>, <span class="token string">'B-LOC'</span><span class="token builtin class-name">:</span> <span class="token number">2</span>, <span class="token string">'B-MISC'</span><span class="token builtin class-name">:</span> <span class="token number">3</span>, <span class="token string">'B-ORG'</span><span class="token builtin class-name">:</span> <span class="token number">4</span>, <span class="token string">'B-PER'</span><span class="token builtin class-name">:</span> <span class="token number">5</span>, <span class="token string">'B-TIME'</span><span class="token builtin class-name">:</span> <span class="token number">6</span>, <span class="token string">'I-GPE'</span><span class="token builtin class-name">:</span> <span class="token number">7</span>, <span class="token string">'I-LOC'</span><span class="token builtin class-name">:</span> <span class="token number">8</span>, <span class="token string">'I-MISC'</span><span class="token builtin class-name">:</span> <span class="token number">9</span>, <span class="token string">'I-ORG'</span><span class="token builtin class-name">:</span> <span class="token number">10</span>, <span class="token string">'I-PER'</span><span class="token builtin class-name">:</span> <span class="token number">11</span>, <span class="token string">'I-TIME'</span><span class="token builtin class-name">:</span> <span class="token number">12</span><span class="token punctuation">}</span> saved to <span class="token builtin class-name">:</span> /dli/task/data/GMB/label_ids.csv
+<span class="token punctuation">[</span>NeMo I <span class="token number">2026</span>-01-21 <span class="token number">17</span>:19:09 token_classification_utils:163<span class="token punctuation">]</span> Three <span class="token function">most</span> popular labels <span class="token keyword">in</span> data/GMB/labels_train.txt:
+<span class="token punctuation">[</span>NeMo I <span class="token number">2026</span>-01-21 <span class="token number">17</span>:19:09 data_preprocessing:194<span class="token punctuation">]</span> label: <span class="token number">0</span>, <span class="token number">1014899</span> out of <span class="token number">1199472</span> <span class="token punctuation">(</span><span class="token number">84.61</span>%<span class="token punctuation">)</span>.
+<span class="token punctuation">[</span>NeMo I <span class="token number">2026</span>-01-21 <span class="token number">17</span>:19:09 data_preprocessing:194<span class="token punctuation">]</span> label: <span class="token number">2</span>, <span class="token number">43529</span> out of <span class="token number">1199472</span> <span class="token punctuation">(</span><span class="token number">3.63</span>%<span class="token punctuation">)</span>.
+<span class="token punctuation">[</span>NeMo I <span class="token number">2026</span>-01-21 <span class="token number">17</span>:19:09 data_preprocessing:194<span class="token punctuation">]</span> label: <span class="token number">6</span>, <span class="token number">23321</span> out of <span class="token number">1199472</span> <span class="token punctuation">(</span><span class="token number">1.94</span>%<span class="token punctuation">)</span>.
+<span class="token punctuation">[</span>NeMo I <span class="token number">2026</span>-01-21 <span class="token number">17</span>:19:09 token_classification_utils:165<span class="token punctuation">]</span> Total labels: <span class="token number">1199472</span>. Label frequencies - <span class="token punctuation">{</span><span class="token number">0</span>: <span class="token number">1014899</span>, <span class="token number">2</span>: <span class="token number">43529</span>, <span class="token number">6</span>: <span class="token number">23321</span>, <span class="token number">4</span>: <span class="token number">23215</span>, <span class="token number">11</span>: <span class="token number">19583</span>, <span class="token number">10</span>: <span class="token number">19515</span>, <span class="token number">5</span>: <span class="token number">19407</span>, <span class="token number">1</span>: <span class="token number">18074</span>, <span class="token number">8</span>: <span class="token number">8482</span>, <span class="token number">12</span>: <span class="token number">7555</span>, <span class="token number">3</span>: <span class="token number">1002</span>, <span class="token number">9</span>: <span class="token number">669</span>, <span class="token number">7</span>: <span class="token number">221</span><span class="token punctuation">}</span>
+<span class="token punctuation">[</span>NeMo I <span class="token number">2026</span>-01-21 <span class="token number">17</span>:19:09 token_classification_utils:171<span class="token punctuation">]</span> Class weights restored from data/GMB/labels_train_weights.p
+<span class="token punctuation">[</span>NeMo W <span class="token number">2026</span>-01-21 <span class="token number">17</span>:19:09 modelPT:244<span class="token punctuation">]</span> You tried to register an artifact under config <span class="token assign-left variable">key</span><span class="token operator">=</span>class_labels.class_labels_file but an artifact <span class="token keyword">for</span> it has already been registered.
+<span class="token punctuation">[</span>NeMo I <span class="token number">2026</span>-01-21 <span class="token number">17</span>:19:12 token_classification_dataset:287<span class="token punctuation">]</span> features restored from data/GMB/cached__text_train.txt__labels_train.txt__BertTokenizer_128_30522_-1
+<span class="token punctuation">[</span>NeMo I <span class="token number">2026</span>-01-21 <span class="token number">17</span>:19:12 token_classification_utils:118<span class="token punctuation">]</span> Processing data/GMB/labels_dev.txt
+<span class="token punctuation">[</span>NeMo I <span class="token number">2026</span>-01-21 <span class="token number">17</span>:19:12 token_classification_utils:138<span class="token punctuation">]</span> Using provided labels mapping <span class="token punctuation">{</span><span class="token string">'O'</span><span class="token builtin class-name">:</span> <span class="token number">0</span>, <span class="token string">'B-GPE'</span><span class="token builtin class-name">:</span> <span class="token number">1</span>, <span class="token string">'B-LOC'</span><span class="token builtin class-name">:</span> <span class="token number">2</span>, <span class="token string">'B-MISC'</span><span class="token builtin class-name">:</span> <span class="token number">3</span>, <span class="token string">'B-ORG'</span><span class="token builtin class-name">:</span> <span class="token number">4</span>, <span class="token string">'B-PER'</span><span class="token builtin class-name">:</span> <span class="token number">5</span>, <span class="token string">'B-TIME'</span><span class="token builtin class-name">:</span> <span class="token number">6</span>, <span class="token string">'I-GPE'</span><span class="token builtin class-name">:</span> <span class="token number">7</span>, <span class="token string">'I-LOC'</span><span class="token builtin class-name">:</span> <span class="token number">8</span>, <span class="token string">'I-MISC'</span><span class="token builtin class-name">:</span> <span class="token number">9</span>, <span class="token string">'I-ORG'</span><span class="token builtin class-name">:</span> <span class="token number">10</span>, <span class="token string">'I-PER'</span><span class="token builtin class-name">:</span> <span class="token number">11</span>, <span class="token string">'I-TIME'</span><span class="token builtin class-name">:</span> <span class="token number">12</span><span class="token punctuation">}</span>
+<span class="token punctuation">[</span>NeMo I <span class="token number">2026</span>-01-21 <span class="token number">17</span>:19:12 token_classification_utils:160<span class="token punctuation">]</span> data/GMB/labels_dev_label_stats.tsv found, skipping stats calculation.
+<span class="token punctuation">[</span>NeMo I <span class="token number">2026</span>-01-21 <span class="token number">17</span>:19:12 token_classification_dataset:287<span class="token punctuation">]</span> features restored from data/GMB/cached__text_dev.txt__labels_dev.txt__BertTokenizer_128_30522_-1</code></pre>
+<pre class="language-py" tabindex="0"><code class="language-py"><span class="token comment"># set up loss</span>
+pretrained_ner_model<span class="token punctuation">.</span>setup_loss<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
 <h4 id="output-8">output</h4>
-<pre><code>CrossEntropyLoss()
-</code></pre>
-<pre><code># create a PyTorch Lightning trainer and call `fit` again
-fast_dev_run=True
-trainer=pl.Trainer(devices=1, accelerator='gpu', fast_dev_run=fast_dev_run)
-trainer.fit(pretrained_ner_model)
-</code></pre>
+<pre class="language-bash" tabindex="0"><code class="language-bash">CrossEntropyLoss<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+<pre class="language-py" tabindex="0"><code class="language-py"><span class="token comment"># create a PyTorch Lightning trainer and call `fit` again</span>
+fast_dev_run<span class="token operator">=</span><span class="token boolean">True</span>
+trainer<span class="token operator">=</span>pl<span class="token punctuation">.</span>Trainer<span class="token punctuation">(</span>devices<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> accelerator<span class="token operator">=</span><span class="token string">'gpu'</span><span class="token punctuation">,</span> fast_dev_run<span class="token operator">=</span>fast_dev_run<span class="token punctuation">)</span>
+trainer<span class="token punctuation">.</span>fit<span class="token punctuation">(</span>pretrained_ner_model<span class="token punctuation">)</span></code></pre>
 <h4 id="output-9">output</h4>
-<pre><code>GPU available: True (cuda), used: True
-TPU available: False, using: 0 TPU cores
-IPU available: False, using: 0 IPUs
-HPU available: False, using: 0 HPUs
-Running in `fast_dev_run` mode: will run the requested loop using 1 batch(es). Logging and checkpointing is suppressed.
-LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
-[NeMo I 2026-01-21 17:18:51 modelPT:721] Optimizer config = Adam (
-    Parameter Group 0
+<pre class="language-bash" tabindex="0"><code class="language-bash">GPU available: True <span class="token punctuation">(</span>cuda<span class="token punctuation">)</span>, used: True
+TPU available: False, using: <span class="token number">0</span> TPU cores
+IPU available: False, using: <span class="token number">0</span> IPUs
+HPU available: False, using: <span class="token number">0</span> HPUs
+Running <span class="token keyword">in</span> <span class="token variable"><span class="token variable">`</span>fast_dev_run<span class="token variable">`</span></span> mode: will run the requested loop using <span class="token number">1</span> batch<span class="token punctuation">(</span>es<span class="token punctuation">)</span>. Logging and checkpointing is suppressed.
+LOCAL_RANK: <span class="token number">0</span> - CUDA_VISIBLE_DEVICES: <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+<span class="token punctuation">[</span>NeMo I <span class="token number">2026</span>-01-21 <span class="token number">17</span>:18:51 modelPT:721<span class="token punctuation">]</span> Optimizer config <span class="token operator">=</span> Adam <span class="token punctuation">(</span>
+    Parameter Group <span class="token number">0</span>
         amsgrad: False
-        betas: (0.9, 0.999)
+        betas: <span class="token punctuation">(</span><span class="token number">0.9</span>, <span class="token number">0.999</span><span class="token punctuation">)</span>
         capturable: False
         differentiable: False
         eps: 1e-08
@@ -785,113 +841,109 @@ LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
         fused: None
         lr: 5e-05
         maximize: False
-        weight_decay: 0.0
-    )
-[NeMo I 2026-01-21 17:18:51 lr_scheduler:910] Scheduler &quot;&lt;nemo.core.optim.lr_scheduler.WarmupAnnealing object at 0x7fba462776d0&gt;&quot; 
-    will be used during training (effective maximum steps = 1) - 
-    Parameters : 
-    (warmup_steps: null
-    warmup_ratio: 0.1
-    last_epoch: -1
-    max_steps: 1
-    )
+        weight_decay: <span class="token number">0.0</span>
+    <span class="token punctuation">)</span>
+<span class="token punctuation">[</span>NeMo I <span class="token number">2026</span>-01-21 <span class="token number">17</span>:18:51 lr_scheduler:910<span class="token punctuation">]</span> Scheduler <span class="token string">"&lt;nemo.core.optim.lr_scheduler.WarmupAnnealing object at 0x7fba462776d0>"</span> 
+    will be used during training <span class="token punctuation">(</span>effective maximum steps <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">)</span> - 
+    Parameters <span class="token builtin class-name">:</span> 
+    <span class="token punctuation">(</span>warmup_steps: null
+    warmup_ratio: <span class="token number">0.1</span>
+    last_epoch: <span class="token parameter variable">-1</span>
+    max_steps: <span class="token number">1</span>
+    <span class="token punctuation">)</span>
 
-  | Name                  | Type                 | Params
+  <span class="token operator">|</span> Name                  <span class="token operator">|</span> Type                 <span class="token operator">|</span> Params
 ---------------------------------------------------------------
-0 | bert_model            | BertEncoder          | 109 M 
-1 | classifier            | TokenClassifier      | 600 K 
-2 | loss                  | CrossEntropyLoss     | 0     
-3 | classification_report | ClassificationReport | 0     
+<span class="token number">0</span> <span class="token operator">|</span> bert_model            <span class="token operator">|</span> BertEncoder          <span class="token operator">|</span> <span class="token number">109</span> M 
+<span class="token number">1</span> <span class="token operator">|</span> classifier            <span class="token operator">|</span> TokenClassifier      <span class="token operator">|</span> <span class="token number">600</span> K 
+<span class="token number">2</span> <span class="token operator">|</span> loss                  <span class="token operator">|</span> CrossEntropyLoss     <span class="token operator">|</span> <span class="token number">0</span>     
+<span class="token number">3</span> <span class="token operator">|</span> classification_report <span class="token operator">|</span> ClassificationReport <span class="token operator">|</span> <span class="token number">0</span>     
 ---------------------------------------------------------------
-110 M     Trainable params
-0         Non-trainable params
-110 M     Total params
-440.331   Total estimated model params size (MB)
-[NeMo W 2026-01-21 17:18:51 nemo_logging:349] /usr/local/lib/python3.10/dist-packages/pytorch_lightning/trainer/connectors/data_connector.py:224: PossibleUserWarning: The dataloader, train_dataloader, does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` (try 16 which is the number of cpus on this machine) in the `DataLoader` init to improve performance.
-      rank_zero_warn(
+<span class="token number">110</span> M     Trainable params
+<span class="token number">0</span>         Non-trainable params
+<span class="token number">110</span> M     Total params
+<span class="token number">440.331</span>   Total estimated model params size <span class="token punctuation">(</span>MB<span class="token punctuation">)</span>
+<span class="token punctuation">[</span>NeMo W <span class="token number">2026</span>-01-21 <span class="token number">17</span>:18:51 nemo_logging:349<span class="token punctuation">]</span> /usr/local/lib/python3.10/dist-packages/pytorch_lightning/trainer/connectors/data_connector.py:224: PossibleUserWarning: The dataloader, train_dataloader, does not have many workers <span class="token function">which</span> may be a bottleneck. Consider increasing the value of the <span class="token variable"><span class="token variable">`</span>num_workers<span class="token variable">`</span></span> argument<span class="token variable"><span class="token variable">`</span> <span class="token punctuation">(</span>try <span class="token number">16</span> <span class="token function">which</span> is the number of cpus on this machine<span class="token punctuation">)</span> <span class="token keyword">in</span> the <span class="token variable">`</span></span>DataLoader<span class="token variable"><span class="token variable">`</span> init to improve performance.
+      rank_zero_warn<span class="token punctuation">(</span>
     
-[NeMo W 2026-01-21 17:18:51 nemo_logging:349] /usr/local/lib/python3.10/dist-packages/pytorch_lightning/trainer/trainer.py:1609: PossibleUserWarning: The number of training batches (1) is smaller than the logging interval Trainer(log_every_n_steps=50). Set a lower value for log_every_n_steps if you want to see logs for the training epoch.
-      rank_zero_warn(
+<span class="token punctuation">[</span>NeMo W <span class="token number">2026</span>-01-21 <span class="token number">17</span>:18:51 nemo_logging:349<span class="token punctuation">]</span> /usr/local/lib/python3.10/dist-packages/pytorch_lightning/trainer/trainer.py:1609: PossibleUserWarning: The number of training batches <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> is smaller than the logging interval Trainer<span class="token punctuation">(</span>log_every_n_steps<span class="token operator">=</span><span class="token number">50</span><span class="token punctuation">)</span>. Set a lower value <span class="token keyword">for</span> log_every_n_steps <span class="token keyword">if</span> you want to see logs <span class="token keyword">for</span> the training epoch.
+      rank_zero_warn<span class="token punctuation">(</span>
     
-[NeMo W 2026-01-21 17:18:51 nemo_logging:349] /usr/local/lib/python3.10/dist-packages/pytorch_lightning/trainer/connectors/data_connector.py:224: PossibleUserWarning: The dataloader, val_dataloader 0, does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` (try 16 which is the number of cpus on this machine) in the `DataLoader` init to improve performance.
-      rank_zero_warn(
+<span class="token punctuation">[</span>NeMo W <span class="token number">2026</span>-01-21 <span class="token number">17</span>:18:51 nemo_logging:349<span class="token punctuation">]</span> /usr/local/lib/python3.10/dist-packages/pytorch_lightning/trainer/connectors/data_connector.py:224: PossibleUserWarning: The dataloader, val_dataloader <span class="token number">0</span>, does not have many workers <span class="token function">which</span> may be a bottleneck. Consider increasing the value of the <span class="token variable">`</span></span>num_workers<span class="token variable"><span class="token variable">`</span> argument<span class="token variable">`</span></span> <span class="token punctuation">(</span>try <span class="token number">16</span> <span class="token function">which</span> is the number of cpus on this machine<span class="token punctuation">)</span> <span class="token keyword">in</span> the <span class="token variable"><span class="token variable">`</span>DataLoader<span class="token variable">`</span></span> init to improve performance.
+      rank_zero_warn<span class="token punctuation">(</span>
     
-Training: 0it [00:00, ?it/s]
-Validation: 0it [00:00, ?it/s]
-[NeMo I 2026-01-21 17:18:51 token_classification_model:159] 
+Training: 0it <span class="token punctuation">[</span>00:00, ?it/s<span class="token punctuation">]</span>
+Validation: 0it <span class="token punctuation">[</span>00:00, ?it/s<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>NeMo I <span class="token number">2026</span>-01-21 <span class="token number">17</span>:18:51 token_classification_model:159<span class="token punctuation">]</span> 
     label                                                precision    recall       f1           support   
-    O (label_id: 0)                                         98.89      99.48      99.18       1161
-    B-GPE (label_id: 1)                                     90.91     100.00      95.24         20
-    B-LOC (label_id: 2)                                     82.69      97.73      89.58         44
-    B-MISC (label_id: 3)                                   100.00     100.00     100.00          2
-    B-ORG (label_id: 4)                                     85.29      65.91      74.36         44
-    B-PER (label_id: 5)                                     85.11      88.89      86.96         45
-    B-TIME (label_id: 6)                                    95.83     100.00      97.87         23
-    I-GPE (label_id: 7)                                    100.00     100.00     100.00          4
-    I-LOC (label_id: 8)                                     66.67      80.00      72.73          5
-    I-MISC (label_id: 9)                                     0.00       0.00       0.00          0
-    I-ORG (label_id: 10)                                    86.36      63.33      73.08         30
-    I-PER (label_id: 11)                                    92.11      85.37      88.61         41
-    I-TIME (label_id: 12)                                  100.00     100.00     100.00          7
+    O <span class="token punctuation">(</span>label_id: <span class="token number">0</span><span class="token punctuation">)</span>                                         <span class="token number">98.89</span>      <span class="token number">99.48</span>      <span class="token number">99.18</span>       <span class="token number">1161</span>
+    B-GPE <span class="token punctuation">(</span>label_id: <span class="token number">1</span><span class="token punctuation">)</span>                                     <span class="token number">90.91</span>     <span class="token number">100.00</span>      <span class="token number">95.24</span>         <span class="token number">20</span>
+    B-LOC <span class="token punctuation">(</span>label_id: <span class="token number">2</span><span class="token punctuation">)</span>                                     <span class="token number">82.69</span>      <span class="token number">97.73</span>      <span class="token number">89.58</span>         <span class="token number">44</span>
+    B-MISC <span class="token punctuation">(</span>label_id: <span class="token number">3</span><span class="token punctuation">)</span>                                   <span class="token number">100.00</span>     <span class="token number">100.00</span>     <span class="token number">100.00</span>          <span class="token number">2</span>
+    B-ORG <span class="token punctuation">(</span>label_id: <span class="token number">4</span><span class="token punctuation">)</span>                                     <span class="token number">85.29</span>      <span class="token number">65.91</span>      <span class="token number">74.36</span>         <span class="token number">44</span>
+    B-PER <span class="token punctuation">(</span>label_id: <span class="token number">5</span><span class="token punctuation">)</span>                                     <span class="token number">85.11</span>      <span class="token number">88.89</span>      <span class="token number">86.96</span>         <span class="token number">45</span>
+    B-TIME <span class="token punctuation">(</span>label_id: <span class="token number">6</span><span class="token punctuation">)</span>                                    <span class="token number">95.83</span>     <span class="token number">100.00</span>      <span class="token number">97.87</span>         <span class="token number">23</span>
+    I-GPE <span class="token punctuation">(</span>label_id: <span class="token number">7</span><span class="token punctuation">)</span>                                    <span class="token number">100.00</span>     <span class="token number">100.00</span>     <span class="token number">100.00</span>          <span class="token number">4</span>
+    I-LOC <span class="token punctuation">(</span>label_id: <span class="token number">8</span><span class="token punctuation">)</span>                                     <span class="token number">66.67</span>      <span class="token number">80.00</span>      <span class="token number">72.73</span>          <span class="token number">5</span>
+    I-MISC <span class="token punctuation">(</span>label_id: <span class="token number">9</span><span class="token punctuation">)</span>                                     <span class="token number">0.00</span>       <span class="token number">0.00</span>       <span class="token number">0.00</span>          <span class="token number">0</span>
+    I-ORG <span class="token punctuation">(</span>label_id: <span class="token number">10</span><span class="token punctuation">)</span>                                    <span class="token number">86.36</span>      <span class="token number">63.33</span>      <span class="token number">73.08</span>         <span class="token number">30</span>
+    I-PER <span class="token punctuation">(</span>label_id: <span class="token number">11</span><span class="token punctuation">)</span>                                    <span class="token number">92.11</span>      <span class="token number">85.37</span>      <span class="token number">88.61</span>         <span class="token number">41</span>
+    I-TIME <span class="token punctuation">(</span>label_id: <span class="token number">12</span><span class="token punctuation">)</span>                                  <span class="token number">100.00</span>     <span class="token number">100.00</span>     <span class="token number">100.00</span>          <span class="token number">7</span>
     -------------------
-    micro avg                                               96.84      96.84      96.84       1426
-    macro avg                                               90.32      90.06      89.80       1426
-    weighted avg                                            96.81      96.84      96.72       1426
+    micro avg                                               <span class="token number">96.84</span>      <span class="token number">96.84</span>      <span class="token number">96.84</span>       <span class="token number">1426</span>
+    macro avg                                               <span class="token number">90.32</span>      <span class="token number">90.06</span>      <span class="token number">89.80</span>       <span class="token number">1426</span>
+    weighted avg                                            <span class="token number">96.81</span>      <span class="token number">96.84</span>      <span class="token number">96.72</span>       <span class="token number">1426</span>
     
-`Trainer.fit` stopped: `max_steps=1` reached.
-</code></pre>
-<pre><code># evaluate model performance on sample
-pretrained_ner_model.evaluate_from_file(
-    text_file=os.path.join(DATA_DIR, 'sample_text_dev.txt'),
-    labels_file=os.path.join(DATA_DIR, 'sample_labels_dev.txt'),
-    output_dir=WORK_DIR,
-    add_confusion_matrix=True,
-    normalize_confusion_matrix=True,
-    batch_size=1
-)
-</code></pre>
+<span class="token variable"><span class="token variable">`</span>Trainer.fit<span class="token variable">`</span></span> stopped: <span class="token variable"><span class="token variable">`</span><span class="token assign-left variable">max_steps</span><span class="token operator">=</span><span class="token number">1</span><span class="token variable">`</span></span> reached.</code></pre>
+<pre class="language-py" tabindex="0"><code class="language-py"><span class="token comment"># evaluate model performance on sample</span>
+pretrained_ner_model<span class="token punctuation">.</span>evaluate_from_file<span class="token punctuation">(</span>
+    text_file<span class="token operator">=</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>DATA_DIR<span class="token punctuation">,</span> <span class="token string">'sample_text_dev.txt'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    labels_file<span class="token operator">=</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>DATA_DIR<span class="token punctuation">,</span> <span class="token string">'sample_labels_dev.txt'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    output_dir<span class="token operator">=</span>WORK_DIR<span class="token punctuation">,</span>
+    add_confusion_matrix<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>
+    normalize_confusion_matrix<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>
+    batch_size<span class="token operator">=</span><span class="token number">1</span>
+<span class="token punctuation">)</span></code></pre>
 <h4 id="output-10">output</h4>
-<pre><code>[NeMo I 2026-01-21 17:18:52 token_classification_dataset:123] Setting Max Seq length to: 70
-[NeMo I 2026-01-21 17:18:52 data_preprocessing:404] Some stats of the lengths of the sequences:
-[NeMo I 2026-01-21 17:18:52 data_preprocessing:406] Min: 11 |                  Max: 70 |                  Mean: 26.9 |                  Median: 26.0
-[NeMo I 2026-01-21 17:18:52 data_preprocessing:412] 75 percentile: 33.00
-[NeMo I 2026-01-21 17:18:52 data_preprocessing:413] 99 percentile: 65.05
-[NeMo W 2026-01-21 17:18:52 token_classification_dataset:152] 0 are longer than 70
-[NeMo I 2026-01-21 17:18:52 token_classification_dataset:155] *** Example ***
-[NeMo I 2026-01-21 17:18:52 token_classification_dataset:156] i: 0
-[NeMo I 2026-01-21 17:18:52 token_classification_dataset:157] subtokens: [CLS] hamas refuses to recognize israel , and has vowed to undermine palestinian leader mahmoud abbas ' s efforts to make peace with the jewish state . [SEP]
-[NeMo I 2026-01-21 17:18:52 token_classification_dataset:158] loss_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-[NeMo I 2026-01-21 17:18:52 token_classification_dataset:159] input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-[NeMo I 2026-01-21 17:18:52 token_classification_dataset:160] subtokens_mask: 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-[NeMo I 2026-01-21 17:18:53 token_classification_model:464] Labels save to /dli/task/WORK_DIR/infer_sample_text_dev.txt
-[NeMo I 2026-01-21 17:18:53 token_classification_model:470] Predictions saved to /dli/task/WORK_DIR/infer_sample_text_dev.txt
-[NeMo I 2026-01-21 17:18:53 utils_funcs:109] Confusion matrix saved to /dli/task/WORK_DIR/Normalized_Confusion_matrix_20260121-171853
-[NeMo I 2026-01-21 17:18:53 token_classification_model:481]                        precision    recall  f1-score   support
+<pre class="language-bash" tabindex="0"><code class="language-bash"><span class="token punctuation">[</span>NeMo I <span class="token number">2026</span>-01-21 <span class="token number">17</span>:18:52 token_classification_dataset:123<span class="token punctuation">]</span> Setting Max Seq length to: <span class="token number">70</span>
+<span class="token punctuation">[</span>NeMo I <span class="token number">2026</span>-01-21 <span class="token number">17</span>:18:52 data_preprocessing:404<span class="token punctuation">]</span> Some stats of the lengths of the sequences:
+<span class="token punctuation">[</span>NeMo I <span class="token number">2026</span>-01-21 <span class="token number">17</span>:18:52 data_preprocessing:406<span class="token punctuation">]</span> Min: <span class="token number">11</span> <span class="token operator">|</span>                  Max: <span class="token number">70</span> <span class="token operator">|</span>                  Mean: <span class="token number">26.9</span> <span class="token operator">|</span>                  Median: <span class="token number">26.0</span>
+<span class="token punctuation">[</span>NeMo I <span class="token number">2026</span>-01-21 <span class="token number">17</span>:18:52 data_preprocessing:412<span class="token punctuation">]</span> <span class="token number">75</span> percentile: <span class="token number">33.00</span>
+<span class="token punctuation">[</span>NeMo I <span class="token number">2026</span>-01-21 <span class="token number">17</span>:18:52 data_preprocessing:413<span class="token punctuation">]</span> <span class="token number">99</span> percentile: <span class="token number">65.05</span>
+<span class="token punctuation">[</span>NeMo W <span class="token number">2026</span>-01-21 <span class="token number">17</span>:18:52 token_classification_dataset:152<span class="token punctuation">]</span> <span class="token number">0</span> are longer than <span class="token number">70</span>
+<span class="token punctuation">[</span>NeMo I <span class="token number">2026</span>-01-21 <span class="token number">17</span>:18:52 token_classification_dataset:155<span class="token punctuation">]</span> *** Example ***
+<span class="token punctuation">[</span>NeMo I <span class="token number">2026</span>-01-21 <span class="token number">17</span>:18:52 token_classification_dataset:156<span class="token punctuation">]</span> i: <span class="token number">0</span>
+<span class="token punctuation">[</span>NeMo I <span class="token number">2026</span>-01-21 <span class="token number">17</span>:18:52 token_classification_dataset:157<span class="token punctuation">]</span> subtokens: <span class="token punctuation">[</span>CLS<span class="token punctuation">]</span> hamas refuses to recognize israel , and has vowed to undermine palestinian leader mahmoud abbas ' s efforts to <span class="token function">make</span> peace with the jewish state <span class="token builtin class-name">.</span> <span class="token punctuation">[</span>SEP<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>NeMo I <span class="token number">2026</span>-01-21 <span class="token number">17</span>:18:52 token_classification_dataset:158<span class="token punctuation">]</span> loss_mask: <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span>
+<span class="token punctuation">[</span>NeMo I <span class="token number">2026</span>-01-21 <span class="token number">17</span>:18:52 token_classification_dataset:159<span class="token punctuation">]</span> input_mask: <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span>
+<span class="token punctuation">[</span>NeMo I <span class="token number">2026</span>-01-21 <span class="token number">17</span>:18:52 token_classification_dataset:160<span class="token punctuation">]</span> subtokens_mask: <span class="token number">0</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">0</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span>
+<span class="token punctuation">[</span>NeMo I <span class="token number">2026</span>-01-21 <span class="token number">17</span>:18:53 token_classification_model:464<span class="token punctuation">]</span> Labels save to /dli/task/WORK_DIR/infer_sample_text_dev.txt
+<span class="token punctuation">[</span>NeMo I <span class="token number">2026</span>-01-21 <span class="token number">17</span>:18:53 token_classification_model:470<span class="token punctuation">]</span> Predictions saved to /dli/task/WORK_DIR/infer_sample_text_dev.txt
+<span class="token punctuation">[</span>NeMo I <span class="token number">2026</span>-01-21 <span class="token number">17</span>:18:53 utils_funcs:109<span class="token punctuation">]</span> Confusion matrix saved to /dli/task/WORK_DIR/Normalized_Confusion_matrix_20260121-171853
+<span class="token punctuation">[</span>NeMo I <span class="token number">2026</span>-01-21 <span class="token number">17</span>:18:53 token_classification_model:481<span class="token punctuation">]</span>                        precision    recall  f1-score   support
     
-          O (label id: 0)     0.9878    0.9895    0.9887      1805
-      B-GPE (label id: 1)     0.9429    1.0000    0.9706        33
-      B-LOC (label id: 2)     0.8556    0.9872    0.9167        78
-     B-MISC (label id: 3)     1.0000    1.0000    1.0000         2
-      B-ORG (label id: 4)     0.8636    0.6667    0.7525        57
-      B-PER (label id: 5)     0.7794    0.8983    0.8346        59
-     B-TIME (label id: 6)     0.9149    0.9348    0.9247        46
-      I-GPE (label id: 7)     1.0000    1.0000    1.0000         4
-      I-LOC (label id: 8)     0.7778    0.7778    0.7778         9
-     I-ORG (label id: 10)     0.8611    0.6596    0.7470        47
-     I-PER (label id: 11)     0.8868    0.8393    0.8624        56
-    I-TIME (label id: 12)     0.8462    0.8462    0.8462        13
+          O <span class="token punctuation">(</span>label id: <span class="token number">0</span><span class="token punctuation">)</span>     <span class="token number">0.9878</span>    <span class="token number">0.9895</span>    <span class="token number">0.9887</span>      <span class="token number">1805</span>
+      B-GPE <span class="token punctuation">(</span>label id: <span class="token number">1</span><span class="token punctuation">)</span>     <span class="token number">0.9429</span>    <span class="token number">1.0000</span>    <span class="token number">0.9706</span>        <span class="token number">33</span>
+      B-LOC <span class="token punctuation">(</span>label id: <span class="token number">2</span><span class="token punctuation">)</span>     <span class="token number">0.8556</span>    <span class="token number">0.9872</span>    <span class="token number">0.9167</span>        <span class="token number">78</span>
+     B-MISC <span class="token punctuation">(</span>label id: <span class="token number">3</span><span class="token punctuation">)</span>     <span class="token number">1.0000</span>    <span class="token number">1.0000</span>    <span class="token number">1.0000</span>         <span class="token number">2</span>
+      B-ORG <span class="token punctuation">(</span>label id: <span class="token number">4</span><span class="token punctuation">)</span>     <span class="token number">0.8636</span>    <span class="token number">0.6667</span>    <span class="token number">0.7525</span>        <span class="token number">57</span>
+      B-PER <span class="token punctuation">(</span>label id: <span class="token number">5</span><span class="token punctuation">)</span>     <span class="token number">0.7794</span>    <span class="token number">0.8983</span>    <span class="token number">0.8346</span>        <span class="token number">59</span>
+     B-TIME <span class="token punctuation">(</span>label id: <span class="token number">6</span><span class="token punctuation">)</span>     <span class="token number">0.9149</span>    <span class="token number">0.9348</span>    <span class="token number">0.9247</span>        <span class="token number">46</span>
+      I-GPE <span class="token punctuation">(</span>label id: <span class="token number">7</span><span class="token punctuation">)</span>     <span class="token number">1.0000</span>    <span class="token number">1.0000</span>    <span class="token number">1.0000</span>         <span class="token number">4</span>
+      I-LOC <span class="token punctuation">(</span>label id: <span class="token number">8</span><span class="token punctuation">)</span>     <span class="token number">0.7778</span>    <span class="token number">0.7778</span>    <span class="token number">0.7778</span>         <span class="token number">9</span>
+     I-ORG <span class="token punctuation">(</span>label id: <span class="token number">10</span><span class="token punctuation">)</span>     <span class="token number">0.8611</span>    <span class="token number">0.6596</span>    <span class="token number">0.7470</span>        <span class="token number">47</span>
+     I-PER <span class="token punctuation">(</span>label id: <span class="token number">11</span><span class="token punctuation">)</span>     <span class="token number">0.8868</span>    <span class="token number">0.8393</span>    <span class="token number">0.8624</span>        <span class="token number">56</span>
+    I-TIME <span class="token punctuation">(</span>label id: <span class="token number">12</span><span class="token punctuation">)</span>     <span class="token number">0.8462</span>    <span class="token number">0.8462</span>    <span class="token number">0.8462</span>        <span class="token number">13</span>
     
-                 accuracy                         0.9651      2209
-                macro avg     0.8930    0.8833    0.8851      2209
-             weighted avg     0.9653    0.9651    0.9643      2209
-    
-</code></pre>
-<pre><code># restart the kernel
-import IPython
+                 accuracy                         <span class="token number">0.9651</span>      <span class="token number">2209</span>
+                macro avg     <span class="token number">0.8930</span>    <span class="token number">0.8833</span>    <span class="token number">0.8851</span>      <span class="token number">2209</span>
+             weighted avg     <span class="token number">0.9653</span>    <span class="token number">0.9651</span>    <span class="token number">0.9643</span>      <span class="token number">2209</span>
+    </code></pre>
+<pre class="language-py" tabindex="0"><code class="language-py"><span class="token comment"># restart the kernel</span>
+<span class="token keyword">import</span> IPython
 
-app = IPython.Application.instance()
-app.kernel.do_shutdown(True)
-</code></pre>
+app <span class="token operator">=</span> IPython<span class="token punctuation">.</span>Application<span class="token punctuation">.</span>instance<span class="token punctuation">(</span><span class="token punctuation">)</span>
+app<span class="token punctuation">.</span>kernel<span class="token punctuation">.</span>do_shutdown<span class="token punctuation">(</span><span class="token boolean">True</span><span class="token punctuation">)</span></code></pre>
 
 <ul class="links-nextprev"><li class="links-nextprev-prev">← Previous<br> <a href="/blog/fine-tune-pre-trained-model-custom-domain/">Fine-tune a Pre-trained model for Custom Domain</a></li>
 </ul>
@@ -902,7 +954,7 @@ app.kernel.do_shutdown(True)
 		<footer>
 		</footer>
 
-		<!-- This page `/blog/transformers-natural-language-processing/` was built on 2026-01-21T18:11:17.135Z -->
+		<!-- This page `/blog/transformers-natural-language-processing/` was built on 2026-01-21T19:46:03.714Z -->
 		<script type="module" src="/dist/cC8wS6ZjFU.js"></script>
 	</body>
 </html>
