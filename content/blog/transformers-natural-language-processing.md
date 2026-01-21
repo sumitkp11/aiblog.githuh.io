@@ -5,9 +5,57 @@ date: 2026-01-21
 tags: ["nvidia", "transformers", "model", "token"]
 ---
 
+## Topic: Transformer-based Natural Language Processing
+
+1. In natural language processing, **token classification** assigns labels to tokens in a piece of text. It can be used to accurately and efficiently detect and classify key information.
+
+2. **Token Classification**
+   1. **Named Entity Recognition (NER)**
+      1. NER is used to identify specific entities in a text, such as states, individuals, and places.
+      2. NER is also referred to as *entity chunking*, *entity identification*, or *entity extraction*.
+      3. An NER model takes a piece of text as input, and for each token in the text, the model identifies the category the token belongs to.
+      4. For example, in the sentence:  
+         *“Mary lives in Santa Clara and works at NVIDIA”*,  
+         the model should detect:
+         - **Mary** → Person  
+         - **Santa Clara** → Location  
+         - **NVIDIA** → Organization
+
+3. Token classification can transform unstructured text into structured data for more detailed and advanced text analytics.
+
+4. **Use cases for NER**
+   - Categorizing articles based on relevant people, organizations, and places in media
+   - Improving efficiency in search with relevant tags
+   - Providing better recommendations in retail
+   - Retrieving and analyzing common cases in customer support
+   - Monitoring trends in the finance sector
+
+5. **BERT** is a token classification model.
+
+6. **NeMo** is a toolkit for conversational AI. It uses high-level APIs for training custom models to simplify development with pre-built modules.
+
+7. NeMo also supports a large catalog of pre-trained models. Technically, it uses a **PyTorch Lightning** backend for easy and performant multi-GPU, multi-node, mixed-precision training.
+
+8. Using NeMo, we can leverage pre-built models to perform operations such as:
+   - Tokenization
+   - Position embedding
+   - Padding
+   - Attention masking
+
+9. If you are using raw data, **Datasaur** can be used as a labeling platform to apply labels to the data. Labeled data can be exported using the `conll_2003` format.
+
+10. Datasaur is designed specifically for labeling text data and supports basic NLP labeling tasks such as NER.  
+    Datasaur can be accessed at: https://datasaur.ai
+
+11. When developing a token classification model, the following options are available:
+    - Out-of-the-box model
+    - Fine-tuned pre-trained model
+    - Train a custom model from scratch
+
+
 ## Download and Preprocess Data
 
-```
+```py
 import os
 import wget
 
@@ -19,7 +67,7 @@ DATA_DIR="data/GMB"
 ```
 
 ### output
-```
+```bash
 total 11140
 -rw-r--r-- 1 root root      77 Jan 21 16:38 label_ids.csv
 -rw-r--r-- 1 root root  407442 Jan 21 16:38 labels_dev.txt
@@ -28,7 +76,7 @@ total 11140
 -rw-r--r-- 1 root root 6928251 Jan 21 16:38 text_train.txt
 ```
 
-```
+```py
 # preview data 
 print('Text:')
 !head -n 5 {DATA_DIR}/text_train.txt
@@ -37,7 +85,7 @@ print('Labels:')
 !head -n 5 {DATA_DIR}/labels_train.txt
 ```
 ### output
-```
+```bash
 Text:
 New Zealand 's cricket team has scored a morale-boosting win over Bangladesh in the first of three one-day internationals in New Zealand .
 Despite Bangladesh 's highest total ever in a limited-overs match , the Kiwis were able to win the match by six wickets in Auckland .
@@ -54,7 +102,7 @@ B-PER I-PER O O O O O O O O O O O O O O O O O O O B-LOC I-LOC O O
 
 ### Download Pre-trained model
 
-```
+```py
 # import dependencies
 from nemo.collections.nlp.models import TokenClassificationModel
 
@@ -64,7 +112,7 @@ for model in TokenClassificationModel.list_available_models():
 ```
 
 ### output
-```
+```bash
 NOTE! Installing ujson may make loading annotations faster.
 PretrainedModelInfo(
 	pretrained_model_name=ner_en_bert,
@@ -73,13 +121,13 @@ PretrainedModelInfo(
 )
 ```
 
-```
+```py
 # download and load the pre-trained BERT-based model
 pretrained_ner_model=TokenClassificationModel.from_pretrained("ner_en_bert")
 ```
 
 ### output
-```
+```bash
 # download and load the pre-trained BERT-based model
 pretrained_ner_model=TokenClassificationModel.from_pretrained("ner_en_bert")
 # download and load the pre-trained BERT-based model
@@ -124,7 +172,7 @@ Downloading model.safetensors:   0%|          | 0.00/440M [00:00<?, ?B/s]
 
 
 ### Make Predictions
-```
+```py
 # define the list of queries for inference
 queries=[
     'we bought four shirts from the nvidia gear store in santa clara.',
@@ -141,7 +189,7 @@ for query, result in zip(queries, results):
     print()
 ```
 ### output
-```
+```bash
 # define the list of queries for inference
 queries=[
     'we bought four shirts from the nvidia gear store in santa clara.',
@@ -191,7 +239,7 @@ Result: Nvidia[B-ORG] is a company.
 ```
 
 ### Evaluate Predictions
-```
+```py
 # create a subset of our dev data
 !head -n 100 $DATA_DIR/text_dev.txt > $DATA_DIR/sample_text_dev.txt
 !head -n 100 $DATA_DIR/labels_dev.txt > $DATA_DIR/sample_labels_dev.txt
@@ -210,7 +258,7 @@ pretrained_ner_model.evaluate_from_file(
 ```
 
 #### output
-```
+```bash
 [NeMo I 2026-01-21 17:12:02 token_classification_dataset:123] Setting Max Seq length to: 70
 [NeMo I 2026-01-21 17:12:02 data_preprocessing:404] Some stats of the lengths of the sequences:
 [NeMo I 2026-01-21 17:12:02 data_preprocessing:406] Min: 11 |                  Max: 70 |                  Mean: 26.9 |                  Median: 26.0
@@ -219,7 +267,7 @@ pretrained_ner_model.evaluate_from_file(
 [NeMo W 2026-01-21 17:12:02 token_classification_dataset:152] 0 are longer than 70
 [NeMo I 2026-01-21 17:12:02 token_classification_dataset:155] *** Example ***
 [NeMo I 2026-01-21 17:12:02 token_classification_dataset:156] i: 0
-[NeMo I 2026-01-21 17:12:02 token_classification_dataset:157] subtokens: [CLS] hamas refuses to recognize israel , and has vowed to undermine palestinian leader mahmoud abbas ' s efforts to make peace with the jewish state . [SEP]
+[NeMo I 2026-01-21 17:12:02 token_classification_dataset:157] subtokens: [CLS] hamas refuses to recognize israel , and has vowed to undermine palestinian leader mahmoud abbas's efforts to make peace with the jewish state . [SEP]
 [NeMo I 2026-01-21 17:12:02 token_classification_dataset:158] loss_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 [NeMo I 2026-01-21 17:12:02 token_classification_dataset:159] input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 [NeMo I 2026-01-21 17:12:02 token_classification_dataset:160] subtokens_mask: 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -249,7 +297,7 @@ pretrained_ner_model.evaluate_from_file(
 - Without specifying any config file, Nemo will use the default configurations for the model and trainer.
 - When fine-tuning a pre-trained NER model, we need to setup training and evaluation data before training.
 
-```
+```py
 import pytorch_lightning as pl
 
 # setup the data dir to get class weights statistics
@@ -261,7 +309,7 @@ pretrained_ner_model.setup_validation_data()
 ```
 
 #### output
-```
+```bash
 [NeMo I 2026-01-21 17:18:54 token_classification_model:84] Setting model.dataset.data_dir to data/GMB.
 [NeMo I 2026-01-21 17:18:54 token_classification_utils:118] Processing data/GMB/labels_train.txt
 [NeMo I 2026-01-21 17:18:54 token_classification_utils:138] Using provided labels mapping {'O': 0, 'B-GPE': 1, 'B-LOC': 2, 'B-MISC': 3, 'B-ORG': 4, 'B-PER': 5, 'B-TIME': 6, 'I-GPE': 7, 'I-LOC': 8, 'I-MISC': 9, 'I-ORG': 10, 'I-PER': 11, 'I-TIME': 12}
@@ -280,17 +328,17 @@ pretrained_ner_model.setup_validation_data()
 [NeMo I 2026-01-21 17:19:12 token_classification_dataset:287] features restored from data/GMB/cached__text_dev.txt__labels_dev.txt__BertTokenizer_128_30522_-1
 ```
 
-```
+```py
 # set up loss
 pretrained_ner_model.setup_loss()
 ```
 
 #### output
-```
+```bash
 CrossEntropyLoss()
 ```
 
-```
+```py
 # create a PyTorch Lightning trainer and call `fit` again
 fast_dev_run=True
 trainer=pl.Trainer(devices=1, accelerator='gpu', fast_dev_run=fast_dev_run)
@@ -298,7 +346,7 @@ trainer.fit(pretrained_ner_model)
 ```
 
 #### output
-```
+```bash
 GPU available: True (cuda), used: True
 TPU available: False, using: 0 TPU cores
 IPU available: False, using: 0 IPUs
@@ -372,7 +420,7 @@ Validation: 0it [00:00, ?it/s]
 `Trainer.fit` stopped: `max_steps=1` reached.
 ```
 
-```
+```py
 # evaluate model performance on sample
 pretrained_ner_model.evaluate_from_file(
     text_file=os.path.join(DATA_DIR, 'sample_text_dev.txt'),
@@ -384,7 +432,7 @@ pretrained_ner_model.evaluate_from_file(
 )
 ```
 #### output
-```
+```bash
 [NeMo I 2026-01-21 17:18:52 token_classification_dataset:123] Setting Max Seq length to: 70
 [NeMo I 2026-01-21 17:18:52 data_preprocessing:404] Some stats of the lengths of the sequences:
 [NeMo I 2026-01-21 17:18:52 data_preprocessing:406] Min: 11 |                  Max: 70 |                  Mean: 26.9 |                  Median: 26.0
@@ -421,7 +469,7 @@ pretrained_ner_model.evaluate_from_file(
     
 ```
 
-```
+```py
 # restart the kernel
 import IPython
 

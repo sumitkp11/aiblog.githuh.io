@@ -16,7 +16,7 @@ For training, the config file consists of sections such as:
 For beginners, NeMo provides a starter configuration file.
 
 ## Configuration File
-```
+```python
 # define config path
 MODEL_CONFIG = "token_classification_config.yaml"
 WORK_DIR = "WORK_DIR"
