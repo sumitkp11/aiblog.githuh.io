@@ -99,6 +99,30 @@ adenomatous	B-Disease
 polyposis	I-Disease
 ```
 
+## Preprocess Data
+We need to convert these to a format that is compatible with NeMo token classification module.
+
+Script for conversion can be found [here](https://github.com/NVIDIA-NeMo/NeMo/blob/stable/examples/nlp/token_classification/data/import_from_iob_format.py).
+
+```bash
+# invoke the conversion script 
+!python import_from_iob_format.py --data_file=$NER_DATA_DIR/train.tsv
+!python import_from_iob_format.py --data_file=$NER_DATA_DIR/dev.tsv
+!python import_from_iob_format.py --data_file=$NER_DATA_DIR/test.tsv
+
+# preview dataset
+!head -n 1 $NER_DATA_DIR/text_train.txt
+!head -n 1 $NER_DATA_DIR/labels_train.txt
+```
+
+#### output
+```
+Identification of APC2 , a homologue of the adenomatous polyposis coli tumour suppressor . 
+O O O O O O O O B-Disease I-Disease I-Disease I-Disease O O 
+```
+
+
+
 
 
 
