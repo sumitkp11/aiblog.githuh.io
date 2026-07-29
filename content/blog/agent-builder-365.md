@@ -34,5 +34,23 @@
 - To start: New agent -> Start with a template
 
 # Adding capabilities
-
+- Following capabilities can be added to the agent:
+  1. Code interpreter: solve complex math problems, analyze data and generate visualizations.
+  2. Image generator: generate image based on user prompts.
+ 
+# Default Response Mode
+- It controls how the agent approaches each question, either to prioritize speed or take more time for in-depth analysis.
+- Different response modes are:
+  1. **Auto** - set as default, automatically chooses the best approach based on each question, balancing speed and depth of analysis.
+  2. **Quick response**: agent replies quickly, keeps responses concise, it doesn't require in-depth analysis.
+  3. **Think deeper**: it takes more time to analyze the question before responding.
+ 
+# Adding knowledge sources
+- Following knowledge sources can be added:
+  1. public website URLs: must be only two levels, cannot contain query parameters, upto 4 URLs
+  2. upto 100 SharePoint files, folders or sites: list can have max of 20,000 rows and 50 MB of raw text, Attachments column isnt indexed
+  3. up to 50 onedrive files
+  4. up to 5 Teams chat URLs
+  5. embedded files
+  6. copilot connectors
   
