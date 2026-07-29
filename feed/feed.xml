@@ -5,7 +5,7 @@
   <subtitle>This is a longer description about your blog.</subtitle>
   <link href="https://example.com/feed/feed.xml" rel="self" />
   <link href="https://example.com/" />
-  <updated>2026-07-29T19:04:13Z</updated>
+  <updated>2026-07-29T19:39:56Z</updated>
   <id>https://example.com/</id>
   <author>
     <name>Your Name</name>
@@ -13,7 +13,7 @@
   <entry>
     <title></title>
     <link href="https://example.com/blog/agent-builder-365/" />
-    <updated>2026-07-29T19:04:13Z</updated>
+    <updated>2026-07-29T19:39:56Z</updated>
     <id>https://example.com/blog/agent-builder-365/</id>
     <content type="html">&lt;h2 id=&quot;agent-builder-in-microsoft-365-copilot&quot;&gt;Agent Builder in Microsoft 365 Copilot&lt;/h2&gt;
 &lt;ul&gt;
@@ -64,6 +64,38 @@
 &lt;li&gt;To start: New agent -&amp;gt; Start with a template&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id=&quot;adding-capabilities&quot;&gt;Adding capabilities&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Following capabilities can be added to the agent:
+&lt;ol&gt;
+&lt;li&gt;Code interpreter: solve complex math problems, analyze data and generate visualizations.&lt;/li&gt;
+&lt;li&gt;Image generator: generate image based on user prompts.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&quot;default-response-mode&quot;&gt;Default Response Mode&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;It controls how the agent approaches each question, either to prioritize speed or take more time for in-depth analysis.&lt;/li&gt;
+&lt;li&gt;Different response modes are:
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Auto&lt;/strong&gt; - set as default, automatically chooses the best approach based on each question, balancing speed and depth of analysis.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Quick response&lt;/strong&gt;: agent replies quickly, keeps responses concise, it doesn&#39;t require in-depth analysis.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Think deeper&lt;/strong&gt;: it takes more time to analyze the question before responding.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&quot;adding-knowledge-sources&quot;&gt;Adding knowledge sources&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Following knowledge sources can be added:
+&lt;ol&gt;
+&lt;li&gt;public website URLs: must be only two levels, cannot contain query parameters, upto 4 URLs&lt;/li&gt;
+&lt;li&gt;upto 100 SharePoint files, folders or sites: list can have max of 20,000 rows and 50 MB of raw text, Attachments column isnt indexed&lt;/li&gt;
+&lt;li&gt;up to 50 onedrive files&lt;/li&gt;
+&lt;li&gt;up to 5 Teams chat URLs&lt;/li&gt;
+&lt;li&gt;embedded files&lt;/li&gt;
+&lt;li&gt;copilot connectors&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 </content>
   </entry>
   <entry>
