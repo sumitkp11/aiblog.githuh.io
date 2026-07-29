@@ -5,11 +5,38 @@
   <subtitle>This is a longer description about your blog.</subtitle>
   <link href="https://example.com/feed/feed.xml" rel="self" />
   <link href="https://example.com/" />
-  <updated>2026-01-21T00:00:00Z</updated>
+  <updated>2026-07-29T17:59:21Z</updated>
   <id>https://example.com/</id>
   <author>
     <name>Your Name</name>
   </author>
+  <entry>
+    <title></title>
+    <link href="https://example.com/blog/agent-builder-365/" />
+    <updated>2026-07-29T17:59:21Z</updated>
+    <id>https://example.com/blog/agent-builder-365/</id>
+    <content type="html">&lt;h2 id=&quot;agent-builder-in-microsoft-365-copilot&quot;&gt;Agent Builder in Microsoft 365 Copilot&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Agent Builder provides an easy way to build declarative agents for Microsoft 365.&lt;/li&gt;
+&lt;li&gt;Agents can be built from following apps and sites:
+&lt;ol&gt;
+&lt;li&gt;microsoft365.com/chat&lt;/li&gt;
+&lt;li&gt;office.com/chat&lt;/li&gt;
+&lt;li&gt;Microsoft Teams Desktop and web client&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&quot;building-agents-using-agent-builder&quot;&gt;Building agents using Agent Builder&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;When a new agent is chosen in Microsoft 365 Copilot, we can:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;use natural language to describe agent and copilot builds it&lt;/li&gt;
+&lt;li&gt;configure agent manually using Configure tab&lt;/li&gt;
+&lt;li&gt;Start with a template for a specific use case.&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+  </entry>
   <entry>
     <title>Transformers-based Natural Language Processing</title>
     <link href="https://example.com/blog/transformers-natural-language-processing/" />
