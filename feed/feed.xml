@@ -5,7 +5,7 @@
   <subtitle>This is a longer description about your blog.</subtitle>
   <link href="https://example.com/feed/feed.xml" rel="self" />
   <link href="https://example.com/" />
-  <updated>2026-07-29T17:59:21Z</updated>
+  <updated>2026-07-29T19:04:13Z</updated>
   <id>https://example.com/</id>
   <author>
     <name>Your Name</name>
@@ -13,7 +13,7 @@
   <entry>
     <title></title>
     <link href="https://example.com/blog/agent-builder-365/" />
-    <updated>2026-07-29T17:59:21Z</updated>
+    <updated>2026-07-29T19:04:13Z</updated>
     <id>https://example.com/blog/agent-builder-365/</id>
     <content type="html">&lt;h2 id=&quot;agent-builder-in-microsoft-365-copilot&quot;&gt;Agent Builder in Microsoft 365 Copilot&lt;/h2&gt;
 &lt;ul&gt;
@@ -35,6 +35,35 @@
 &lt;li&gt;configure agent manually using Configure tab&lt;/li&gt;
 &lt;li&gt;Start with a template for a specific use case.&lt;/li&gt;
 &lt;/ol&gt;
+&lt;h1 id=&quot;recommended-using-natural-language-to-describe-agent&quot;&gt;RECOMMENDED: Using natural language to describe agent&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;This approach understands a user&#39;s intent through natural language. It provides suggestions, guidance and next-based prompts.&lt;/li&gt;
+&lt;li&gt;It generates optimized agent instructions to build accurate, high-quality agents.&lt;/li&gt;
+&lt;li&gt;After describing the agent, the tool prepopulates: Name, Description, Instructions, Knowledge sources, Suggested prompts&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&quot;configure-agent-manually&quot;&gt;Configure agent manually&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;On New agent, select &lt;code&gt;Skip to configure&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Following fields make up the agent:
+&lt;ol&gt;
+&lt;li&gt;Name: name of the agent with a character limit of 30 characters.&lt;/li&gt;
+&lt;li&gt;Icon: choose an icon from library or manually upload one with PNG file with a transparent background at 192x192 pixels resolution under 1 MB size limit.&lt;/li&gt;
+&lt;li&gt;Model: choose the LLM model on which agent will run&lt;/li&gt;
+&lt;li&gt;Description: helps the LLM identify and use agent for specific task or situation with 1000 characters as the limit.&lt;/li&gt;
+&lt;li&gt;Instructions: specific instructions to the LLM to extent the capabilities with 8,000 characters limit.&lt;/li&gt;
+&lt;li&gt;Knowledge: specify up to 20 knowledge sources or Copilot connectors.&lt;/li&gt;
+&lt;li&gt;Capabilities: enhance user experience by adding capabilities.&lt;/li&gt;
+&lt;li&gt;Starter Prompts: it helps other users understand common supported scenarios by the agent. Each one comes with a name and description with no minimum number required.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&quot;build-from-template&quot;&gt;Build from template&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;It includes templates to reuse to build agents for specific use cases.&lt;/li&gt;
+&lt;li&gt;It comes preconfigured with description, instructions and prompts.&lt;/li&gt;
+&lt;li&gt;To start: New agent -&amp;gt; Start with a template&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&quot;adding-capabilities&quot;&gt;Adding capabilities&lt;/h1&gt;
 </content>
   </entry>
   <entry>
