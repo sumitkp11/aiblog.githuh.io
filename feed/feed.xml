@@ -5,7 +5,7 @@
   <subtitle>This is a longer description about your blog.</subtitle>
   <link href="https://example.com/feed/feed.xml" rel="self" />
   <link href="https://example.com/" />
-  <updated>2026-07-29T19:39:56Z</updated>
+  <updated>2026-07-30T05:14:03Z</updated>
   <id>https://example.com/</id>
   <author>
     <name>Your Name</name>
@@ -13,9 +13,9 @@
   <entry>
     <title></title>
     <link href="https://example.com/blog/agent-builder-365/" />
-    <updated>2026-07-29T19:39:56Z</updated>
+    <updated>2026-07-30T05:14:03Z</updated>
     <id>https://example.com/blog/agent-builder-365/</id>
-    <content type="html">&lt;h2 id=&quot;agent-builder-in-microsoft-365-copilot&quot;&gt;Agent Builder in Microsoft 365 Copilot&lt;/h2&gt;
+    <content type="html">&lt;h1 id=&quot;agent-builder-in-microsoft-365-copilot&quot;&gt;Agent Builder in Microsoft 365 Copilot&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;Agent Builder provides an easy way to build declarative agents for Microsoft 365.&lt;/li&gt;
 &lt;li&gt;Agents can be built from following apps and sites:
@@ -26,7 +26,7 @@
 &lt;/ol&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h1 id=&quot;building-agents-using-agent-builder&quot;&gt;Building agents using Agent Builder&lt;/h1&gt;
+&lt;h2 id=&quot;building-agents-using-agent-builder&quot;&gt;Building agents using Agent Builder&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;When a new agent is chosen in Microsoft 365 Copilot, we can:&lt;/li&gt;
 &lt;/ul&gt;
@@ -35,13 +35,13 @@
 &lt;li&gt;configure agent manually using Configure tab&lt;/li&gt;
 &lt;li&gt;Start with a template for a specific use case.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h1 id=&quot;recommended-using-natural-language-to-describe-agent&quot;&gt;RECOMMENDED: Using natural language to describe agent&lt;/h1&gt;
+&lt;h2 id=&quot;recommended-using-natural-language-to-describe-agent&quot;&gt;RECOMMENDED: Using natural language to describe agent&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;This approach understands a user&#39;s intent through natural language. It provides suggestions, guidance and next-based prompts.&lt;/li&gt;
 &lt;li&gt;It generates optimized agent instructions to build accurate, high-quality agents.&lt;/li&gt;
 &lt;li&gt;After describing the agent, the tool prepopulates: Name, Description, Instructions, Knowledge sources, Suggested prompts&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h1 id=&quot;configure-agent-manually&quot;&gt;Configure agent manually&lt;/h1&gt;
+&lt;h2 id=&quot;configure-agent-manually&quot;&gt;Configure agent manually&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;On New agent, select &lt;code&gt;Skip to configure&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;Following fields make up the agent:
@@ -57,13 +57,13 @@
 &lt;/ol&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h1 id=&quot;build-from-template&quot;&gt;Build from template&lt;/h1&gt;
+&lt;h2 id=&quot;build-from-template&quot;&gt;Build from template&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;It includes templates to reuse to build agents for specific use cases.&lt;/li&gt;
 &lt;li&gt;It comes preconfigured with description, instructions and prompts.&lt;/li&gt;
 &lt;li&gt;To start: New agent -&amp;gt; Start with a template&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h1 id=&quot;adding-capabilities&quot;&gt;Adding capabilities&lt;/h1&gt;
+&lt;h2 id=&quot;adding-capabilities&quot;&gt;Adding capabilities&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Following capabilities can be added to the agent:
 &lt;ol&gt;
@@ -72,7 +72,7 @@
 &lt;/ol&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h1 id=&quot;default-response-mode&quot;&gt;Default Response Mode&lt;/h1&gt;
+&lt;h2 id=&quot;default-response-mode&quot;&gt;Default Response Mode&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;It controls how the agent approaches each question, either to prioritize speed or take more time for in-depth analysis.&lt;/li&gt;
 &lt;li&gt;Different response modes are:
@@ -83,7 +83,7 @@
 &lt;/ol&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h1 id=&quot;adding-knowledge-sources&quot;&gt;Adding knowledge sources&lt;/h1&gt;
+&lt;h2 id=&quot;adding-knowledge-sources&quot;&gt;Adding knowledge sources&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Following knowledge sources can be added:
 &lt;ol&gt;
