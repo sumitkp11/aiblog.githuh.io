@@ -20,6 +20,7 @@
 &lt;li&gt;Copilot Studio is a graphical, low-code tool for building agents and agent flows.&lt;/li&gt;
 &lt;li&gt;It can connect to other data sources using prebuilt or custom connectors.&lt;/li&gt;
 &lt;li&gt;Makers dont need to have an extensive technical background to create and orchestrate sophisticated logic.&lt;/li&gt;
+&lt;li&gt;Copilot Studio can be accessed from [https://copilotstudio.microsoft.com]&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&quot;what-is-an-agent&quot;&gt;What is an agent?&lt;/h2&gt;
 &lt;ul&gt;
@@ -28,7 +29,18 @@
 &lt;li&gt;To complete a goal, it coordindates between LLM, instructions, context, knowledge sources, topics, tools, inputs and triggers.&lt;/li&gt;
 &lt;li&gt;Use cases of an agent are: Sales and Support issues, Store information, employee health portal, public health tracking information, Employee portal&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&quot;what-is&quot;&gt;What is&lt;/h2&gt;
+&lt;h2 id=&quot;what-is-a-flow&quot;&gt;What is a flow?&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;A flow can automate repetitive tasks and integrate with apps and services.&lt;/li&gt;
+&lt;li&gt;Flows can be triggered manually, by other agents, or scheduled.&lt;/li&gt;
+&lt;li&gt;Flows can run prompts, call agents and include human review steps.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;how-does-an-agent-conversation-work&quot;&gt;How does an agent conversation work?&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Agents use customized NLU models and AI capabilities to understand what a user types or says. It then responds with the best topic.&lt;/li&gt;
+&lt;li&gt;Once an agent is linked to knowledge sources, it can automatically generate responses and doesn&#39;t need topics to be created for it.&lt;/li&gt;
+&lt;li&gt;It uses AI powered by the Azure OpenAI GPT model which is also used in Bing search.&lt;/li&gt;
+&lt;/ul&gt;
 </content>
   </entry>
   <entry>
