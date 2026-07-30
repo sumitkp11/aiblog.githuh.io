@@ -5,11 +5,32 @@
   <subtitle>This is a longer description about your blog.</subtitle>
   <link href="https://example.com/feed/feed.xml" rel="self" />
   <link href="https://example.com/" />
-  <updated>2026-07-30T00:00:00Z</updated>
+  <updated>2026-07-31T00:00:00Z</updated>
   <id>https://example.com/</id>
   <author>
     <name>Your Name</name>
   </author>
+  <entry>
+    <title>Copilot Studio Overview</title>
+    <link href="https://example.com/blog/copilot-studio-overview/" />
+    <updated>2026-07-31T00:00:00Z</updated>
+    <id>https://example.com/blog/copilot-studio-overview/</id>
+    <content type="html">&lt;h1 id=&quot;copilot-studio-overview&quot;&gt;Copilot Studio Overview&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Copilot Studio is a graphical, low-code tool for building agents and agent flows.&lt;/li&gt;
+&lt;li&gt;It can connect to other data sources using prebuilt or custom connectors.&lt;/li&gt;
+&lt;li&gt;Makers dont need to have an extensive technical background to create and orchestrate sophisticated logic.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;what-is-an-agent&quot;&gt;What is an agent?&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;An agent can handle a range of interactions and tasks.&lt;/li&gt;
+&lt;li&gt;It can autonomously decide the best action to take based on instructions and context.&lt;/li&gt;
+&lt;li&gt;To complete a goal, it coordindates between LLM, instructions, context, knowledge sources, topics, tools, inputs and triggers.&lt;/li&gt;
+&lt;li&gt;Use cases of an agent are: Sales and Support issues, Store information, employee health portal, public health tracking information, Employee portal&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;what-is&quot;&gt;What is&lt;/h2&gt;
+</content>
+  </entry>
   <entry>
     <title>Agent Builder in Microsoft 365 Copilot</title>
     <link href="https://example.com/blog/agent-builder-365/" />
