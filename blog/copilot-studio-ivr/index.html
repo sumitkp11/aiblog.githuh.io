@@ -4,7 +4,7 @@
 	<link rel="icon" type="image/x-icon" href="./favicon.ico">
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Tagged &#39;second tag&#39;</title>
+		<title>IVR in Microsoft Copilot Studio</title>
 		<meta name="description" content="A beginner’s journey into AI—sharing what I learn, what confuses me, and how I grow along the way.">
 		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="The Sumit&#39;s AI Blog">
 		
@@ -307,6 +307,174 @@ header {
 }
 .post-metadata time {
 	margin-right: 1em;
+}
+/**
+ * okaidia theme for JavaScript, CSS and HTML
+ * Loosely based on Monokai textmate theme by http://www.monokai.nl/
+ * @author ocodia
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: #f8f8f2;
+	background: none;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-size: 1em;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+	border-radius: 0.3em;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #272822;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: #8292a2;
+}
+
+.token.punctuation {
+	color: #f8f8f2;
+}
+
+.token.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #f92672;
+}
+
+.token.boolean,
+.token.number {
+	color: #ae81ff;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #a6e22e;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+	color: #f8f8f2;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function,
+.token.class-name {
+	color: #e6db74;
+}
+
+.token.keyword {
+	color: #66d9ef;
+}
+
+.token.regex,
+.token.important {
+	color: #fd971f;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+/*
+ * New diff- syntax
+ */
+
+pre[class*="language-diff-"] {
+	--eleventy-code-padding: 1.25em;
+	padding-left: var(--eleventy-code-padding);
+	padding-right: var(--eleventy-code-padding);
+}
+.token.deleted {
+	background-color: hsl(0, 51%, 37%);
+	color: inherit;
+}
+.token.inserted {
+	background-color: hsl(126, 31%, 39%);
+	color: inherit;
+}
+
+/* Make the + and - characters unselectable for copy/paste */
+.token.prefix.unchanged,
+.token.prefix.inserted,
+.token.prefix.deleted {
+	-webkit-user-select: none;
+	user-select: none;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+.token.prefix.inserted,
+.token.prefix.deleted {
+	width: var(--eleventy-code-padding);
+	background-color: rgba(0,0,0,.2);
+}
+
+/* Optional: full-width background color */
+.token.inserted:not(.prefix),
+.token.deleted:not(.prefix) {
+	display: block;
+	margin-left: calc(-1 * var(--eleventy-code-padding));
+	margin-right: calc(-1 * var(--eleventy-code-padding));
+	text-decoration: none; /* override del, ins, mark defaults */
+	color: inherit; /* override del, ins, mark defaults */
 }</style>
 		
 	</head>
@@ -328,19 +496,42 @@ header {
 
 		<main id="main">
 			<heading-anchors>
-				<h1 id="tagged-second-tag">Tagged “second tag”</h1>
+				
 
 
-<ol reversed="" class="postlist" style="--postlist-index: 2">
-	<li class="postlist-item">
-		<a href="/blog/fourthpost/" class="postlist-link">This is my fourth post</a>
-		<time class="postlist-date" datetime="2018-09-30">September 2018</time>
-	</li>
-</ol>
+<h1 id="ivr-in-microsoft-copilot-studio">IVR in Microsoft Copilot Studio</h1>
 
+<ul class="post-metadata">
+	<li><time datetime="2026-08-03">03 August 2026</time></li>
+	<li><a href="/tags/copilot-studio/" class="post-tag">copilot studio</a>, </li>
+	<li><a href="/tags/ivr/" class="post-tag">ivr</a>, </li>
+	<li><a href="/tags/interactive/" class="post-tag">interactive</a>, </li>
+	<li><a href="/tags/voice/" class="post-tag">voice</a></li>
+</ul>
 
-<p>See <a href="/tags/">all tags</a>.</p>
+<h1 id="interactive-voice-response-in-agents">Interactive Voice Response in Agents</h1>
+<ul>
+<li>Copilot Studio supports interactive voice response (IVR) with 2 types of voice-enabled agents: basic voice agents and real-time voice agents.</li>
+<li>It supports speech and DTMF or dual-tone multi-frequency input, context variables and call transfer.</li>
+<li>Using Azure Communication Services, we can setup IVR on a new number or use an existing number.</li>
+<li>Use cases: Call centers, mobile apps, messaging platforms.</li>
+<li>It can collect user input using speech and DTMF inputs using number pad.</li>
+<li>Learn more by reading about Dynamics 365 Contact Center.</li>
+</ul>
+<h2 id="basic-voice-agents">Basic Voice Agents</h2>
+<ul>
+<li>Basic voice agents use classic orchestration.</li>
+<li>It uses natural language understanding models for intent recognition, entity extraction.</li>
+</ul>
+<h2 id="real-time-voice-agents">Real-time Voice Agents</h2>
+<ul>
+<li>Real-time voice agents are used in generative orchestrations.</li>
+<li>It uses speech-to-speech real-time model to achieve a low-latency and natural conversation flow.</li>
+<li></li>
+</ul>
 
+<ul class="links-nextprev"><li class="links-nextprev-prev">← Previous<br> <a href="/blog/copilot-studio-overview/">Copilot Studio Overview</a></li>
+</ul>
 
 			</heading-anchors>
 		</main>
@@ -348,7 +539,7 @@ header {
 		<footer>
 		</footer>
 
-		<!-- This page `/tags/second-tag/` was built on 2026-08-03T19:50:28.063Z -->
+		<!-- This page `/blog/copilot-studio-ivr/` was built on 2026-08-03T19:50:27.939Z -->
 		<script type="module" src="/dist/cC8wS6ZjFU.js"></script>
 	</body>
 </html>

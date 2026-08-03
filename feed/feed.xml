@@ -5,11 +5,38 @@
   <subtitle>This is a longer description about your blog.</subtitle>
   <link href="https://example.com/feed/feed.xml" rel="self" />
   <link href="https://example.com/" />
-  <updated>2026-07-31T00:00:00Z</updated>
+  <updated>2026-08-03T00:00:00Z</updated>
   <id>https://example.com/</id>
   <author>
     <name>Your Name</name>
   </author>
+  <entry>
+    <title>IVR in Microsoft Copilot Studio</title>
+    <link href="https://example.com/blog/copilot-studio-ivr/" />
+    <updated>2026-08-03T00:00:00Z</updated>
+    <id>https://example.com/blog/copilot-studio-ivr/</id>
+    <content type="html">&lt;h1 id=&quot;interactive-voice-response-in-agents&quot;&gt;Interactive Voice Response in Agents&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Copilot Studio supports interactive voice response (IVR) with 2 types of voice-enabled agents: basic voice agents and real-time voice agents.&lt;/li&gt;
+&lt;li&gt;It supports speech and DTMF or dual-tone multi-frequency input, context variables and call transfer.&lt;/li&gt;
+&lt;li&gt;Using Azure Communication Services, we can setup IVR on a new number or use an existing number.&lt;/li&gt;
+&lt;li&gt;Use cases: Call centers, mobile apps, messaging platforms.&lt;/li&gt;
+&lt;li&gt;It can collect user input using speech and DTMF inputs using number pad.&lt;/li&gt;
+&lt;li&gt;Learn more by reading about Dynamics 365 Contact Center.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;basic-voice-agents&quot;&gt;Basic Voice Agents&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Basic voice agents use classic orchestration.&lt;/li&gt;
+&lt;li&gt;It uses natural language understanding models for intent recognition, entity extraction.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;real-time-voice-agents&quot;&gt;Real-time Voice Agents&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Real-time voice agents are used in generative orchestrations.&lt;/li&gt;
+&lt;li&gt;It uses speech-to-speech real-time model to achieve a low-latency and natural conversation flow.&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+  </entry>
   <entry>
     <title>Copilot Studio Overview</title>
     <link href="https://example.com/blog/copilot-studio-overview/" />
