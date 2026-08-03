@@ -11,6 +11,25 @@
     <name>Your Name</name>
   </author>
   <entry>
+    <title>Tips and Tricks in Microsoft Copilot Studio</title>
+    <link href="https://example.com/blog/copilot-studio-tricks/" />
+    <updated>2026-08-03T00:00:00Z</updated>
+    <id>https://example.com/blog/copilot-studio-tricks/</id>
+    <content type="html">&lt;h2 id=&quot;tips-and-tricks-in-microsoft-copilot-studio&quot;&gt;Tips and Tricks in Microsoft Copilot Studio&lt;/h2&gt;
+&lt;h1 id=&quot;tips&quot;&gt;Tips&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;To change the agent&#39;s introduction: Open the Conversation Start topic -&amp;gt; Edit the Message node with your custom message.&lt;/li&gt;
+&lt;li&gt;For Teams or Microsoft 365 Copilot, up to 10 suggested prompts can be configured for end users to choose from to start a conversation with the agent.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&quot;tricks&quot;&gt;Tricks&lt;/h1&gt;
+&lt;h1 id=&quot;note&quot;&gt;Note&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;Suggested prompts are meant for Teams and Microsoft 365 Copilot. It appears on agent&#39;s welcome page. You can&#39;t see or use them if you test the agent in Copilot Studio.&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+  </entry>
+  <entry>
     <title>IVR in Microsoft Copilot Studio</title>
     <link href="https://example.com/blog/copilot-studio-ivr/" />
     <updated>2026-08-03T00:00:00Z</updated>
