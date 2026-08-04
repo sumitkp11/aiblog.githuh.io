@@ -1,3 +1,9 @@
+---
+title: Entities in Microsoft Copilot Studio
+description: 
+date: 2026-08-04
+tags: ["copilot studio"]
+---
 # Entities
 1. An entity is a unit of information that represents a certain type of real-world subject.
 2. Example: phone number, postal code, person's name
