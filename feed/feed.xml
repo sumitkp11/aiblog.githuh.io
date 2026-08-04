@@ -5,15 +5,15 @@
   <subtitle>This is a longer description about your blog.</subtitle>
   <link href="https://example.com/feed/feed.xml" rel="self" />
   <link href="https://example.com/" />
-  <updated>2026-08-04T08:04:16Z</updated>
+  <updated>2026-08-04T00:00:00Z</updated>
   <id>https://example.com/</id>
   <author>
     <name>Your Name</name>
   </author>
   <entry>
-    <title></title>
+    <title>Entities in Microsoft Copilot Studio</title>
     <link href="https://example.com/blog/copilot-studio/entities-slot-filling/" />
-    <updated>2026-08-04T08:04:16Z</updated>
+    <updated>2026-08-04T00:00:00Z</updated>
     <id>https://example.com/blog/copilot-studio/entities-slot-filling/</id>
     <content type="html">&lt;h1 id=&quot;entities&quot;&gt;Entities&lt;/h1&gt;
 &lt;ol&gt;
