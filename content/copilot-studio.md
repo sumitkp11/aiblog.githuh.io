@@ -7,3 +7,4 @@ const eleventyNavigation = {
 # Copilot Studio
 
 All links related to Copilot Studio
+1. [Copilot Studio Overview](/blog/copilot-studio-overview/)
