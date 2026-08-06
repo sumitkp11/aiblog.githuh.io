@@ -4,7 +4,7 @@
 	<link rel="icon" type="image/x-icon" href="./favicon.ico">
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Tagged &#39;microsoft&#39;</title>
+		<title>Microsoft Copilot Studio In Visual Studio Code</title>
 		<meta name="description" content="A beginner’s journey into AI—sharing what I learn, what confuses me, and how I grow along the way.">
 		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="The Sumit&#39;s AI Blog">
 		
@@ -307,6 +307,174 @@ header {
 }
 .post-metadata time {
 	margin-right: 1em;
+}
+/**
+ * okaidia theme for JavaScript, CSS and HTML
+ * Loosely based on Monokai textmate theme by http://www.monokai.nl/
+ * @author ocodia
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: #f8f8f2;
+	background: none;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-size: 1em;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+	border-radius: 0.3em;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #272822;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: #8292a2;
+}
+
+.token.punctuation {
+	color: #f8f8f2;
+}
+
+.token.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #f92672;
+}
+
+.token.boolean,
+.token.number {
+	color: #ae81ff;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #a6e22e;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+	color: #f8f8f2;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function,
+.token.class-name {
+	color: #e6db74;
+}
+
+.token.keyword {
+	color: #66d9ef;
+}
+
+.token.regex,
+.token.important {
+	color: #fd971f;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+/*
+ * New diff- syntax
+ */
+
+pre[class*="language-diff-"] {
+	--eleventy-code-padding: 1.25em;
+	padding-left: var(--eleventy-code-padding);
+	padding-right: var(--eleventy-code-padding);
+}
+.token.deleted {
+	background-color: hsl(0, 51%, 37%);
+	color: inherit;
+}
+.token.inserted {
+	background-color: hsl(126, 31%, 39%);
+	color: inherit;
+}
+
+/* Make the + and - characters unselectable for copy/paste */
+.token.prefix.unchanged,
+.token.prefix.inserted,
+.token.prefix.deleted {
+	-webkit-user-select: none;
+	user-select: none;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+.token.prefix.inserted,
+.token.prefix.deleted {
+	width: var(--eleventy-code-padding);
+	background-color: rgba(0,0,0,.2);
+}
+
+/* Optional: full-width background color */
+.token.inserted:not(.prefix),
+.token.deleted:not(.prefix) {
+	display: block;
+	margin-left: calc(-1 * var(--eleventy-code-padding));
+	margin-right: calc(-1 * var(--eleventy-code-padding));
+	text-decoration: none; /* override del, ins, mark defaults */
+	color: inherit; /* override del, ins, mark defaults */
 }</style>
 		
 	</head>
@@ -329,19 +497,56 @@ header {
 
 		<main id="main">
 			<heading-anchors>
-				<h1 id="tagged-microsoft">Tagged “microsoft”</h1>
+				
 
 
-<ol reversed="" class="postlist" style="--postlist-index: 2">
-	<li class="postlist-item">
-		<a href="/blog/microsoft-copilot-learning/" class="postlist-link">Microsoft 365 Copilot Chat Explorer Learning Path</a>
-		<time class="postlist-date" datetime="2026-01-20">January 2026</time>
-	</li>
+<h1 id="microsoft-copilot-studio-in-visual-studio-code">Microsoft Copilot Studio In Visual Studio Code</h1>
+
+<ul class="post-metadata">
+	<li><time datetime="2026-08-06">06 August 2026</time></li>
+	<li><a href="/tags/copilot-studio/" class="post-tag">copilot studio</a>, </li>
+	<li><a href="/tags/visual-studio-code/" class="post-tag">visual studio code</a></li>
+</ul>
+
+<h1 id="microsoft-copilot-studio-in-microsoft-visual-studio-code">Microsoft Copilot Studio in Microsoft Visual Studio Code</h1>
+<h2 id="benefits-of-using-the-visual-studio-code-extension">Benefits of using the Visual Studio Code extension</h2>
+<ul>
+<li>Syntax highlighting for YAML agent definitions</li>
+<li>IntelliSense code completion</li>
+<li>Git integration for version control</li>
+<li>work with organization approved extensions</li>
+<li>productivity with keyboard shortcuts</li>
+</ul>
+<h3 id="manage-copilot-studio-agents">Manage Copilot Studio agents</h3>
+<ul>
+<li>clone agents from Copilot Studio to local machine,</li>
+<li>edit agent components in YAML</li>
+<li>preview and test changes before deployment</li>
+<li>redeploy or deploy your agent definition</li>
+</ul>
+<h3 id="collaborate-with-team">Collaborate with team</h3>
+<ul>
+<li>version control agent definitions with Git</li>
+<li>review changes with pull requests</li>
+<li>track modifications over time</li>
+</ul>
+<h3 id="use-cases">Use cases</h3>
+<ol>
+<li>Team working on an IDE installed and managed locally.</li>
+<li>Large-scale agent development</li>
+<li>Audit Copilot Studio agent development with source control</li>
+<li>Agent-driven development</li>
+</ol>
+<h3 id="how-to-proceed">How to proceed?</h3>
+<ol>
+<li>Install the VSS extension</li>
+<li>Clone the Copilot Studio agent</li>
+<li>Edit the agent locally</li>
+<li>Sync local changes to Copilot Studio</li>
 </ol>
 
-
-<p>See <a href="/tags/">all tags</a>.</p>
-
+<ul class="links-nextprev"><li class="links-nextprev-prev">← Previous<br> <a href="/blog/copilot-studio/entities-slot-filling/">Entities in Microsoft Copilot Studio</a></li>
+</ul>
 
 			</heading-anchors>
 		</main>
@@ -349,7 +554,7 @@ header {
 		<footer>
 		</footer>
 
-		<!-- This page `/tags/microsoft/` was built on 2026-08-06T09:49:40.670Z -->
+		<!-- This page `/blog/copilot-studio/copilot-studio-in-vss/` was built on 2026-08-06T09:49:40.505Z -->
 		<script type="module" src="/dist/cC8wS6ZjFU.js"></script>
 	</body>
 </html>

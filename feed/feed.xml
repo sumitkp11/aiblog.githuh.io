@@ -5,11 +5,54 @@
   <subtitle>This is a longer description about your blog.</subtitle>
   <link href="https://example.com/feed/feed.xml" rel="self" />
   <link href="https://example.com/" />
-  <updated>2026-08-04T00:00:00Z</updated>
+  <updated>2026-08-06T00:00:00Z</updated>
   <id>https://example.com/</id>
   <author>
     <name>Your Name</name>
   </author>
+  <entry>
+    <title>Microsoft Copilot Studio In Visual Studio Code</title>
+    <link href="https://example.com/blog/copilot-studio/copilot-studio-in-vss/" />
+    <updated>2026-08-06T00:00:00Z</updated>
+    <id>https://example.com/blog/copilot-studio/copilot-studio-in-vss/</id>
+    <content type="html">&lt;h1 id=&quot;microsoft-copilot-studio-in-microsoft-visual-studio-code&quot;&gt;Microsoft Copilot Studio in Microsoft Visual Studio Code&lt;/h1&gt;
+&lt;h2 id=&quot;benefits-of-using-the-visual-studio-code-extension&quot;&gt;Benefits of using the Visual Studio Code extension&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Syntax highlighting for YAML agent definitions&lt;/li&gt;
+&lt;li&gt;IntelliSense code completion&lt;/li&gt;
+&lt;li&gt;Git integration for version control&lt;/li&gt;
+&lt;li&gt;work with organization approved extensions&lt;/li&gt;
+&lt;li&gt;productivity with keyboard shortcuts&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;manage-copilot-studio-agents&quot;&gt;Manage Copilot Studio agents&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;clone agents from Copilot Studio to local machine,&lt;/li&gt;
+&lt;li&gt;edit agent components in YAML&lt;/li&gt;
+&lt;li&gt;preview and test changes before deployment&lt;/li&gt;
+&lt;li&gt;redeploy or deploy your agent definition&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;collaborate-with-team&quot;&gt;Collaborate with team&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;version control agent definitions with Git&lt;/li&gt;
+&lt;li&gt;review changes with pull requests&lt;/li&gt;
+&lt;li&gt;track modifications over time&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;use-cases&quot;&gt;Use cases&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Team working on an IDE installed and managed locally.&lt;/li&gt;
+&lt;li&gt;Large-scale agent development&lt;/li&gt;
+&lt;li&gt;Audit Copilot Studio agent development with source control&lt;/li&gt;
+&lt;li&gt;Agent-driven development&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;how-to-proceed&quot;&gt;How to proceed?&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Install the VSS extension&lt;/li&gt;
+&lt;li&gt;Clone the Copilot Studio agent&lt;/li&gt;
+&lt;li&gt;Edit the agent locally&lt;/li&gt;
+&lt;li&gt;Sync local changes to Copilot Studio&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+  </entry>
   <entry>
     <title>Entities in Microsoft Copilot Studio</title>
     <link href="https://example.com/blog/copilot-studio/entities-slot-filling/" />
@@ -953,95 +996,6 @@ polyposis	I-Disease&lt;/code&gt;&lt;/pre&gt;
 &lt;h4 id=&quot;output-2&quot;&gt;output&lt;/h4&gt;
 &lt;pre class=&quot;language-bash&quot; tabindex=&quot;0&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;Identification of APC2 , a homologue of the adenomatous polyposis coli tumour suppressor &lt;span class=&quot;token builtin class-name&quot;&gt;.&lt;/span&gt; 
 O O O O O O O O B-Disease I-Disease I-Disease I-Disease O O &lt;/code&gt;&lt;/pre&gt;
-</content>
-  </entry>
-  <entry>
-    <title>Microsoft 365 Copilot Chat Explorer Learning Path</title>
-    <link href="https://example.com/blog/microsoft-copilot-learning/" />
-    <updated>2026-01-20T00:00:00Z</updated>
-    <id>https://example.com/blog/microsoft-copilot-learning/</id>
-    <content type="html">&lt;h1 id=&quot;microsoft-365-copilot-chat-explorer-learning-path-completed&quot;&gt;Microsoft 365 Copilot Chat Explorer — Learning Path Completed&lt;/h1&gt;
-&lt;p&gt;&lt;em&gt;By Sumit Prasad — Published Jan 16, 2026&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Completed the Microsoft 365: Copilot Chat Explorer learning path on Microsoft Learn. Let’s see the following points covered in the course, including Copilot Chat functionality, smart prompting techniques, and productivity-driven use cases.&lt;/p&gt;
-&lt;h2 id=&quot;introduction-to-microsoft-365-copilot-chat&quot;&gt;Introduction to Microsoft 365 Copilot Chat&lt;/h2&gt;
-&lt;p&gt;Microsoft 365 Copilot Chat is a secure AI assistant for work. It is available with Microsoft 365 subscription at no additional cost. It is designed to serve as a powerful AI assistant to streamline work and boost productivity.&lt;/p&gt;
-&lt;p&gt;It helps you with tasks such as summarizing, brainstorming, writing, coding and searching. It also provides intelligent suggestions and automates repetitive tasks.&lt;/p&gt;
-&lt;p&gt;The Copilot Chat includes the following features:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;It is secure and powered by the latest advanced model (GPT-5) offered by OpenAI.&lt;/li&gt;
-&lt;li&gt;IT teams can control enterprise data protection and agent management.&lt;/li&gt;
-&lt;li&gt;It includes features like Copilot pages, file upload and image generation (a SharePoint license might be required to use Pages).&lt;/li&gt;
-&lt;li&gt;It adheres to Microsoft’s AI principles.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;The Copilot Chat uses the Microsoft Graph to find and pull together information to give helpful, work-related answers. It automatically selects the right model based on context to resolve issues more quickly for simple problems and with deeper reasoning for complex ones.&lt;/p&gt;
-&lt;p&gt;The Copilot Chat can be accessed by visiting &lt;strong&gt;m365copilot.com&lt;/strong&gt;.&lt;/p&gt;
-&lt;p&gt;Copilot Chat is enabled in:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Teams (web, Windows, Mac, mobile)&lt;/li&gt;
-&lt;li&gt;Outlook (web, Windows, Mac, mobile)&lt;/li&gt;
-&lt;li&gt;Word, PowerPoint, Excel, Microsoft Edge browser and OneNote via a side pane&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;writing-effective-prompts&quot;&gt;Writing Effective Prompts&lt;/h2&gt;
-&lt;p&gt;Writing effective prompts is a great way to perform tasks in Copilot Chat such as creating, summarizing, editing or transforming content.&lt;/p&gt;
-&lt;p&gt;The four important key elements for effective prompts are:&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Context&lt;/strong&gt;&lt;br&gt;
-Tell the chatbot &lt;em&gt;why&lt;/em&gt; you need something and &lt;em&gt;who&lt;/em&gt; is involved. Provide detailed context and specifics for better responses.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Goal&lt;/strong&gt;&lt;br&gt;
-Tell the chatbot &lt;em&gt;what&lt;/em&gt; you want it to do. Including examples of output can help shape the response.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Source&lt;/strong&gt;&lt;br&gt;
-Tell the chatbot &lt;em&gt;where&lt;/em&gt; to look for information. This can include files you upload or public URLs you want it to reference.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Expectations&lt;/strong&gt;&lt;br&gt;
-Tell the chatbot &lt;em&gt;how&lt;/em&gt; to deliver the answer—tone, style, length, and audience.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Example Prompt:&lt;/strong&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;em&gt;&amp;quot;I work in marketing focusing on competitor research. Give me a concise summary of recent news about Microsoft, using web articles from the last 2 months. Provide the answer in two to three paragraphs and use a business tone.&amp;quot;&lt;/em&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&quot;do-s-and-don-ts-of-prompting&quot;&gt;Do’s and Don’ts of Prompting&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;Do’s&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Provide specific instructions about topic, purpose, and output style&lt;/li&gt;
-&lt;li&gt;Frame prompts as a natural conversation&lt;/li&gt;
-&lt;li&gt;Occasionally give feedback to refine responses&lt;/li&gt;
-&lt;li&gt;Use correct punctuation and grammar&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;Don’ts&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Avoid vague language&lt;/li&gt;
-&lt;li&gt;Avoid changing topics abruptly&lt;/li&gt;
-&lt;li&gt;Do not request inappropriate or unethical content&lt;/li&gt;
-&lt;li&gt;Do not interrupt during answer generation&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Copilot Chat also offers a &lt;em&gt;Prompt Gallery&lt;/em&gt; where users can use pre-designed prompts, save favorites, edit existing ones, or share prompts with team members.&lt;/p&gt;
-&lt;h2 id=&quot;common-use-cases-with-copilot-chat&quot;&gt;Common Use-Cases with Copilot Chat&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;Summarizing large amounts of data into clear insights&lt;/li&gt;
-&lt;li&gt;Brainstorming ideas, drafting or refining content&lt;/li&gt;
-&lt;li&gt;Analyzing uploaded files to summarize or generate content&lt;/li&gt;
-&lt;li&gt;Generating AI imagery for projects or social posts&lt;/li&gt;
-&lt;li&gt;Writing or checking code quality and performing data analysis&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&quot;using-copilot-chat-in-microsoft-365-apps&quot;&gt;Using Copilot Chat in Microsoft 365 Apps&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;Outlook&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Ask questions about emails or attachments&lt;/li&gt;
-&lt;li&gt;Rewrite message replies in different tones&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;Word&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Quickly create, edit, or refine content&lt;/li&gt;
-&lt;li&gt;Ask questions about parts of documents for summaries or rewrites&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;PowerPoint&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Summarize slides&lt;/li&gt;
-&lt;li&gt;Generate images from prompts&lt;/li&gt;
-&lt;li&gt;Provide content ideas&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;Excel&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Ask questions to analyze data trends and patterns&lt;/li&gt;
-&lt;li&gt;Quickly generate visualizations&lt;/li&gt;
-&lt;/ul&gt;
 </content>
   </entry>
 </feed>
