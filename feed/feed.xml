@@ -5,7 +5,7 @@
   <subtitle>This is a longer description about your blog.</subtitle>
   <link href="https://example.com/feed/feed.xml" rel="self" />
   <link href="https://example.com/" />
-  <updated>2026-08-24T06:26:42Z</updated>
+  <updated>2026-08-24T07:14:11Z</updated>
   <id>https://example.com/</id>
   <author>
     <name>Your Name</name>
@@ -13,7 +13,7 @@
   <entry>
     <title></title>
     <link href="https://example.com/blog/microsoft-foundry/foundry-basics/" />
-    <updated>2026-08-24T06:26:42Z</updated>
+    <updated>2026-08-24T07:14:11Z</updated>
     <id>https://example.com/blog/microsoft-foundry/foundry-basics/</id>
     <content type="html">&lt;h1 id=&quot;microsoft-foundry-basics&quot;&gt;Microsoft Foundry Basics:&lt;/h1&gt;
 &lt;h2 id=&quot;foundry-rbac-roles&quot;&gt;Foundry RBAC roles:&lt;/h2&gt;
@@ -41,7 +41,7 @@
   <entry>
     <title></title>
     <link href="https://example.com/blog/ai-fundamentals/" />
-    <updated>2026-08-24T06:26:42Z</updated>
+    <updated>2026-08-24T07:14:11Z</updated>
     <id>https://example.com/blog/ai-fundamentals/</id>
     <content type="html">&lt;h1 id=&quot;ai-fundamentals&quot;&gt;AI Fundamentals&lt;/h1&gt;
 &lt;ul&gt;
@@ -97,6 +97,38 @@ Each resource has resource type, configuration settings, unique resource name an
 &lt;li&gt;
 &lt;p&gt;Application state: data that supports user-specific continuity&lt;/p&gt;
 &lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;System/ config data: supports how the AI app behaves&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Logs &amp;amp; telemetry: monitoring and optimization&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Security &amp;amp; access data: safe authentication and authorization&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;microsoft-foundry-for-ai&quot;&gt;Microsoft Foundry for AI&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;When an agent queries the knowledge base, Foundry IQ uses agentic retrieval to break the question into subqueries, search multiple sources in parallel and return relevant, citation-backed information.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;A foundry project builds and manages:
+Agents | Evaluations | Files and datasets | Vector indexes | Flows | Connections | Project-specific settings.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;Two endpoints in Foundry: Project-level endpoints, Model endpoints&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;client-server-interaction&quot;&gt;Client-Server Interaction&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;A client application is a program that a user interacts with on their device that sends requests to a server and displays the results.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;An AI client application utilizes a model, data, and application logic to process and return results. The app logic is the code or workflow that sends requests to the model, receives the response, and processes and transforms results. The entire process is known as a client–server interaction.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </content>
   </entry>
