@@ -34,3 +34,25 @@
 * AI model output data: predictions or generated responses.
 
 * Application state: data that supports user-specific continuity
+
+* System/ config data: supports how the AI app behaves
+* Logs & telemetry: monitoring and optimization
+* Security & access data: safe authentication and authorization
+
+
+## Microsoft Foundry for AI
+
+* When an agent queries the knowledge base, Foundry IQ uses agentic retrieval to break the question into subqueries, search multiple sources in parallel and return relevant, citation-backed information.
+
+* A foundry project builds and manages:
+  Agents | Evaluations | Files and datasets | Vector indexes | Flows | Connections | Project-specific settings.
+
+- Two endpoints in Foundry: Project-level endpoints, Model endpoints
+
+
+### Client-Server Interaction
+
+- A client application is a program that a user interacts with on their device that sends requests to a server and displays the results.
+
+- An AI client application utilizes a model, data, and application logic to process and return results. The app logic is the code or workflow that sends requests to the model, receives the response, and processes and transforms results. The entire process is known as a client–server interaction. 
+- 
