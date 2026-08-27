@@ -6,8 +6,18 @@ tags: ["copilot studio", "adaptive cards"]
 ---
 # Adaptive Cards in Copilot Studio
 - Adaptive Cards automatically adapt their UI to the host application's style but to make it responsive attention needs to given to layout is optimal in each of width groups. This can be achieved using Container layouts with `targetWidth` property for different width.
+  
+***
+
+In this blog:
+1. (Text features)[]
+2. (Responsive Layouts)[]
+3. (Collapsible Sections)[]
+4. (Edge-to-edge content)[]
+5. (Container layout)[]
 
 ***
+
 ## Text features
 
 ### Using Markdown
@@ -65,4 +75,16 @@ tags: ["copilot studio", "adaptive cards"]
 - Usage: to save space when targeting the very narrow layout, interactive elements.
 - Example: User clicks on 'Show more'.
 
-- 
+***
+
+## Edge-to-edge content
+- Elements can stretch to full width or full height of an Adaptive Card. Use `bleed` property with `true/false` on container elements.
+- **Usage**: full-width background and images, edge-to-edge sections for banners.
+
+(Read more)[https://adaptivecards.microsoft.com/?topic=edge-to-edge-content]
+
+***
+## Container Layouts
+- Elements in containers are laid out in a top-to-bottom stack.
+
+
