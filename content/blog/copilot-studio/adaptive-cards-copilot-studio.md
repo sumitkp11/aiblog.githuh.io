@@ -1,4 +1,5 @@
 # Adaptive Cards in Copilot Studio
+- Adaptive Cards automatically adapt their UI to the host application's style but to make it responsive attention needs to given to layout is optimal in each of width groups. This can be achieved using Container layouts with `targetWidth` property for different width.
 
 ## Text features
 
@@ -22,3 +23,20 @@
 2. Short date: `{{DATE(2017-02-14T06:00:00Z,SHORT)}}` -> Tue, 14 Feb, 2017
 3. Long date: `{{DATE(2017-02-14T06:00:00Z,LONG)}}` -> Tuesday, 14 February 2017
 4. Date and time: `{{DATE(2017-02-14T06:00:00Z,LONG)}}, {{TIME(2017-02-14T06:00:00Z)}}` -> Tuesday, 14 February 2017, 11:30 am
+
+
+## Responsive Layouts
+1. The four width groups: Wide, Standard, Narrow, Very narrow
+2. Make use of atLeast and atMost prefixes in targetWidth property to make an element visible only when the card width is 'standard or above' or only when the card width is 'narrow or below'. E.g. atLeast:standard
+
+### Wide Width
+- It is applicable on mobile devices/ tablets in landscape orientation.
+
+
+### Standard Width
+- It is applicable for chats on desktop.
+
+
+
+### Narrow and Very Narrow Width
+- Narrow is applicable for mobile devices in portrait mode while Very narrow is applicable for compact side panels such as meeting chat pane in Teams where space is little.
