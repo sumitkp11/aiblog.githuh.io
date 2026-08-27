@@ -40,3 +40,21 @@
 
 ### Narrow and Very Narrow Width
 - Narrow is applicable for mobile devices in portrait mode while Very narrow is applicable for compact side panels such as meeting chat pane in Teams where space is little.
+
+
+## Collapsible Sections
+- It allows content to be shown or hidden interactively.
+- Use Action.ShowCard or Action.ToggleVisibility to present information dynamically.
+
+## Action.ShowCard
+- It displays an embedded card within an Adaptive Card.
+- It allows to display additional information without going away from the current card.
+- Usage: multi-step forms, progressive information reveal
+- Example #1: User clicks a button to 'Reserve a seat', it then opens another card to enter name and email and a button to Submit.
+- Example #2: User clicks on 'Show graphical data', it shows a pie chart in a card.
+
+## Action.ToggleVisibility
+- It allows elements within the card to hidden or shown on user interaction.
+- Usage: to save space when targeting the very narrow layout, interactive elements.
+- Example: User clicks on 'Show more'.
+- 
