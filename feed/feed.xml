@@ -5,7 +5,7 @@
   <subtitle>This is a longer description about your blog.</subtitle>
   <link href="https://example.com/feed/feed.xml" rel="self" />
   <link href="https://example.com/" />
-  <updated>2026-08-27T11:29:07Z</updated>
+  <updated>2026-08-27T11:32:43Z</updated>
   <id>https://example.com/</id>
   <author>
     <name>Your Name</name>
@@ -13,7 +13,7 @@
   <entry>
     <title></title>
     <link href="https://example.com/blog/microsoft-foundry/foundry-basics/" />
-    <updated>2026-08-27T11:29:07Z</updated>
+    <updated>2026-08-27T11:32:43Z</updated>
     <id>https://example.com/blog/microsoft-foundry/foundry-basics/</id>
     <content type="html">&lt;h1 id=&quot;microsoft-foundry-basics&quot;&gt;Microsoft Foundry Basics:&lt;/h1&gt;
 &lt;h2 id=&quot;foundry-rbac-roles&quot;&gt;Foundry RBAC roles:&lt;/h2&gt;
@@ -41,7 +41,7 @@
   <entry>
     <title></title>
     <link href="https://example.com/blog/ai-fundamentals/" />
-    <updated>2026-08-27T11:29:07Z</updated>
+    <updated>2026-08-27T11:32:43Z</updated>
     <id>https://example.com/blog/ai-fundamentals/</id>
     <content type="html">&lt;h1 id=&quot;ai-fundamentals&quot;&gt;AI Fundamentals&lt;/h1&gt;
 &lt;ul&gt;
@@ -141,7 +141,8 @@ Agents | Evaluations | Files and datasets | Vector indexes | Flows | Connections
 &lt;ul&gt;
 &lt;li&gt;Adaptive Cards automatically adapt their UI to the host application&#39;s style but to make it responsive attention needs to given to layout is optimal in each of width groups. This can be achieved using Container layouts with &lt;code&gt;targetWidth&lt;/code&gt; property for different width.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&quot;text-features&quot;&gt;Text features&lt;/h2&gt;
+&lt;br&gt;
+## Text features
 &lt;h3 id=&quot;using-markdown&quot;&gt;Using Markdown&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;To insert text, we use the &#39;TextBlock&#39;.&lt;/li&gt;
@@ -172,11 +173,10 @@ Agents | Evaluations | Files and datasets | Vector indexes | Flows | Connections
 &lt;li&gt;Long date: &lt;code&gt;{{DATE(2017-02-14T06:00:00Z,LONG)}}&lt;/code&gt; -&amp;gt; Tuesday, 14 February 2017&lt;/li&gt;
 &lt;li&gt;Date and time: &lt;code&gt;{{DATE(2017-02-14T06:00:00Z,LONG)}}, {{TIME(2017-02-14T06:00:00Z)}}&lt;/code&gt; -&amp;gt; Tuesday, 14 February 2017, 11:30 am&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id=&quot;responsive-layouts&quot;&gt;Responsive Layouts&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;The four width groups: Wide, Standard, Narrow, Very narrow&lt;/li&gt;
-&lt;li&gt;Make use of atLeast and atMost prefixes in targetWidth property to make an element visible only when the card width is &#39;standard or above&#39; or only when the card width is &#39;narrow or below&#39;. E.g. atLeast:standard&lt;/li&gt;
-&lt;/ol&gt;
+&lt;br&gt;
+## Responsive Layouts
+1. The four width groups: Wide, Standard, Narrow, Very narrow
+2. Make use of atLeast and atMost prefixes in targetWidth property to make an element visible only when the card width is &#39;standard or above&#39; or only when the card width is &#39;narrow or below&#39;. E.g. atLeast:standard
 &lt;h3 id=&quot;wide-width&quot;&gt;Wide Width&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;It is applicable on mobile devices/ tablets in landscape orientation.&lt;/li&gt;
@@ -189,11 +189,10 @@ Agents | Evaluations | Files and datasets | Vector indexes | Flows | Connections
 &lt;ul&gt;
 &lt;li&gt;Narrow is applicable for mobile devices in portrait mode while Very narrow is applicable for compact side panels such as meeting chat pane in Teams where space is little.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&quot;collapsible-sections&quot;&gt;Collapsible Sections&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;It allows content to be shown or hidden interactively.&lt;/li&gt;
-&lt;li&gt;Use Action.ShowCard or Action.ToggleVisibility to present information dynamically.&lt;/li&gt;
-&lt;/ul&gt;
+&lt;br&gt;
+## Collapsible Sections
+- It allows content to be shown or hidden interactively.
+- Use Action.ShowCard or Action.ToggleVisibility to present information dynamically.
 &lt;h2 id=&quot;action-showcard&quot;&gt;Action.ShowCard&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;It displays an embedded card within an Adaptive Card.&lt;/li&gt;
@@ -204,9 +203,15 @@ Agents | Evaluations | Files and datasets | Vector indexes | Flows | Connections
 &lt;/ul&gt;
 &lt;h2 id=&quot;action-togglevisibility&quot;&gt;Action.ToggleVisibility&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;It allows elements within the card to hidden or shown on user interaction.&lt;/li&gt;
-&lt;li&gt;Usage: to save space when targeting the very narrow layout, interactive elements.&lt;/li&gt;
-&lt;li&gt;Example: User clicks on &#39;Show more&#39;.&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;It allows elements within the card to hidden or shown on user interaction.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Usage: to save space when targeting the very narrow layout, interactive elements.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Example: User clicks on &#39;Show more&#39;.&lt;/p&gt;
+&lt;/li&gt;
 &lt;li&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </content>
