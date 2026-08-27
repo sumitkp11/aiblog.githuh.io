@@ -1,3 +1,9 @@
+---
+title: Adaptive Cards in Copilot Studio
+description: 
+date: 2026-08-27
+tags: ["copilot studio", "adaptive cards"]
+---
 # Adaptive Cards in Copilot Studio
 - Adaptive Cards automatically adapt their UI to the host application's style but to make it responsive attention needs to given to layout is optimal in each of width groups. This can be achieved using Container layouts with `targetWidth` property for different width.
 
