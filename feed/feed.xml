@@ -5,7 +5,7 @@
   <subtitle>This is a longer description about your blog.</subtitle>
   <link href="https://example.com/feed/feed.xml" rel="self" />
   <link href="https://example.com/" />
-  <updated>2026-08-27T11:34:59Z</updated>
+  <updated>2026-08-27T11:56:30Z</updated>
   <id>https://example.com/</id>
   <author>
     <name>Your Name</name>
@@ -13,7 +13,7 @@
   <entry>
     <title></title>
     <link href="https://example.com/blog/microsoft-foundry/foundry-basics/" />
-    <updated>2026-08-27T11:34:59Z</updated>
+    <updated>2026-08-27T11:56:30Z</updated>
     <id>https://example.com/blog/microsoft-foundry/foundry-basics/</id>
     <content type="html">&lt;h1 id=&quot;microsoft-foundry-basics&quot;&gt;Microsoft Foundry Basics:&lt;/h1&gt;
 &lt;h2 id=&quot;foundry-rbac-roles&quot;&gt;Foundry RBAC roles:&lt;/h2&gt;
@@ -41,7 +41,7 @@
   <entry>
     <title></title>
     <link href="https://example.com/blog/ai-fundamentals/" />
-    <updated>2026-08-27T11:34:59Z</updated>
+    <updated>2026-08-27T11:56:30Z</updated>
     <id>https://example.com/blog/ai-fundamentals/</id>
     <content type="html">&lt;h1 id=&quot;ai-fundamentals&quot;&gt;AI Fundamentals&lt;/h1&gt;
 &lt;ul&gt;
@@ -142,6 +142,15 @@ Agents | Evaluations | Files and datasets | Vector indexes | Flows | Connections
 &lt;li&gt;Adaptive Cards automatically adapt their UI to the host application&#39;s style but to make it responsive attention needs to given to layout is optimal in each of width groups. This can be achieved using Container layouts with &lt;code&gt;targetWidth&lt;/code&gt; property for different width.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
+&lt;p&gt;In this blog:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;(Text features)[]&lt;/li&gt;
+&lt;li&gt;(Responsive Layouts)[]&lt;/li&gt;
+&lt;li&gt;(Collapsible Sections)[]&lt;/li&gt;
+&lt;li&gt;(Edge-to-edge content)[]&lt;/li&gt;
+&lt;li&gt;(Container layout)[]&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
 &lt;h2 id=&quot;text-features&quot;&gt;Text features&lt;/h2&gt;
 &lt;h3 id=&quot;using-markdown&quot;&gt;Using Markdown&lt;/h3&gt;
 &lt;ul&gt;
@@ -207,16 +216,21 @@ Agents | Evaluations | Files and datasets | Vector indexes | Flows | Connections
 &lt;/ul&gt;
 &lt;h2 id=&quot;action-togglevisibility&quot;&gt;Action.ToggleVisibility&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;It allows elements within the card to hidden or shown on user interaction.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Usage: to save space when targeting the very narrow layout, interactive elements.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Example: User clicks on &#39;Show more&#39;.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;/li&gt;
+&lt;li&gt;It allows elements within the card to hidden or shown on user interaction.&lt;/li&gt;
+&lt;li&gt;Usage: to save space when targeting the very narrow layout, interactive elements.&lt;/li&gt;
+&lt;li&gt;Example: User clicks on &#39;Show more&#39;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;edge-to-edge-content&quot;&gt;Edge-to-edge content&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Elements can stretch to full width or full height of an Adaptive Card. Use &lt;code&gt;bleed&lt;/code&gt; property with &lt;code&gt;true/false&lt;/code&gt; on container elements.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Usage&lt;/strong&gt;: full-width background and images, edge-to-edge sections for banners.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;(Read more)[https://adaptivecards.microsoft.com/?topic=edge-to-edge-content]&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;container-layouts&quot;&gt;Container Layouts&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Elements in containers are laid out in a top-to-bottom stack.&lt;/li&gt;
 &lt;/ul&gt;
 </content>
   </entry>
