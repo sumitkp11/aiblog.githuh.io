@@ -4,7 +4,7 @@
 	<link rel="icon" type="image/x-icon" href="./favicon.ico">
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>The Sumit&#39;s AI Blog</title>
+		<title>Adaptive Cards in Copilot Studio</title>
 		<meta name="description" content="A beginner’s journey into AI—sharing what I learn, what confuses me, and how I grow along the way.">
 		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="The Sumit&#39;s AI Blog">
 		
@@ -500,101 +500,88 @@ pre[class*="language-diff-"] {
 				
 
 
-<h1></h1>
+<h1 id="adaptive-cards-in-copilot-studio">Adaptive Cards in Copilot Studio</h1>
 
 <ul class="post-metadata">
 	<li><time datetime="2026-08-27">27 August 2026</time></li>
+	<li><a href="/tags/copilot-studio/" class="post-tag">copilot studio</a>, </li>
+	<li><a href="/tags/adaptive-cards/" class="post-tag">adaptive cards</a></li>
 </ul>
 
-<h1 id="ai-fundamentals">AI Fundamentals</h1>
+<h1 id="adaptive-cards-in-copilot-studio-2">Adaptive Cards in Copilot Studio</h1>
 <ul>
-<li>
-<p>Cloud Platform: A cloud platform is a collection of services that can be used over the Internet instead of running it on computer or server.</p>
-</li>
-<li>
-<p>Azure core categories: Compute, Storage, Networking, App Services.</p>
-</li>
-<li>
-<p>Azure organization structure: Tenants -&gt; Subscription -&gt; Resource group and resources</p>
-</li>
-<li>
-<p>Azure Tenant: It is an organization's home base and identity in Microsoft's cloud. The tenant includes users, groups, identities and policies for managing secure access.</p>
-</li>
-<li>
-<p>Azure Subscription: A billing container for cloud resources. One tenant can contain one or many Azure subscriptions. Its tied with a payment method and sets boundaries for cost, quotas and access control.</p>
-</li>
-<li>
-<p>Resource groups: Resource groups are folder that hold related Azure resources to manage them together.</p>
-</li>
-<li>
-<p>Resource: Any individual service or object created in Azure.
-Each resource has resource type, configuration settings, unique resource name and ID and optional access controls.</p>
-</li>
-<li>
-<p>Azure Portal: Open 'portal.azure.com' is a centrallized, web-based management user interface.</p>
-</li>
-<li>
-<p>Host: Applications run on computers or environments. A host can be a virtual machine, provide compute, memory and networking to execute.</p>
-</li>
-<li>
-<p>Scaling: To automatically or manually adjust the amount of computer power to use by adding or removing instances.</p>
-</li>
-<li>
-<p>Instances: Copies of application running at the same time.</p>
-</li>
-<li>
-<p>Types of scaling: Scale out or horizontal - to add more instances | Scale up or vertical - to increase CPU/memory on existing instance</p>
-</li>
+<li>Adaptive Cards automatically adapt their UI to the host application's style but to make it responsive attention needs to given to layout is optimal in each of width groups. This can be achieved using Container layouts with <code>targetWidth</code> property for different width.</li>
 </ul>
-<h2 id="ai-types-of-data">AI Types of Data</h2>
+<h2 id="text-features">Text features</h2>
+<h3 id="using-markdown">Using Markdown</h3>
 <ul>
-<li>
-<p>Training data: Data that teaches the AI model patterns.</p>
-</li>
-<li>
-<p>Inference input data: the real-time user or system input.</p>
-</li>
-<li>
-<p>AI model output data: predictions or generated responses.</p>
-</li>
-<li>
-<p>Application state: data that supports user-specific continuity</p>
-</li>
-<li>
-<p>System/ config data: supports how the AI app behaves</p>
-</li>
-<li>
-<p>Logs &amp; telemetry: monitoring and optimization</p>
-</li>
-<li>
-<p>Security &amp; access data: safe authentication and authorization</p>
-</li>
+<li>To insert text, we use the 'TextBlock'.</li>
+<li>It can be formatted using Markdown.</li>
+<li>Find more here: https://adaptivecards.microsoft.com/?topic=text-formatting</li>
 </ul>
-<h2 id="microsoft-foundry-for-ai">Microsoft Foundry for AI</h2>
+<h3 id="date-and-time-formatting">Date and time formatting</h3>
 <ul>
 <li>
-<p>When an agent queries the knowledge base, Foundry IQ uses agentic retrieval to break the question into subqueries, search multiple sources in parallel and return relevant, citation-backed information.</p>
+<p>DATE and TIME functions are to be used. For DATE, default format is COMPACT.</p>
 </li>
 <li>
-<p>A foundry project builds and manages:
-Agents | Evaluations | Files and datasets | Vector indexes | Flows | Connections | Project-specific settings.</p>
+<p>DATE syntax: <code>{{DATE(&lt;date&gt;|&lt;date-time&gt;[,COMPACT|SHORT|LONG])}}</code></p>
+</li>
+<li>
+<p>TIME syntax: <code>{{TIME(&lt;time&gt;|&lt;date-time&gt;)}}</code></p>
 </li>
 </ul>
 <ul>
-<li>Two endpoints in Foundry: Project-level endpoints, Model endpoints</li>
+<li><code>&lt;date-time&gt;</code> is expressed in Zulu format: 2017-02-14T06:00:00Z</li>
+<li><date> is expressed as 2017-02-13</date></li>
+<li><time> is expressed as 06:00:00Z</time></li>
 </ul>
-<h3 id="client-server-interaction">Client-Server Interaction</h3>
+<h4 id="examples">Examples</h4>
+<ol>
+<li>Compact date: <code>{{DATE(2017-02-14T06:00:00Z)}}</code> -&gt; 14/2/2017</li>
+<li>Short date: <code>{{DATE(2017-02-14T06:00:00Z,SHORT)}}</code> -&gt; Tue, 14 Feb, 2017</li>
+<li>Long date: <code>{{DATE(2017-02-14T06:00:00Z,LONG)}}</code> -&gt; Tuesday, 14 February 2017</li>
+<li>Date and time: <code>{{DATE(2017-02-14T06:00:00Z,LONG)}}, {{TIME(2017-02-14T06:00:00Z)}}</code> -&gt; Tuesday, 14 February 2017, 11:30 am</li>
+</ol>
+<h2 id="responsive-layouts">Responsive Layouts</h2>
+<ol>
+<li>The four width groups: Wide, Standard, Narrow, Very narrow</li>
+<li>Make use of atLeast and atMost prefixes in targetWidth property to make an element visible only when the card width is 'standard or above' or only when the card width is 'narrow or below'. E.g. atLeast:standard</li>
+</ol>
+<h3 id="wide-width">Wide Width</h3>
 <ul>
-<li>
-<p>A client application is a program that a user interacts with on their device that sends requests to a server and displays the results.</p>
-</li>
-<li>
-<p>An AI client application utilizes a model, data, and application logic to process and return results. The app logic is the code or workflow that sends requests to the model, receives the response, and processes and transforms results. The entire process is known as a client–server interaction.</p>
-</li>
+<li>It is applicable on mobile devices/ tablets in landscape orientation.</li>
+</ul>
+<h3 id="standard-width">Standard Width</h3>
+<ul>
+<li>It is applicable for chats on desktop.</li>
+</ul>
+<h3 id="narrow-and-very-narrow-width">Narrow and Very Narrow Width</h3>
+<ul>
+<li>Narrow is applicable for mobile devices in portrait mode while Very narrow is applicable for compact side panels such as meeting chat pane in Teams where space is little.</li>
+</ul>
+<h2 id="collapsible-sections">Collapsible Sections</h2>
+<ul>
+<li>It allows content to be shown or hidden interactively.</li>
+<li>Use Action.ShowCard or Action.ToggleVisibility to present information dynamically.</li>
+</ul>
+<h2 id="action-showcard">Action.ShowCard</h2>
+<ul>
+<li>It displays an embedded card within an Adaptive Card.</li>
+<li>It allows to display additional information without going away from the current card.</li>
+<li>Usage: multi-step forms, progressive information reveal</li>
+<li>Example #1: User clicks a button to 'Reserve a seat', it then opens another card to enter name and email and a button to Submit.</li>
+<li>Example #2: User clicks on 'Show graphical data', it shows a pie chart in a card.</li>
+</ul>
+<h2 id="action-togglevisibility">Action.ToggleVisibility</h2>
+<ul>
+<li>It allows elements within the card to hidden or shown on user interaction.</li>
+<li>Usage: to save space when targeting the very narrow layout, interactive elements.</li>
+<li>Example: User clicks on 'Show more'.</li>
 <li></li>
 </ul>
 
-<ul class="links-nextprev"><li class="links-nextprev-prev">← Previous<br> <a href="/blog/copilot-studio/adaptive-cards-copilot-studio/">Adaptive Cards in Copilot Studio</a></li><li class="links-nextprev-next">Next →<br><a href="/blog/microsoft-foundry/foundry-basics/"></a></li>
+<ul class="links-nextprev"><li class="links-nextprev-prev">← Previous<br> <a href="/blog/copilot-studio/copilot-studio-install-vss/">Installation of Copilot Studio extension in VSS</a></li><li class="links-nextprev-next">Next →<br><a href="/blog/ai-fundamentals/"></a></li>
 </ul>
 
 			</heading-anchors>
@@ -603,7 +590,7 @@ Agents | Evaluations | Files and datasets | Vector indexes | Flows | Connections
 		<footer>
 		</footer>
 
-		<!-- This page `/blog/ai-fundamentals/` was built on 2026-08-27T11:29:23.457Z -->
+		<!-- This page `/blog/copilot-studio/adaptive-cards-copilot-studio/` was built on 2026-08-27T11:29:23.456Z -->
 		<script type="module" src="/dist/cC8wS6ZjFU.js"></script>
 	</body>
 </html>

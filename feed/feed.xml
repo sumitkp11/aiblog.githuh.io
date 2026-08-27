@@ -5,7 +5,7 @@
   <subtitle>This is a longer description about your blog.</subtitle>
   <link href="https://example.com/feed/feed.xml" rel="self" />
   <link href="https://example.com/" />
-  <updated>2026-08-24T07:14:11Z</updated>
+  <updated>2026-08-27T11:29:07Z</updated>
   <id>https://example.com/</id>
   <author>
     <name>Your Name</name>
@@ -13,7 +13,7 @@
   <entry>
     <title></title>
     <link href="https://example.com/blog/microsoft-foundry/foundry-basics/" />
-    <updated>2026-08-24T07:14:11Z</updated>
+    <updated>2026-08-27T11:29:07Z</updated>
     <id>https://example.com/blog/microsoft-foundry/foundry-basics/</id>
     <content type="html">&lt;h1 id=&quot;microsoft-foundry-basics&quot;&gt;Microsoft Foundry Basics:&lt;/h1&gt;
 &lt;h2 id=&quot;foundry-rbac-roles&quot;&gt;Foundry RBAC roles:&lt;/h2&gt;
@@ -41,7 +41,7 @@
   <entry>
     <title></title>
     <link href="https://example.com/blog/ai-fundamentals/" />
-    <updated>2026-08-24T07:14:11Z</updated>
+    <updated>2026-08-27T11:29:07Z</updated>
     <id>https://example.com/blog/ai-fundamentals/</id>
     <content type="html">&lt;h1 id=&quot;ai-fundamentals&quot;&gt;AI Fundamentals&lt;/h1&gt;
 &lt;ul&gt;
@@ -128,6 +128,85 @@ Agents | Evaluations | Files and datasets | Vector indexes | Flows | Connections
 &lt;li&gt;
 &lt;p&gt;An AI client application utilizes a model, data, and application logic to process and return results. The app logic is the code or workflow that sends requests to the model, receives the response, and processes and transforms results. The entire process is known as a client–server interaction.&lt;/p&gt;
 &lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+  </entry>
+  <entry>
+    <title>Adaptive Cards in Copilot Studio</title>
+    <link href="https://example.com/blog/copilot-studio/adaptive-cards-copilot-studio/" />
+    <updated>2026-08-27T00:00:00Z</updated>
+    <id>https://example.com/blog/copilot-studio/adaptive-cards-copilot-studio/</id>
+    <content type="html">&lt;h1 id=&quot;adaptive-cards-in-copilot-studio&quot;&gt;Adaptive Cards in Copilot Studio&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Adaptive Cards automatically adapt their UI to the host application&#39;s style but to make it responsive attention needs to given to layout is optimal in each of width groups. This can be achieved using Container layouts with &lt;code&gt;targetWidth&lt;/code&gt; property for different width.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;text-features&quot;&gt;Text features&lt;/h2&gt;
+&lt;h3 id=&quot;using-markdown&quot;&gt;Using Markdown&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;To insert text, we use the &#39;TextBlock&#39;.&lt;/li&gt;
+&lt;li&gt;It can be formatted using Markdown.&lt;/li&gt;
+&lt;li&gt;Find more here: https://adaptivecards.microsoft.com/?topic=text-formatting&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;date-and-time-formatting&quot;&gt;Date and time formatting&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;DATE and TIME functions are to be used. For DATE, default format is COMPACT.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;DATE syntax: &lt;code&gt;{{DATE(&amp;lt;date&amp;gt;|&amp;lt;date-time&amp;gt;[,COMPACT|SHORT|LONG])}}&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;TIME syntax: &lt;code&gt;{{TIME(&amp;lt;time&amp;gt;|&amp;lt;date-time&amp;gt;)}}&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;date-time&amp;gt;&lt;/code&gt; is expressed in Zulu format: 2017-02-14T06:00:00Z&lt;/li&gt;
+&lt;li&gt;&lt;date&gt; is expressed as 2017-02-13&lt;/date&gt;&lt;/li&gt;
+&lt;li&gt;&lt;time&gt; is expressed as 06:00:00Z&lt;/time&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;examples&quot;&gt;Examples&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;Compact date: &lt;code&gt;{{DATE(2017-02-14T06:00:00Z)}}&lt;/code&gt; -&amp;gt; 14/2/2017&lt;/li&gt;
+&lt;li&gt;Short date: &lt;code&gt;{{DATE(2017-02-14T06:00:00Z,SHORT)}}&lt;/code&gt; -&amp;gt; Tue, 14 Feb, 2017&lt;/li&gt;
+&lt;li&gt;Long date: &lt;code&gt;{{DATE(2017-02-14T06:00:00Z,LONG)}}&lt;/code&gt; -&amp;gt; Tuesday, 14 February 2017&lt;/li&gt;
+&lt;li&gt;Date and time: &lt;code&gt;{{DATE(2017-02-14T06:00:00Z,LONG)}}, {{TIME(2017-02-14T06:00:00Z)}}&lt;/code&gt; -&amp;gt; Tuesday, 14 February 2017, 11:30 am&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;responsive-layouts&quot;&gt;Responsive Layouts&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;The four width groups: Wide, Standard, Narrow, Very narrow&lt;/li&gt;
+&lt;li&gt;Make use of atLeast and atMost prefixes in targetWidth property to make an element visible only when the card width is &#39;standard or above&#39; or only when the card width is &#39;narrow or below&#39;. E.g. atLeast:standard&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;wide-width&quot;&gt;Wide Width&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;It is applicable on mobile devices/ tablets in landscape orientation.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;standard-width&quot;&gt;Standard Width&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;It is applicable for chats on desktop.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;narrow-and-very-narrow-width&quot;&gt;Narrow and Very Narrow Width&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Narrow is applicable for mobile devices in portrait mode while Very narrow is applicable for compact side panels such as meeting chat pane in Teams where space is little.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;collapsible-sections&quot;&gt;Collapsible Sections&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;It allows content to be shown or hidden interactively.&lt;/li&gt;
+&lt;li&gt;Use Action.ShowCard or Action.ToggleVisibility to present information dynamically.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;action-showcard&quot;&gt;Action.ShowCard&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;It displays an embedded card within an Adaptive Card.&lt;/li&gt;
+&lt;li&gt;It allows to display additional information without going away from the current card.&lt;/li&gt;
+&lt;li&gt;Usage: multi-step forms, progressive information reveal&lt;/li&gt;
+&lt;li&gt;Example #1: User clicks a button to &#39;Reserve a seat&#39;, it then opens another card to enter name and email and a button to Submit.&lt;/li&gt;
+&lt;li&gt;Example #2: User clicks on &#39;Show graphical data&#39;, it shows a pie chart in a card.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;action-togglevisibility&quot;&gt;Action.ToggleVisibility&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;It allows elements within the card to hidden or shown on user interaction.&lt;/li&gt;
+&lt;li&gt;Usage: to save space when targeting the very narrow layout, interactive elements.&lt;/li&gt;
+&lt;li&gt;Example: User clicks on &#39;Show more&#39;.&lt;/li&gt;
 &lt;li&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </content>
@@ -332,94 +411,6 @@ Agents | Evaluations | Files and datasets | Vector indexes | Flows | Connections
 &lt;li&gt;Agents use customized NLU models and AI capabilities to understand what a user types or says. It then responds with the best topic.&lt;/li&gt;
 &lt;li&gt;Once an agent is linked to knowledge sources, it can automatically generate responses and doesn&#39;t need topics to be created for it.&lt;/li&gt;
 &lt;li&gt;It uses AI powered by the Azure OpenAI GPT model which is also used in Bing search.&lt;/li&gt;
-&lt;/ul&gt;
-</content>
-  </entry>
-  <entry>
-    <title>Agent Builder in Microsoft 365 Copilot</title>
-    <link href="https://example.com/blog/agent-builder-365/" />
-    <updated>2026-07-30T00:00:00Z</updated>
-    <id>https://example.com/blog/agent-builder-365/</id>
-    <content type="html">&lt;h1 id=&quot;agent-builder-in-microsoft-365-copilot&quot;&gt;Agent Builder in Microsoft 365 Copilot&lt;/h1&gt;
-&lt;ul&gt;
-&lt;li&gt;Agent Builder provides an easy way to build declarative agents for Microsoft 365.&lt;/li&gt;
-&lt;li&gt;Agents can be built from following apps and sites:
-&lt;ol&gt;
-&lt;li&gt;microsoft365.com/chat&lt;/li&gt;
-&lt;li&gt;office.com/chat&lt;/li&gt;
-&lt;li&gt;Microsoft Teams Desktop and web client&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;building-agents-using-agent-builder&quot;&gt;Building agents using Agent Builder&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;When a new agent is chosen in Microsoft 365 Copilot, we can:&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol&gt;
-&lt;li&gt;use natural language to describe agent and copilot builds it&lt;/li&gt;
-&lt;li&gt;configure agent manually using Configure tab&lt;/li&gt;
-&lt;li&gt;Start with a template for a specific use case.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&quot;recommended-using-natural-language-to-describe-agent&quot;&gt;RECOMMENDED: Using natural language to describe agent&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;This approach understands a user&#39;s intent through natural language. It provides suggestions, guidance and next-based prompts.&lt;/li&gt;
-&lt;li&gt;It generates optimized agent instructions to build accurate, high-quality agents.&lt;/li&gt;
-&lt;li&gt;After describing the agent, the tool prepopulates: Name, Description, Instructions, Knowledge sources, Suggested prompts&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;configure-agent-manually&quot;&gt;Configure agent manually&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;On New agent, select &lt;code&gt;Skip to configure&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Following fields make up the agent:
-&lt;ol&gt;
-&lt;li&gt;Name: name of the agent with a character limit of 30 characters.&lt;/li&gt;
-&lt;li&gt;Icon: choose an icon from library or manually upload one with PNG file with a transparent background at 192x192 pixels resolution under 1 MB size limit.&lt;/li&gt;
-&lt;li&gt;Model: choose the LLM model on which agent will run&lt;/li&gt;
-&lt;li&gt;Description: helps the LLM identify and use agent for specific task or situation with 1000 characters as the limit.&lt;/li&gt;
-&lt;li&gt;Instructions: specific instructions to the LLM to extent the capabilities with 8,000 characters limit.&lt;/li&gt;
-&lt;li&gt;Knowledge: specify up to 20 knowledge sources or Copilot connectors.&lt;/li&gt;
-&lt;li&gt;Capabilities: enhance user experience by adding capabilities.&lt;/li&gt;
-&lt;li&gt;Starter Prompts: it helps other users understand common supported scenarios by the agent. Each one comes with a name and description with no minimum number required.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;build-from-template&quot;&gt;Build from template&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;It includes templates to reuse to build agents for specific use cases.&lt;/li&gt;
-&lt;li&gt;It comes preconfigured with description, instructions and prompts.&lt;/li&gt;
-&lt;li&gt;To start: New agent -&amp;gt; Start with a template&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;adding-capabilities&quot;&gt;Adding capabilities&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Following capabilities can be added to the agent:
-&lt;ol&gt;
-&lt;li&gt;Code interpreter: solve complex math problems, analyze data and generate visualizations.&lt;/li&gt;
-&lt;li&gt;Image generator: generate image based on user prompts.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;default-response-mode&quot;&gt;Default Response Mode&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;It controls how the agent approaches each question, either to prioritize speed or take more time for in-depth analysis.&lt;/li&gt;
-&lt;li&gt;Different response modes are:
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;Auto&lt;/strong&gt; - set as default, automatically chooses the best approach based on each question, balancing speed and depth of analysis.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Quick response&lt;/strong&gt;: agent replies quickly, keeps responses concise, it doesn&#39;t require in-depth analysis.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Think deeper&lt;/strong&gt;: it takes more time to analyze the question before responding.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;adding-knowledge-sources&quot;&gt;Adding knowledge sources&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Following knowledge sources can be added:
-&lt;ol&gt;
-&lt;li&gt;public website URLs: must be only two levels, cannot contain query parameters, upto 4 URLs&lt;/li&gt;
-&lt;li&gt;upto 100 SharePoint files, folders or sites: list can have max of 20,000 rows and 50 MB of raw text, Attachments column isnt indexed&lt;/li&gt;
-&lt;li&gt;up to 50 onedrive files&lt;/li&gt;
-&lt;li&gt;up to 5 Teams chat URLs&lt;/li&gt;
-&lt;li&gt;embedded files&lt;/li&gt;
-&lt;li&gt;copilot connectors&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
 &lt;/ul&gt;
 </content>
   </entry>
