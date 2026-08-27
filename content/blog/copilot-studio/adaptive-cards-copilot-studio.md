@@ -7,6 +7,7 @@ tags: ["copilot studio", "adaptive cards"]
 # Adaptive Cards in Copilot Studio
 - Adaptive Cards automatically adapt their UI to the host application's style but to make it responsive attention needs to given to layout is optimal in each of width groups. This can be achieved using Container layouts with `targetWidth` property for different width.
 
+<br>
 ## Text features
 
 ### Using Markdown
@@ -30,7 +31,7 @@ tags: ["copilot studio", "adaptive cards"]
 3. Long date: `{% raw %}{{DATE(2017-02-14T06:00:00Z,LONG)}}{% endraw %}` -> Tuesday, 14 February 2017
 4. Date and time: `{% raw %}{{DATE(2017-02-14T06:00:00Z,LONG)}}, {{TIME(2017-02-14T06:00:00Z)}}{% endraw %}` -> Tuesday, 14 February 2017, 11:30 am
 
-
+<br>
 ## Responsive Layouts
 1. The four width groups: Wide, Standard, Narrow, Very narrow
 2. Make use of atLeast and atMost prefixes in targetWidth property to make an element visible only when the card width is 'standard or above' or only when the card width is 'narrow or below'. E.g. atLeast:standard
@@ -47,7 +48,7 @@ tags: ["copilot studio", "adaptive cards"]
 ### Narrow and Very Narrow Width
 - Narrow is applicable for mobile devices in portrait mode while Very narrow is applicable for compact side panels such as meeting chat pane in Teams where space is little.
 
-
+<br>
 ## Collapsible Sections
 - It allows content to be shown or hidden interactively.
 - Use Action.ShowCard or Action.ToggleVisibility to present information dynamically.
@@ -63,4 +64,5 @@ tags: ["copilot studio", "adaptive cards"]
 - It allows elements within the card to hidden or shown on user interaction.
 - Usage: to save space when targeting the very narrow layout, interactive elements.
 - Example: User clicks on 'Show more'.
+
 - 
