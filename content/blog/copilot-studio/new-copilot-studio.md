@@ -16,4 +16,17 @@
 - There are 2 ways to add a skill: Upload a skill and Create from blank.
 - To upload a skill, the uploaded file must be a "SKILL.md" file or zip that includes SKILL.md
 - The SKILL.md file must contain the skill name and description formatted in YAML.
-- When creating from blank, you need to input the name of the skill, 
+- When creating from blank, you need to input the name of the skill, give a description of what the skill does and when to use it and instructions when the skill is activated.
+
+***
+## Tools
+- It gives tools to connect the agent to external systems and actions.
+- Featured tools include Office 365 Outlook, Microsoft Teams, SharePoint, OneDrive for Business, Excel Online (Business) and Microsoft Dataverse.
+- Different tools can be added such as Model Context Protocol, Connectors, Workflows.
+- Under Workflows, only those are supported which have the "When an agent calls the workflow" trigger.
+
+***
+## Knowledge
+- It provides trusted context to guide decisions.
+- It helps the agent provide more relevant information and insights.
+- Featured knowledge sources are: Public websites, SharePoint, OneDrive for Business, Salesforce, Azure SQL
