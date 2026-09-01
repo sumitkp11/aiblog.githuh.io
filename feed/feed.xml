@@ -5,7 +5,7 @@
   <subtitle>This is a longer description about your blog.</subtitle>
   <link href="https://example.com/feed/feed.xml" rel="self" />
   <link href="https://example.com/" />
-  <updated>2026-09-01T08:29:30Z</updated>
+  <updated>2026-09-01T09:14:34Z</updated>
   <id>https://example.com/</id>
   <author>
     <name>Your Name</name>
@@ -13,7 +13,7 @@
   <entry>
     <title></title>
     <link href="https://example.com/blog/microsoft-foundry/foundry-basics/" />
-    <updated>2026-09-01T08:29:30Z</updated>
+    <updated>2026-09-01T09:14:34Z</updated>
     <id>https://example.com/blog/microsoft-foundry/foundry-basics/</id>
     <content type="html">&lt;h1 id=&quot;microsoft-foundry-basics&quot;&gt;Microsoft Foundry Basics:&lt;/h1&gt;
 &lt;h2 id=&quot;foundry-rbac-roles&quot;&gt;Foundry RBAC roles:&lt;/h2&gt;
@@ -41,7 +41,7 @@
   <entry>
     <title></title>
     <link href="https://example.com/blog/copilot-studio/new-copilot-studio/" />
-    <updated>2026-09-01T08:29:30Z</updated>
+    <updated>2026-09-01T09:14:34Z</updated>
     <id>https://example.com/blog/copilot-studio/new-copilot-studio/</id>
     <content type="html">&lt;h1 id=&quot;the-new-copilot-studio-experience&quot;&gt;The New Copilot Studio Experience&lt;/h1&gt;
 &lt;hr&gt;
@@ -67,14 +67,29 @@
 &lt;li&gt;There are 2 ways to add a skill: Upload a skill and Create from blank.&lt;/li&gt;
 &lt;li&gt;To upload a skill, the uploaded file must be a &amp;quot;SKILL.md&amp;quot; file or zip that includes SKILL.md&lt;/li&gt;
 &lt;li&gt;The SKILL.md file must contain the skill name and description formatted in YAML.&lt;/li&gt;
-&lt;li&gt;When creating from blank, you need to input the name of the skill,&lt;/li&gt;
+&lt;li&gt;When creating from blank, you need to input the name of the skill, give a description of what the skill does and when to use it and instructions when the skill is activated.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;tools&quot;&gt;Tools&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;It gives tools to connect the agent to external systems and actions.&lt;/li&gt;
+&lt;li&gt;Featured tools include Office 365 Outlook, Microsoft Teams, SharePoint, OneDrive for Business, Excel Online (Business) and Microsoft Dataverse.&lt;/li&gt;
+&lt;li&gt;Different tools can be added such as Model Context Protocol, Connectors, Workflows.&lt;/li&gt;
+&lt;li&gt;Under Workflows, only those are supported which have the &amp;quot;When an agent calls the workflow&amp;quot; trigger.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;knowledge&quot;&gt;Knowledge&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;It provides trusted context to guide decisions.&lt;/li&gt;
+&lt;li&gt;It helps the agent provide more relevant information and insights.&lt;/li&gt;
+&lt;li&gt;Featured knowledge sources are: Public websites, SharePoint, OneDrive for Business, Salesforce, Azure SQL&lt;/li&gt;
 &lt;/ul&gt;
 </content>
   </entry>
   <entry>
     <title></title>
     <link href="https://example.com/blog/ai-fundamentals/" />
-    <updated>2026-09-01T08:29:30Z</updated>
+    <updated>2026-09-01T09:14:34Z</updated>
     <id>https://example.com/blog/ai-fundamentals/</id>
     <content type="html">&lt;h1 id=&quot;ai-fundamentals&quot;&gt;AI Fundamentals&lt;/h1&gt;
 &lt;ul&gt;
