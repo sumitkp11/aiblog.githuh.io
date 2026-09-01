@@ -5,7 +5,7 @@
   <subtitle>This is a longer description about your blog.</subtitle>
   <link href="https://example.com/feed/feed.xml" rel="self" />
   <link href="https://example.com/" />
-  <updated>2026-08-27T11:59:14Z</updated>
+  <updated>2026-09-01T08:29:30Z</updated>
   <id>https://example.com/</id>
   <author>
     <name>Your Name</name>
@@ -13,7 +13,7 @@
   <entry>
     <title></title>
     <link href="https://example.com/blog/microsoft-foundry/foundry-basics/" />
-    <updated>2026-08-27T11:59:14Z</updated>
+    <updated>2026-09-01T08:29:30Z</updated>
     <id>https://example.com/blog/microsoft-foundry/foundry-basics/</id>
     <content type="html">&lt;h1 id=&quot;microsoft-foundry-basics&quot;&gt;Microsoft Foundry Basics:&lt;/h1&gt;
 &lt;h2 id=&quot;foundry-rbac-roles&quot;&gt;Foundry RBAC roles:&lt;/h2&gt;
@@ -40,8 +40,41 @@
   </entry>
   <entry>
     <title></title>
+    <link href="https://example.com/blog/copilot-studio/new-copilot-studio/" />
+    <updated>2026-09-01T08:29:30Z</updated>
+    <id>https://example.com/blog/copilot-studio/new-copilot-studio/</id>
+    <content type="html">&lt;h1 id=&quot;the-new-copilot-studio-experience&quot;&gt;The New Copilot Studio Experience&lt;/h1&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;model&quot;&gt;Model&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;The following models are listed in the new experience:
+&lt;ul&gt;
+&lt;li&gt;Managed models such as the GPT-5 and Anthropic models.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;channels&quot;&gt;Channels&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;It defines where the users can interact with the agent.&lt;/li&gt;
+&lt;li&gt;There are two ways to add an agent to a web app- The embed code can be added to any HTML web app, Using Microsoft 365 Agents SDK, and Agents Client SDK for native apps using iOS, Android and Windows.&lt;/li&gt;
+&lt;li&gt;The options include Teams+Microsoft 365, Demo website and App Embeds.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;skills&quot;&gt;Skills&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;It defines the behaviors through structured instructions&lt;/li&gt;
+&lt;li&gt;There are 2 ways to add a skill: Upload a skill and Create from blank.&lt;/li&gt;
+&lt;li&gt;To upload a skill, the uploaded file must be a &amp;quot;SKILL.md&amp;quot; file or zip that includes SKILL.md&lt;/li&gt;
+&lt;li&gt;The SKILL.md file must contain the skill name and description formatted in YAML.&lt;/li&gt;
+&lt;li&gt;When creating from blank, you need to input the name of the skill,&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+  </entry>
+  <entry>
+    <title></title>
     <link href="https://example.com/blog/ai-fundamentals/" />
-    <updated>2026-08-27T11:59:14Z</updated>
+    <updated>2026-09-01T08:29:30Z</updated>
     <id>https://example.com/blog/ai-fundamentals/</id>
     <content type="html">&lt;h1 id=&quot;ai-fundamentals&quot;&gt;AI Fundamentals&lt;/h1&gt;
 &lt;ul&gt;
@@ -401,39 +434,6 @@ Agents | Evaluations | Files and datasets | Vector indexes | Flows | Connections
 &lt;li&gt;Real-time voice agents are used in generative orchestrations.&lt;/li&gt;
 &lt;li&gt;It uses speech-to-speech real-time model to achieve a low-latency and natural conversation flow.&lt;/li&gt;
 &lt;li&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</content>
-  </entry>
-  <entry>
-    <title>Copilot Studio Overview</title>
-    <link href="https://example.com/blog/copilot-studio-overview/" />
-    <updated>2026-07-31T00:00:00Z</updated>
-    <id>https://example.com/blog/copilot-studio-overview/</id>
-    <content type="html">&lt;h1 id=&quot;copilot-studio-overview&quot;&gt;Copilot Studio Overview&lt;/h1&gt;
-&lt;ul&gt;
-&lt;li&gt;Copilot Studio is a graphical, low-code tool for building agents and agent flows.&lt;/li&gt;
-&lt;li&gt;It can connect to other data sources using prebuilt or custom connectors.&lt;/li&gt;
-&lt;li&gt;Makers dont need to have an extensive technical background to create and orchestrate sophisticated logic.&lt;/li&gt;
-&lt;li&gt;Copilot Studio can be accessed from [https://copilotstudio.microsoft.com]&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;what-is-an-agent&quot;&gt;What is an agent?&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;An agent can handle a range of interactions and tasks.&lt;/li&gt;
-&lt;li&gt;It can autonomously decide the best action to take based on instructions and context.&lt;/li&gt;
-&lt;li&gt;To complete a goal, it coordindates between LLM, instructions, context, knowledge sources, topics, tools, inputs and triggers.&lt;/li&gt;
-&lt;li&gt;Use cases of an agent are: Sales and Support issues, Store information, employee health portal, public health tracking information, Employee portal&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;what-is-a-flow&quot;&gt;What is a flow?&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;A flow can automate repetitive tasks and integrate with apps and services.&lt;/li&gt;
-&lt;li&gt;Flows can be triggered manually, by other agents, or scheduled.&lt;/li&gt;
-&lt;li&gt;Flows can run prompts, call agents and include human review steps.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;how-does-an-agent-conversation-work&quot;&gt;How does an agent conversation work?&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Agents use customized NLU models and AI capabilities to understand what a user types or says. It then responds with the best topic.&lt;/li&gt;
-&lt;li&gt;Once an agent is linked to knowledge sources, it can automatically generate responses and doesn&#39;t need topics to be created for it.&lt;/li&gt;
-&lt;li&gt;It uses AI powered by the Azure OpenAI GPT model which is also used in Bing search.&lt;/li&gt;
 &lt;/ul&gt;
 </content>
   </entry>
