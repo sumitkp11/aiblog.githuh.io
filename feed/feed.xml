@@ -5,7 +5,7 @@
   <subtitle>This is a longer description about your blog.</subtitle>
   <link href="https://example.com/feed/feed.xml" rel="self" />
   <link href="https://example.com/" />
-  <updated>2026-09-01T09:14:34Z</updated>
+  <updated>2026-10-01T07:14:46Z</updated>
   <id>https://example.com/</id>
   <author>
     <name>Your Name</name>
@@ -13,7 +13,7 @@
   <entry>
     <title></title>
     <link href="https://example.com/blog/microsoft-foundry/foundry-basics/" />
-    <updated>2026-09-01T09:14:34Z</updated>
+    <updated>2026-10-01T07:14:46Z</updated>
     <id>https://example.com/blog/microsoft-foundry/foundry-basics/</id>
     <content type="html">&lt;h1 id=&quot;microsoft-foundry-basics&quot;&gt;Microsoft Foundry Basics:&lt;/h1&gt;
 &lt;h2 id=&quot;foundry-rbac-roles&quot;&gt;Foundry RBAC roles:&lt;/h2&gt;
@@ -41,7 +41,7 @@
   <entry>
     <title></title>
     <link href="https://example.com/blog/copilot-studio/new-copilot-studio/" />
-    <updated>2026-09-01T09:14:34Z</updated>
+    <updated>2026-10-01T07:14:46Z</updated>
     <id>https://example.com/blog/copilot-studio/new-copilot-studio/</id>
     <content type="html">&lt;h1 id=&quot;the-new-copilot-studio-experience&quot;&gt;The New Copilot Studio Experience&lt;/h1&gt;
 &lt;hr&gt;
@@ -89,7 +89,7 @@
   <entry>
     <title></title>
     <link href="https://example.com/blog/ai-fundamentals/" />
-    <updated>2026-09-01T09:14:34Z</updated>
+    <updated>2026-10-01T07:14:46Z</updated>
     <id>https://example.com/blog/ai-fundamentals/</id>
     <content type="html">&lt;h1 id=&quot;ai-fundamentals&quot;&gt;AI Fundamentals&lt;/h1&gt;
 &lt;ul&gt;
@@ -178,6 +178,14 @@ Agents | Evaluations | Files and datasets | Vector indexes | Flows | Connections
 &lt;/li&gt;
 &lt;li&gt;&lt;/li&gt;
 &lt;/ul&gt;
+</content>
+  </entry>
+  <entry>
+    <title>Harness in Microsoft Copilot Studio</title>
+    <link href="https://example.com/blog/copilot-studio/harness-in-copilot-studio/" />
+    <updated>2026-10-01T00:00:00Z</updated>
+    <id>https://example.com/blog/copilot-studio/harness-in-copilot-studio/</id>
+    <content type="html">&lt;h2 id=&quot;harness&quot;&gt;Harness&lt;/h2&gt;
 </content>
   </entry>
   <entry>
@@ -423,33 +431,6 @@ Agents | Evaluations | Files and datasets | Vector indexes | Flows | Connections
 &lt;li&gt;Suggested prompts are meant for Teams and Microsoft 365 Copilot. It appears on agent&#39;s welcome page. You can&#39;t see or use them if you test the agent in Copilot Studio.&lt;/li&gt;
 &lt;li&gt;&lt;/li&gt;
 &lt;/ol&gt;
-</content>
-  </entry>
-  <entry>
-    <title>IVR in Microsoft Copilot Studio</title>
-    <link href="https://example.com/blog/copilot-studio-ivr/" />
-    <updated>2026-08-03T00:00:00Z</updated>
-    <id>https://example.com/blog/copilot-studio-ivr/</id>
-    <content type="html">&lt;h1 id=&quot;interactive-voice-response-in-agents&quot;&gt;Interactive Voice Response in Agents&lt;/h1&gt;
-&lt;ul&gt;
-&lt;li&gt;Copilot Studio supports interactive voice response (IVR) with 2 types of voice-enabled agents: basic voice agents and real-time voice agents.&lt;/li&gt;
-&lt;li&gt;It supports speech and DTMF or dual-tone multi-frequency input, context variables and call transfer.&lt;/li&gt;
-&lt;li&gt;Using Azure Communication Services, we can setup IVR on a new number or use an existing number.&lt;/li&gt;
-&lt;li&gt;Use cases: Call centers, mobile apps, messaging platforms.&lt;/li&gt;
-&lt;li&gt;It can collect user input using speech and DTMF inputs using number pad.&lt;/li&gt;
-&lt;li&gt;Learn more by reading about Dynamics 365 Contact Center.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;basic-voice-agents&quot;&gt;Basic Voice Agents&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Basic voice agents use classic orchestration.&lt;/li&gt;
-&lt;li&gt;It uses natural language understanding models for intent recognition, entity extraction.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;real-time-voice-agents&quot;&gt;Real-time Voice Agents&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Real-time voice agents are used in generative orchestrations.&lt;/li&gt;
-&lt;li&gt;It uses speech-to-speech real-time model to achieve a low-latency and natural conversation flow.&lt;/li&gt;
-&lt;li&gt;&lt;/li&gt;
-&lt;/ul&gt;
 </content>
   </entry>
 </feed>
