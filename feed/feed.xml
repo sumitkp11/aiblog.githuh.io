@@ -5,7 +5,7 @@
   <subtitle>This is a longer description about your blog.</subtitle>
   <link href="https://example.com/feed/feed.xml" rel="self" />
   <link href="https://example.com/" />
-  <updated>2026-10-01T10:41:46Z</updated>
+  <updated>2026-10-01T10:53:29Z</updated>
   <id>https://example.com/</id>
   <author>
     <name>Your Name</name>
@@ -13,7 +13,7 @@
   <entry>
     <title></title>
     <link href="https://example.com/blog/microsoft-foundry/foundry-basics/" />
-    <updated>2026-10-01T10:41:46Z</updated>
+    <updated>2026-10-01T10:53:29Z</updated>
     <id>https://example.com/blog/microsoft-foundry/foundry-basics/</id>
     <content type="html">&lt;h1 id=&quot;microsoft-foundry-basics&quot;&gt;Microsoft Foundry Basics:&lt;/h1&gt;
 &lt;h2 id=&quot;foundry-rbac-roles&quot;&gt;Foundry RBAC roles:&lt;/h2&gt;
@@ -41,7 +41,7 @@
   <entry>
     <title></title>
     <link href="https://example.com/blog/copilot-studio/new-copilot-studio/" />
-    <updated>2026-10-01T10:41:46Z</updated>
+    <updated>2026-10-01T10:53:29Z</updated>
     <id>https://example.com/blog/copilot-studio/new-copilot-studio/</id>
     <content type="html">&lt;h1 id=&quot;the-new-copilot-studio-experience&quot;&gt;The New Copilot Studio Experience&lt;/h1&gt;
 &lt;hr&gt;
@@ -89,7 +89,7 @@
   <entry>
     <title></title>
     <link href="https://example.com/blog/ai-fundamentals/" />
-    <updated>2026-10-01T10:41:46Z</updated>
+    <updated>2026-10-01T10:53:29Z</updated>
     <id>https://example.com/blog/ai-fundamentals/</id>
     <content type="html">&lt;h1 id=&quot;ai-fundamentals&quot;&gt;AI Fundamentals&lt;/h1&gt;
 &lt;ul&gt;
@@ -198,8 +198,27 @@ Agents | Evaluations | Files and datasets | Vector indexes | Flows | Connections
 &lt;li&gt;Admins allocate credits to environments and monitor usage.&lt;/li&gt;
 &lt;li&gt;Admins can opt for Copilot Studio pay-as-you-go model using an Azure subscription. At the end of each month, the admins pays for the actual Copilot Credits consumed for that month.&lt;/li&gt;
 &lt;li&gt;The Copilot Credits pre-purchase plan is a one year prepaid option. A pool of Copilot Credit Commit Units is usable.&lt;/li&gt;
+&lt;li&gt;Find Copilot Credit Estimator here: https://nptnlopppecostweb.azurewebsites.net/#/estimator&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Find Copilot Credit Estimator here: https://nptnlopppecostweb.azurewebsites.net/#/estimator&lt;/p&gt;
+&lt;h2 id=&quot;cost-controls&quot;&gt;Cost Controls&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Control 1: Allocate prepaid credits to an environment&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Control 2: Turn off drawing from tenant capacity&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Control 3: Set an agent-level monthly limit&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Control 4: Apply allocations programmatically&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Control 5: Set up pay-as-you-go with Azure budgets and alerts.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </content>
   </entry>
   <entry>
