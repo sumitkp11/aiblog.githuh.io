@@ -16,5 +16,13 @@ tags: ["copilot studio"]
 - Admins allocate credits to environments and monitor usage.
 - Admins can opt for Copilot Studio pay-as-you-go model using an Azure subscription. At the end of each month, the admins pays for the actual Copilot Credits consumed for that month.
 - The Copilot Credits pre-purchase plan is a one year prepaid option. A pool of Copilot Credit Commit Units is usable.
+- Find Copilot Credit Estimator here: https://nptnlopppecostweb.azurewebsites.net/#/estimator
 
-Find Copilot Credit Estimator here: https://nptnlopppecostweb.azurewebsites.net/#/estimator
+## Cost Controls
+- Control 1: Allocate prepaid credits to an environment
+- Control 2: Turn off drawing from tenant capacity
+- Control 3: Set an agent-level monthly limit
+- Control 4: Apply allocations programmatically
+- Control 5: Set up pay-as-you-go with Azure budgets and alerts.
+
+- 
