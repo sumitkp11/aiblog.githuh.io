@@ -4,7 +4,13 @@ description:
 date: 2026-10-01
 tags: ["copilot studio"]
 ---
+## Key
+- MCS: Microsoft Copilot Studio
+
+
 ## What is a harness?
+- A harness is the operating layer between the model and the agent's configuration in MCS.
+- It determines how the model receives context, uses instructions and tools, interprets result and moves towards task completion.
 - The harness is a runtime that determines when to call the model, what components to send it, interprets what comes back and calls the right tools.
 - There are 3 types of harness: GitHub Copilot harness, standard harness and Copilot Chat harness.
 
@@ -27,4 +33,11 @@ tags: ["copilot studio"]
 - It runs on current chat models.
 - You can publish to internal teams.
 - Billing is consumption-based or included in Microsoft 365 Copilot user subscription license.
-- 
+
+
+## When to choose what?
+- Choose standard harness when the work is short and bounded with explicit control matter the most.
+- Choose GitHub Copilot harness when the task is long-running, coordination-heavy, reasoning-intensive or refine work to reach an outcome.
+
+## When to be careful?
+- Without optimization, a more capable harness can overwork a simple problem, increasing Copilot Credit consumption.
