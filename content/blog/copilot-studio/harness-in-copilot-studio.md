@@ -21,6 +21,7 @@ tags: ["copilot studio"]
 - It natively creates and edits Word, Excel, PowerPoint and PDF files.
 - It runs each task in a secure sandbox.
 - The agents and workflows using Copilot Credits.
+- Capabilities: Dynamic orchestration, Secure data processing, Larger shared context
 
 ## Why use Standard harness?
 - It is a dependable option for rule-based agents and repeated workflows where you want predictable behavior for well-understood requests.
