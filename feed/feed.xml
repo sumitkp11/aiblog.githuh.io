@@ -5,7 +5,7 @@
   <subtitle>This is a longer description about your blog.</subtitle>
   <link href="https://example.com/feed/feed.xml" rel="self" />
   <link href="https://example.com/" />
-  <updated>2026-10-01T10:53:29Z</updated>
+  <updated>2026-10-06T05:59:39Z</updated>
   <id>https://example.com/</id>
   <author>
     <name>Your Name</name>
@@ -13,7 +13,7 @@
   <entry>
     <title></title>
     <link href="https://example.com/blog/microsoft-foundry/foundry-basics/" />
-    <updated>2026-10-01T10:53:29Z</updated>
+    <updated>2026-10-06T05:59:39Z</updated>
     <id>https://example.com/blog/microsoft-foundry/foundry-basics/</id>
     <content type="html">&lt;h1 id=&quot;microsoft-foundry-basics&quot;&gt;Microsoft Foundry Basics:&lt;/h1&gt;
 &lt;h2 id=&quot;foundry-rbac-roles&quot;&gt;Foundry RBAC roles:&lt;/h2&gt;
@@ -41,7 +41,7 @@
   <entry>
     <title></title>
     <link href="https://example.com/blog/copilot-studio/new-copilot-studio/" />
-    <updated>2026-10-01T10:53:29Z</updated>
+    <updated>2026-10-06T05:59:39Z</updated>
     <id>https://example.com/blog/copilot-studio/new-copilot-studio/</id>
     <content type="html">&lt;h1 id=&quot;the-new-copilot-studio-experience&quot;&gt;The New Copilot Studio Experience&lt;/h1&gt;
 &lt;hr&gt;
@@ -89,7 +89,7 @@
   <entry>
     <title></title>
     <link href="https://example.com/blog/ai-fundamentals/" />
-    <updated>2026-10-01T10:53:29Z</updated>
+    <updated>2026-10-06T05:59:39Z</updated>
     <id>https://example.com/blog/ai-fundamentals/</id>
     <content type="html">&lt;h1 id=&quot;ai-fundamentals&quot;&gt;AI Fundamentals&lt;/h1&gt;
 &lt;ul&gt;
@@ -226,8 +226,14 @@ Agents | Evaluations | Files and datasets | Vector indexes | Flows | Connections
     <link href="https://example.com/blog/copilot-studio/harness-in-copilot-studio/" />
     <updated>2026-10-01T00:00:00Z</updated>
     <id>https://example.com/blog/copilot-studio/harness-in-copilot-studio/</id>
-    <content type="html">&lt;h2 id=&quot;what-is-a-harness&quot;&gt;What is a harness?&lt;/h2&gt;
+    <content type="html">&lt;h2 id=&quot;key&quot;&gt;Key&lt;/h2&gt;
 &lt;ul&gt;
+&lt;li&gt;MCS: Microsoft Copilot Studio&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;what-is-a-harness&quot;&gt;What is a harness?&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;A harness is the operating layer between the model and the agent&#39;s configuration in MCS.&lt;/li&gt;
+&lt;li&gt;It determines how the model receives context, uses instructions and tools, interprets result and moves towards task completion.&lt;/li&gt;
 &lt;li&gt;The harness is a runtime that determines when to call the model, what components to send it, interprets what comes back and calls the right tools.&lt;/li&gt;
 &lt;li&gt;There are 3 types of harness: GitHub Copilot harness, standard harness and Copilot Chat harness.&lt;/li&gt;
 &lt;/ul&gt;
@@ -252,7 +258,15 @@ Agents | Evaluations | Files and datasets | Vector indexes | Flows | Connections
 &lt;li&gt;It runs on current chat models.&lt;/li&gt;
 &lt;li&gt;You can publish to internal teams.&lt;/li&gt;
 &lt;li&gt;Billing is consumption-based or included in Microsoft 365 Copilot user subscription license.&lt;/li&gt;
-&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;when-to-choose-what&quot;&gt;When to choose what?&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Choose standard harness when the work is short and bounded with explicit control matter the most.&lt;/li&gt;
+&lt;li&gt;Choose GitHub Copilot harness when the task is long-running, coordination-heavy, reasoning-intensive or refine work to reach an outcome.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;when-to-be-careful&quot;&gt;When to be careful?&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Without optimization, a more capable harness can overwork a simple problem, increasing Copilot Credit consumption.&lt;/li&gt;
 &lt;/ul&gt;
 </content>
   </entry>

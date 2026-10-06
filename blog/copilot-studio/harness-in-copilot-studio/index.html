@@ -507,8 +507,14 @@ pre[class*="language-diff-"] {
 	<li><a href="/tags/copilot-studio/" class="post-tag">copilot studio</a></li>
 </ul>
 
+<h2 id="key">Key</h2>
+<ul>
+<li>MCS: Microsoft Copilot Studio</li>
+</ul>
 <h2 id="what-is-a-harness">What is a harness?</h2>
 <ul>
+<li>A harness is the operating layer between the model and the agent's configuration in MCS.</li>
+<li>It determines how the model receives context, uses instructions and tools, interprets result and moves towards task completion.</li>
 <li>The harness is a runtime that determines when to call the model, what components to send it, interprets what comes back and calls the right tools.</li>
 <li>There are 3 types of harness: GitHub Copilot harness, standard harness and Copilot Chat harness.</li>
 </ul>
@@ -533,7 +539,15 @@ pre[class*="language-diff-"] {
 <li>It runs on current chat models.</li>
 <li>You can publish to internal teams.</li>
 <li>Billing is consumption-based or included in Microsoft 365 Copilot user subscription license.</li>
-<li></li>
+</ul>
+<h2 id="when-to-choose-what">When to choose what?</h2>
+<ul>
+<li>Choose standard harness when the work is short and bounded with explicit control matter the most.</li>
+<li>Choose GitHub Copilot harness when the task is long-running, coordination-heavy, reasoning-intensive or refine work to reach an outcome.</li>
+</ul>
+<h2 id="when-to-be-careful">When to be careful?</h2>
+<ul>
+<li>Without optimization, a more capable harness can overwork a simple problem, increasing Copilot Credit consumption.</li>
 </ul>
 
 <ul class="links-nextprev"><li class="links-nextprev-prev">← Previous<br> <a href="/blog/copilot-studio/adaptive-cards-copilot-studio/">Adaptive Cards in Copilot Studio</a></li><li class="links-nextprev-next">Next →<br><a href="/blog/copilot-studio/usage-billing-github-copilot-harness/">Usage-based billing in GitHub Copilot Harness</a></li>
@@ -545,7 +559,7 @@ pre[class*="language-diff-"] {
 		<footer>
 		</footer>
 
-		<!-- This page `/blog/copilot-studio/harness-in-copilot-studio/` was built on 2026-10-01T10:53:40.241Z -->
+		<!-- This page `/blog/copilot-studio/harness-in-copilot-studio/` was built on 2026-10-06T05:59:49.084Z -->
 		<script type="module" src="/dist/cC8wS6ZjFU.js"></script>
 	</body>
 </html>
