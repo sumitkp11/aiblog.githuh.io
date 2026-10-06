@@ -5,7 +5,7 @@
   <subtitle>This is a longer description about your blog.</subtitle>
   <link href="https://example.com/feed/feed.xml" rel="self" />
   <link href="https://example.com/" />
-  <updated>2026-10-06T05:59:39Z</updated>
+  <updated>2026-10-06T06:41:17Z</updated>
   <id>https://example.com/</id>
   <author>
     <name>Your Name</name>
@@ -13,7 +13,7 @@
   <entry>
     <title></title>
     <link href="https://example.com/blog/microsoft-foundry/foundry-basics/" />
-    <updated>2026-10-06T05:59:39Z</updated>
+    <updated>2026-10-06T06:41:17Z</updated>
     <id>https://example.com/blog/microsoft-foundry/foundry-basics/</id>
     <content type="html">&lt;h1 id=&quot;microsoft-foundry-basics&quot;&gt;Microsoft Foundry Basics:&lt;/h1&gt;
 &lt;h2 id=&quot;foundry-rbac-roles&quot;&gt;Foundry RBAC roles:&lt;/h2&gt;
@@ -41,7 +41,7 @@
   <entry>
     <title></title>
     <link href="https://example.com/blog/copilot-studio/new-copilot-studio/" />
-    <updated>2026-10-06T05:59:39Z</updated>
+    <updated>2026-10-06T06:41:17Z</updated>
     <id>https://example.com/blog/copilot-studio/new-copilot-studio/</id>
     <content type="html">&lt;h1 id=&quot;the-new-copilot-studio-experience&quot;&gt;The New Copilot Studio Experience&lt;/h1&gt;
 &lt;hr&gt;
@@ -89,7 +89,7 @@
   <entry>
     <title></title>
     <link href="https://example.com/blog/ai-fundamentals/" />
-    <updated>2026-10-06T05:59:39Z</updated>
+    <updated>2026-10-06T06:41:17Z</updated>
     <id>https://example.com/blog/ai-fundamentals/</id>
     <content type="html">&lt;h1 id=&quot;ai-fundamentals&quot;&gt;AI Fundamentals&lt;/h1&gt;
 &lt;ul&gt;
@@ -244,6 +244,7 @@ Agents | Evaluations | Files and datasets | Vector indexes | Flows | Connections
 &lt;li&gt;It natively creates and edits Word, Excel, PowerPoint and PDF files.&lt;/li&gt;
 &lt;li&gt;It runs each task in a secure sandbox.&lt;/li&gt;
 &lt;li&gt;The agents and workflows using Copilot Credits.&lt;/li&gt;
+&lt;li&gt;Capabilities: Dynamic orchestration, Secure data processing, Larger shared context&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&quot;why-use-standard-harness&quot;&gt;Why use Standard harness?&lt;/h2&gt;
 &lt;ul&gt;
