@@ -5,7 +5,7 @@
   <subtitle>This is a longer description about your blog.</subtitle>
   <link href="https://example.com/feed/feed.xml" rel="self" />
   <link href="https://example.com/" />
-  <updated>2026-10-06T09:54:39Z</updated>
+  <updated>2026-10-06T10:16:23Z</updated>
   <id>https://example.com/</id>
   <author>
     <name>Your Name</name>
@@ -13,7 +13,7 @@
   <entry>
     <title></title>
     <link href="https://example.com/blog/microsoft-foundry/foundry-basics/" />
-    <updated>2026-10-06T09:54:39Z</updated>
+    <updated>2026-10-06T10:16:23Z</updated>
     <id>https://example.com/blog/microsoft-foundry/foundry-basics/</id>
     <content type="html">&lt;h1 id=&quot;microsoft-foundry-basics&quot;&gt;Microsoft Foundry Basics:&lt;/h1&gt;
 &lt;h2 id=&quot;foundry-rbac-roles&quot;&gt;Foundry RBAC roles:&lt;/h2&gt;
@@ -41,7 +41,7 @@
   <entry>
     <title></title>
     <link href="https://example.com/blog/copilot-studio/new-copilot-studio/" />
-    <updated>2026-10-06T09:54:39Z</updated>
+    <updated>2026-10-06T10:16:23Z</updated>
     <id>https://example.com/blog/copilot-studio/new-copilot-studio/</id>
     <content type="html">&lt;h1 id=&quot;the-new-copilot-studio-experience&quot;&gt;The New Copilot Studio Experience&lt;/h1&gt;
 &lt;hr&gt;
@@ -89,7 +89,7 @@
   <entry>
     <title></title>
     <link href="https://example.com/blog/ai-fundamentals/" />
-    <updated>2026-10-06T09:54:39Z</updated>
+    <updated>2026-10-06T10:16:23Z</updated>
     <id>https://example.com/blog/ai-fundamentals/</id>
     <content type="html">&lt;h1 id=&quot;ai-fundamentals&quot;&gt;AI Fundamentals&lt;/h1&gt;
 &lt;ul&gt;
@@ -177,6 +177,36 @@ Agents | Evaluations | Files and datasets | Vector indexes | Flows | Connections
 &lt;p&gt;An AI client application utilizes a model, data, and application logic to process and return results. The app logic is the code or workflow that sends requests to the model, receives the response, and processes and transforms results. The entire process is known as a client–server interaction.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+  </entry>
+  <entry>
+    <title>Tools in GitHub Copilot Harness</title>
+    <link href="https://example.com/blog/copilot-studio/tools-in-gc-harness/" />
+    <updated>2026-10-06T00:00:00Z</updated>
+    <id>https://example.com/blog/copilot-studio/tools-in-gc-harness/</id>
+    <content type="html">&lt;h2 id=&quot;tools&quot;&gt;Tools&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Tools let the agent interact with external systems.&lt;/li&gt;
+&lt;li&gt;Examples of tools: send emails, check current weather conditions, read and write data from Dataverse, read and post messages to Teams.&lt;/li&gt;
+&lt;li&gt;The agents use tools to respond to users automatically using generative orchestration.&lt;/li&gt;
+&lt;li&gt;Tools can be called explicitly within a topic.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;mechanisms-to-add-tools&quot;&gt;Mechanisms to add tools&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Connector: Connect to proprietary APIs and services by using Power Platform Connectors using prebuilt connector or custom connector.&lt;/li&gt;
+&lt;li&gt;Agent flow&lt;/li&gt;
+&lt;li&gt;Prompt&lt;/li&gt;
+&lt;li&gt;REST API&lt;/li&gt;
+&lt;li&gt;Model Context Protocol&lt;/li&gt;
+&lt;li&gt;Computer use&lt;/li&gt;
+&lt;li&gt;Tool-like behaviour using Azure Bot Service Skills and Client tools&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;limitations-on-tools&quot;&gt;Limitations on tools&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;A generative orchestrator supports up to 128 tools per agent.&lt;/li&gt;
+&lt;li&gt;For best performance, limit to 25 to 30.&lt;/li&gt;
+&lt;li&gt;When you use multi-agent orchestration with child agents, each child agent has its own orchestration and can manage its own set of up to 128 tools.&lt;/li&gt;
 &lt;/ul&gt;
 </content>
   </entry>
@@ -478,48 +508,6 @@ Agents | Evaluations | Files and datasets | Vector indexes | Flows | Connections
 &lt;li&gt;Edit the agent locally&lt;/li&gt;
 &lt;li&gt;Sync local changes to Copilot Studio&lt;/li&gt;
 &lt;/ol&gt;
-</content>
-  </entry>
-  <entry>
-    <title>Entities in Microsoft Copilot Studio</title>
-    <link href="https://example.com/blog/copilot-studio/entities-slot-filling/" />
-    <updated>2026-08-04T00:00:00Z</updated>
-    <id>https://example.com/blog/copilot-studio/entities-slot-filling/</id>
-    <content type="html">&lt;h1 id=&quot;entities&quot;&gt;Entities&lt;/h1&gt;
-&lt;ol&gt;
-&lt;li&gt;An entity is a unit of information that represents a certain type of real-world subject.&lt;/li&gt;
-&lt;li&gt;Example: phone number, postal code, person&#39;s name&lt;/li&gt;
-&lt;li&gt;An agent can recognize relevant information from a user input and save it for later use.&lt;/li&gt;
-&lt;li&gt;The identified information is saved in a variable of the appropriate type.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&quot;prebuilt-entities&quot;&gt;Prebuilt Entities&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;To use &#39;Money&#39; entity as an example: Open an agent -&amp;gt; Settings -&amp;gt; Entities -&amp;gt; Select Money&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&quot;custom-entities&quot;&gt;Custom Entities&lt;/h2&gt;
-&lt;h2 id=&quot;closed-list-entities&quot;&gt;Closed list Entities&lt;/h2&gt;
-&lt;h2 id=&quot;open-list-entities&quot;&gt;Open list Entities&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;These have values populated at runtime from an external data source.&lt;/li&gt;
-&lt;li&gt;It works with text and voice modalities.&lt;/li&gt;
-&lt;li&gt;Use case: Classic voice agents&lt;/li&gt;
-&lt;li&gt;For external data source: Excel files or databases, Dataverse.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;regex-entities&quot;&gt;Regex Entities&lt;/h2&gt;
-&lt;h2 id=&quot;dynamic-inline-entity&quot;&gt;Dynamic Inline Entity&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1 id=&quot;slot-filling&quot;&gt;Slot filling&lt;/h1&gt;
-&lt;ul&gt;
-&lt;li&gt;Slot filling means placing the extracted entity value into a variable.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;proactive-slot-filling&quot;&gt;Proactive Slot Filling&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;It allows the user to specify multiple pieces of information that map to different entities, at once.&lt;/li&gt;
-&lt;li&gt;In cases, if the agent is unsure of the intended mapping, it prompts the user to be more specific by giving choices.&lt;/li&gt;
-&lt;li&gt;&lt;/li&gt;
-&lt;/ul&gt;
 </content>
   </entry>
 </feed>
