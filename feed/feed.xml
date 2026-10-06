@@ -5,7 +5,7 @@
   <subtitle>This is a longer description about your blog.</subtitle>
   <link href="https://example.com/feed/feed.xml" rel="self" />
   <link href="https://example.com/" />
-  <updated>2026-10-06T06:41:17Z</updated>
+  <updated>2026-10-06T09:54:39Z</updated>
   <id>https://example.com/</id>
   <author>
     <name>Your Name</name>
@@ -13,7 +13,7 @@
   <entry>
     <title></title>
     <link href="https://example.com/blog/microsoft-foundry/foundry-basics/" />
-    <updated>2026-10-06T06:41:17Z</updated>
+    <updated>2026-10-06T09:54:39Z</updated>
     <id>https://example.com/blog/microsoft-foundry/foundry-basics/</id>
     <content type="html">&lt;h1 id=&quot;microsoft-foundry-basics&quot;&gt;Microsoft Foundry Basics:&lt;/h1&gt;
 &lt;h2 id=&quot;foundry-rbac-roles&quot;&gt;Foundry RBAC roles:&lt;/h2&gt;
@@ -41,7 +41,7 @@
   <entry>
     <title></title>
     <link href="https://example.com/blog/copilot-studio/new-copilot-studio/" />
-    <updated>2026-10-06T06:41:17Z</updated>
+    <updated>2026-10-06T09:54:39Z</updated>
     <id>https://example.com/blog/copilot-studio/new-copilot-studio/</id>
     <content type="html">&lt;h1 id=&quot;the-new-copilot-studio-experience&quot;&gt;The New Copilot Studio Experience&lt;/h1&gt;
 &lt;hr&gt;
@@ -89,7 +89,7 @@
   <entry>
     <title></title>
     <link href="https://example.com/blog/ai-fundamentals/" />
-    <updated>2026-10-06T06:41:17Z</updated>
+    <updated>2026-10-06T09:54:39Z</updated>
     <id>https://example.com/blog/ai-fundamentals/</id>
     <content type="html">&lt;h1 id=&quot;ai-fundamentals&quot;&gt;AI Fundamentals&lt;/h1&gt;
 &lt;ul&gt;
@@ -176,6 +176,39 @@ Agents | Evaluations | Files and datasets | Vector indexes | Flows | Connections
 &lt;li&gt;
 &lt;p&gt;An AI client application utilizes a model, data, and application logic to process and return results. The app logic is the code or workflow that sends requests to the model, receives the response, and processes and transforms results. The entire process is known as a client–server interaction.&lt;/p&gt;
 &lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+  </entry>
+  <entry>
+    <title>Knowledge in GitHub Copilot Harness</title>
+    <link href="https://example.com/blog/copilot-studio/knowledge-in-gc-harness/" />
+    <updated>2026-10-06T00:00:00Z</updated>
+    <id>https://example.com/blog/copilot-studio/knowledge-in-gc-harness/</id>
+    <content type="html">&lt;h2 id=&quot;knowledge-source&quot;&gt;Knowledge Source&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;It is configured from the Build tab.&lt;/li&gt;
+&lt;li&gt;Knowledge sources are the data the agent can access when responding to user queries. It can refer to specific documents, websites, organization data and structured databases.&lt;/li&gt;
+&lt;li&gt;If knowledge isn&#39;t provided, it relies only on its general training and instructions.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;reasons-to-add-knowledge-sources&quot;&gt;Reasons to add Knowledge Sources&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;To ground responses in specific information&lt;/li&gt;
+&lt;li&gt;to keep answers relevant to the organization&#39;s latest content&lt;/li&gt;
+&lt;li&gt;to scope the agent to answer only from approved sources&lt;/li&gt;
+&lt;li&gt;to reference only from the internal documents, policies and procedures.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;knowledge-sources-types&quot;&gt;Knowledge Sources Types&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Featured sources: Public websites, SharePoint, OneDrive for Business, Salesforce, ServiceNow, Azure SQL.&lt;/li&gt;
+&lt;li&gt;Advanced sources: Azure DevOps Wiki, Azure DevOps Work Items, Custom Connector, Enterprise websites&lt;/li&gt;
+&lt;li&gt;Supported file uploads: PDF, Word, Excel and PowerPoint.&lt;/li&gt;
+&lt;li&gt;Connector-based enabled if the required connectors are installed and consent has been given to.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;managing-knowledge-sources&quot;&gt;Managing Knowledge Sources&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;After adding knowledge sources, we can view, update and remove them from the Knowledge tab.&lt;/li&gt;
+&lt;li&gt;We can also turn web search on or off.&lt;/li&gt;
 &lt;li&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </content>
@@ -487,14 +520,6 @@ Agents | Evaluations | Files and datasets | Vector indexes | Flows | Connections
 &lt;li&gt;In cases, if the agent is unsure of the intended mapping, it prompts the user to be more specific by giving choices.&lt;/li&gt;
 &lt;li&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</content>
-  </entry>
-  <entry>
-    <title>System Topics in Microsoft Copilot Studio</title>
-    <link href="https://example.com/blog/copilot-studio/copilot-studio-system-topics/" />
-    <updated>2026-08-03T00:00:00Z</updated>
-    <id>https://example.com/blog/copilot-studio/copilot-studio-system-topics/</id>
-    <content type="html">&lt;h2 id=&quot;using-system-topics-in-microsoft-copilot-studio&quot;&gt;Using System Topics in Microsoft Copilot Studio&lt;/h2&gt;
 </content>
   </entry>
 </feed>
