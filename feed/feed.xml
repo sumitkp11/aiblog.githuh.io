@@ -5,7 +5,7 @@
   <subtitle>This is a longer description about your blog.</subtitle>
   <link href="https://example.com/feed/feed.xml" rel="self" />
   <link href="https://example.com/" />
-  <updated>2026-10-06T10:16:23Z</updated>
+  <updated>2026-10-08T05:34:16Z</updated>
   <id>https://example.com/</id>
   <author>
     <name>Your Name</name>
@@ -13,7 +13,7 @@
   <entry>
     <title></title>
     <link href="https://example.com/blog/microsoft-foundry/foundry-basics/" />
-    <updated>2026-10-06T10:16:23Z</updated>
+    <updated>2026-10-08T05:34:16Z</updated>
     <id>https://example.com/blog/microsoft-foundry/foundry-basics/</id>
     <content type="html">&lt;h1 id=&quot;microsoft-foundry-basics&quot;&gt;Microsoft Foundry Basics:&lt;/h1&gt;
 &lt;h2 id=&quot;foundry-rbac-roles&quot;&gt;Foundry RBAC roles:&lt;/h2&gt;
@@ -41,7 +41,7 @@
   <entry>
     <title></title>
     <link href="https://example.com/blog/copilot-studio/new-copilot-studio/" />
-    <updated>2026-10-06T10:16:23Z</updated>
+    <updated>2026-10-08T05:34:16Z</updated>
     <id>https://example.com/blog/copilot-studio/new-copilot-studio/</id>
     <content type="html">&lt;h1 id=&quot;the-new-copilot-studio-experience&quot;&gt;The New Copilot Studio Experience&lt;/h1&gt;
 &lt;hr&gt;
@@ -89,7 +89,7 @@
   <entry>
     <title></title>
     <link href="https://example.com/blog/ai-fundamentals/" />
-    <updated>2026-10-06T10:16:23Z</updated>
+    <updated>2026-10-08T05:34:16Z</updated>
     <id>https://example.com/blog/ai-fundamentals/</id>
     <content type="html">&lt;h1 id=&quot;ai-fundamentals&quot;&gt;AI Fundamentals&lt;/h1&gt;
 &lt;ul&gt;
@@ -177,6 +177,25 @@ Agents | Evaluations | Files and datasets | Vector indexes | Flows | Connections
 &lt;p&gt;An AI client application utilizes a model, data, and application logic to process and return results. The app logic is the code or workflow that sends requests to the model, receives the response, and processes and transforms results. The entire process is known as a client–server interaction.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+  </entry>
+  <entry>
+    <title>Model Context Protocol</title>
+    <link href="https://example.com/blog/about-mcp/" />
+    <updated>2026-10-08T00:00:00Z</updated>
+    <id>https://example.com/blog/about-mcp/</id>
+    <content type="html">&lt;h2 id=&quot;model-context-protocol-or-mcp&quot;&gt;Model Context Protocol or MCP&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;MCP is an open-source standard for connecting AI applications to external systems.&lt;/li&gt;
+&lt;li&gt;It enables them to access key information and perform tasks.&lt;/li&gt;
+&lt;li&gt;In Copilot Studio, it allows makers to integrate existing knowledge servers and APIs directly.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;what-can-mcp-do&quot;&gt;What can MCP do?&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Agents can access Google calendar becoming a more personalized AI assistant.&lt;/li&gt;
+&lt;li&gt;Claude Code can generate an entire web app using Figma design.&lt;/li&gt;
+&lt;li&gt;Enterprise chatbots can connect to multiple databases across an organization.&lt;/li&gt;
 &lt;/ul&gt;
 </content>
   </entry>
@@ -464,49 +483,6 @@ Agents | Evaluations | Files and datasets | Vector indexes | Flows | Connections
 &lt;ol&gt;
 &lt;li&gt;Don&#39;t clone to temporary folders.&lt;/li&gt;
 &lt;li&gt;Don&#39;t clone multiple times to different locations.&lt;/li&gt;
-&lt;/ol&gt;
-</content>
-  </entry>
-  <entry>
-    <title>Microsoft Copilot Studio In Visual Studio Code</title>
-    <link href="https://example.com/blog/copilot-studio/copilot-studio-in-vss/" />
-    <updated>2026-08-06T00:00:00Z</updated>
-    <id>https://example.com/blog/copilot-studio/copilot-studio-in-vss/</id>
-    <content type="html">&lt;h1 id=&quot;microsoft-copilot-studio-in-microsoft-visual-studio-code&quot;&gt;Microsoft Copilot Studio in Microsoft Visual Studio Code&lt;/h1&gt;
-&lt;h2 id=&quot;benefits-of-using-the-visual-studio-code-extension&quot;&gt;Benefits of using the Visual Studio Code extension&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Syntax highlighting for YAML agent definitions&lt;/li&gt;
-&lt;li&gt;IntelliSense code completion&lt;/li&gt;
-&lt;li&gt;Git integration for version control&lt;/li&gt;
-&lt;li&gt;work with organization approved extensions&lt;/li&gt;
-&lt;li&gt;productivity with keyboard shortcuts&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;manage-copilot-studio-agents&quot;&gt;Manage Copilot Studio agents&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;clone agents from Copilot Studio to local machine,&lt;/li&gt;
-&lt;li&gt;edit agent components in YAML&lt;/li&gt;
-&lt;li&gt;preview and test changes before deployment&lt;/li&gt;
-&lt;li&gt;redeploy or deploy your agent definition&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;collaborate-with-team&quot;&gt;Collaborate with team&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;version control agent definitions with Git&lt;/li&gt;
-&lt;li&gt;review changes with pull requests&lt;/li&gt;
-&lt;li&gt;track modifications over time&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;use-cases&quot;&gt;Use cases&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;Team working on an IDE installed and managed locally.&lt;/li&gt;
-&lt;li&gt;Large-scale agent development&lt;/li&gt;
-&lt;li&gt;Audit Copilot Studio agent development with source control&lt;/li&gt;
-&lt;li&gt;Agent-driven development&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&quot;how-to-proceed&quot;&gt;How to proceed?&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;Install the VSS extension&lt;/li&gt;
-&lt;li&gt;Clone the Copilot Studio agent&lt;/li&gt;
-&lt;li&gt;Edit the agent locally&lt;/li&gt;
-&lt;li&gt;Sync local changes to Copilot Studio&lt;/li&gt;
 &lt;/ol&gt;
 </content>
   </entry>
