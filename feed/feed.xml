@@ -5,15 +5,68 @@
   <subtitle>This is a longer description about your blog.</subtitle>
   <link href="https://example.com/feed/feed.xml" rel="self" />
   <link href="https://example.com/" />
-  <updated>2026-10-08T05:34:16Z</updated>
+  <updated>2026-10-15T08:31:18Z</updated>
   <id>https://example.com/</id>
   <author>
     <name>Your Name</name>
   </author>
   <entry>
     <title></title>
+    <link href="https://example.com/blog/ms-learnings/part-1/" />
+    <updated>2026-10-15T08:31:18Z</updated>
+    <id>https://example.com/blog/ms-learnings/part-1/</id>
+    <content type="html">&lt;h1 id=&quot;explore-microsoft-copilot-studio-and-agent-harnesses&quot;&gt;Explore Microsoft Copilot Studio and agent harnesses&lt;/h1&gt;
+&lt;h2 id=&quot;learning-path-1-get-started-with-ai-first-solutions&quot;&gt;Learning Path-1: Get started with Ai-first solutions&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Microsoft redesigned Power Platform around an AI-first philosophy.&lt;/li&gt;
+&lt;li&gt;Power Platform consists of 6 components: Power Apps, Power Automate, Power Pages, Microsoft Copilot Studio, AI Builder and Power BI.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;understand-component-purpose&quot;&gt;Understand Component Purpose&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;PowerApps:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Build custom user interfaces&lt;/li&gt;
+&lt;li&gt;Control over screen layout and mobile-friendly experiences&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Power Automate&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Handles process automation and integration.&lt;/li&gt;
+&lt;li&gt;Cloud flows orchestrate logic across connectors and services.&lt;/li&gt;
+&lt;li&gt;Built-in approval actions create structured human-in-the-loop experience.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Microsoft Copilot Studio&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;to build conversational and autonomous agents.&lt;/li&gt;
+&lt;li&gt;autonomous agents respond to triggers such as a new record, scheduled time, incoming email.&lt;/li&gt;
+&lt;li&gt;process requires natural language interaction or without constant human input.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;AI Builder&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Provides pretrained AI models and a prompt-building environment.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Power Pages&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;External facing web experience.&lt;/li&gt;
+&lt;li&gt;Provides configurable web portal with secure authentication.&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+  </entry>
+  <entry>
+    <title></title>
     <link href="https://example.com/blog/microsoft-foundry/foundry-basics/" />
-    <updated>2026-10-08T05:34:16Z</updated>
+    <updated>2026-10-15T08:31:18Z</updated>
     <id>https://example.com/blog/microsoft-foundry/foundry-basics/</id>
     <content type="html">&lt;h1 id=&quot;microsoft-foundry-basics&quot;&gt;Microsoft Foundry Basics:&lt;/h1&gt;
 &lt;h2 id=&quot;foundry-rbac-roles&quot;&gt;Foundry RBAC roles:&lt;/h2&gt;
@@ -41,7 +94,7 @@
   <entry>
     <title></title>
     <link href="https://example.com/blog/copilot-studio/new-copilot-studio/" />
-    <updated>2026-10-08T05:34:16Z</updated>
+    <updated>2026-10-15T08:31:18Z</updated>
     <id>https://example.com/blog/copilot-studio/new-copilot-studio/</id>
     <content type="html">&lt;h1 id=&quot;the-new-copilot-studio-experience&quot;&gt;The New Copilot Studio Experience&lt;/h1&gt;
 &lt;hr&gt;
@@ -89,7 +142,7 @@
   <entry>
     <title></title>
     <link href="https://example.com/blog/ai-fundamentals/" />
-    <updated>2026-10-08T05:34:16Z</updated>
+    <updated>2026-10-15T08:31:18Z</updated>
     <id>https://example.com/blog/ai-fundamentals/</id>
     <content type="html">&lt;h1 id=&quot;ai-fundamentals&quot;&gt;AI Fundamentals&lt;/h1&gt;
 &lt;ul&gt;
@@ -453,37 +506,6 @@ Agents | Evaluations | Files and datasets | Vector indexes | Flows | Connections
 &lt;ul&gt;
 &lt;li&gt;Elements in containers are laid out in a top-to-bottom stack.&lt;/li&gt;
 &lt;/ul&gt;
-</content>
-  </entry>
-  <entry>
-    <title>Installation of Copilot Studio extension in VSS</title>
-    <link href="https://example.com/blog/copilot-studio/copilot-studio-install-vss/" />
-    <updated>2026-08-06T00:00:00Z</updated>
-    <id>https://example.com/blog/copilot-studio/copilot-studio-install-vss/</id>
-    <content type="html">&lt;h2 id=&quot;installation-steps&quot;&gt;Installation Steps&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;Search for &#39;Copilot Studio&#39; in Extension marketplace in Visual Studio Code and install.&lt;/li&gt;
-&lt;li&gt;Click on the Copilot Studio icon in the Activity Bar.&lt;/li&gt;
-&lt;li&gt;Click on &#39;Clone agent&#39;.&lt;/li&gt;
-&lt;li&gt;In next popup, it will ask you to sign in using Microsoft, click &#39;Allow&#39;.&lt;/li&gt;
-&lt;li&gt;After sign in, in the VS Code, select the agent or the environment from the drop down.&lt;/li&gt;
-&lt;li&gt;After selecting your environment, select your agent.&lt;/li&gt;
-&lt;li&gt;Next, select a folder to download the agent locally. This would clone the agent locally to the specified folder and open the folder in VS Code.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&quot;best-practices-do&quot;&gt;Best practices (Do):&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;Clone all agents to a consistent location.&lt;/li&gt;
-&lt;li&gt;Initialize Git after cloning.&lt;/li&gt;
-&lt;li&gt;Use meaningful folder names&lt;/li&gt;
-&lt;li&gt;Check the clone works before making changes&lt;/li&gt;
-&lt;li&gt;Keep clone backed to GitHub.&lt;/li&gt;
-&lt;li&gt;Document clone location to internal team docs&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&quot;best-practices-don-t&quot;&gt;Best practices (Don&#39;t):&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;Don&#39;t clone to temporary folders.&lt;/li&gt;
-&lt;li&gt;Don&#39;t clone multiple times to different locations.&lt;/li&gt;
-&lt;/ol&gt;
 </content>
   </entry>
 </feed>
