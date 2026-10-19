@@ -5,7 +5,7 @@
   <subtitle>This is a longer description about your blog.</subtitle>
   <link href="https://example.com/feed/feed.xml" rel="self" />
   <link href="https://example.com/" />
-  <updated>2026-10-15T08:31:18Z</updated>
+  <updated>2026-10-19T11:39:32Z</updated>
   <id>https://example.com/</id>
   <author>
     <name>Your Name</name>
@@ -13,7 +13,7 @@
   <entry>
     <title></title>
     <link href="https://example.com/blog/ms-learnings/part-1/" />
-    <updated>2026-10-15T08:31:18Z</updated>
+    <updated>2026-10-19T11:39:32Z</updated>
     <id>https://example.com/blog/ms-learnings/part-1/</id>
     <content type="html">&lt;h1 id=&quot;explore-microsoft-copilot-studio-and-agent-harnesses&quot;&gt;Explore Microsoft Copilot Studio and agent harnesses&lt;/h1&gt;
 &lt;h2 id=&quot;learning-path-1-get-started-with-ai-first-solutions&quot;&gt;Learning Path-1: Get started with Ai-first solutions&lt;/h2&gt;
@@ -66,7 +66,7 @@
   <entry>
     <title></title>
     <link href="https://example.com/blog/microsoft-foundry/foundry-basics/" />
-    <updated>2026-10-15T08:31:18Z</updated>
+    <updated>2026-10-19T11:39:32Z</updated>
     <id>https://example.com/blog/microsoft-foundry/foundry-basics/</id>
     <content type="html">&lt;h1 id=&quot;microsoft-foundry-basics&quot;&gt;Microsoft Foundry Basics:&lt;/h1&gt;
 &lt;h2 id=&quot;foundry-rbac-roles&quot;&gt;Foundry RBAC roles:&lt;/h2&gt;
@@ -94,7 +94,7 @@
   <entry>
     <title></title>
     <link href="https://example.com/blog/copilot-studio/new-copilot-studio/" />
-    <updated>2026-10-15T08:31:18Z</updated>
+    <updated>2026-10-19T11:39:32Z</updated>
     <id>https://example.com/blog/copilot-studio/new-copilot-studio/</id>
     <content type="html">&lt;h1 id=&quot;the-new-copilot-studio-experience&quot;&gt;The New Copilot Studio Experience&lt;/h1&gt;
 &lt;hr&gt;
@@ -142,7 +142,7 @@
   <entry>
     <title></title>
     <link href="https://example.com/blog/ai-fundamentals/" />
-    <updated>2026-10-15T08:31:18Z</updated>
+    <updated>2026-10-19T11:39:32Z</updated>
     <id>https://example.com/blog/ai-fundamentals/</id>
     <content type="html">&lt;h1 id=&quot;ai-fundamentals&quot;&gt;AI Fundamentals&lt;/h1&gt;
 &lt;ul&gt;
@@ -230,6 +230,30 @@ Agents | Evaluations | Files and datasets | Vector indexes | Flows | Connections
 &lt;p&gt;An AI client application utilizes a model, data, and application logic to process and return results. The app logic is the code or workflow that sends requests to the model, receives the response, and processes and transforms results. The entire process is known as a client–server interaction.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+  </entry>
+  <entry>
+    <title>Admin Cost Governance</title>
+    <link href="https://example.com/blog/copilot-studio/cost-governance/" />
+    <updated>2026-10-19T00:00:00Z</updated>
+    <id>https://example.com/blog/copilot-studio/cost-governance/</id>
+    <content type="html">&lt;h2 id=&quot;role-of-admins&quot;&gt;Role of Admins&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Admins watch the same Copilot Credit consumption.&lt;/li&gt;
+&lt;li&gt;They fund the capacity&lt;/li&gt;
+&lt;li&gt;Govern how the capacity is shared and used.&lt;/li&gt;
+&lt;li&gt;Copilot Credits are pooled at tenant level.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;funding-models&quot;&gt;Funding models&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Pay-as-you-go: Usage is billed to an Azure subscription after the billing month. There is no upfront commitment.&lt;/li&gt;
+&lt;li&gt;Prepaid capacity: Organization purchase Copilot Credit packs in advance. There is an upfront commitment. Credits are bought before consumed.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;admins-that-govern&quot;&gt;Admins that govern&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Microsoft 365 admin center&lt;/li&gt;
+&lt;li&gt;Power Platform admin center&lt;/li&gt;
 &lt;/ul&gt;
 </content>
   </entry>
@@ -403,108 +427,6 @@ Agents | Evaluations | Files and datasets | Vector indexes | Flows | Connections
 &lt;h2 id=&quot;when-to-be-careful&quot;&gt;When to be careful?&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Without optimization, a more capable harness can overwork a simple problem, increasing Copilot Credit consumption.&lt;/li&gt;
-&lt;/ul&gt;
-</content>
-  </entry>
-  <entry>
-    <title>Adaptive Cards in Copilot Studio</title>
-    <link href="https://example.com/blog/copilot-studio/adaptive-cards-copilot-studio/" />
-    <updated>2026-08-27T00:00:00Z</updated>
-    <id>https://example.com/blog/copilot-studio/adaptive-cards-copilot-studio/</id>
-    <content type="html">&lt;h1 id=&quot;adaptive-cards-in-copilot-studio&quot;&gt;Adaptive Cards in Copilot Studio&lt;/h1&gt;
-&lt;ul&gt;
-&lt;li&gt;Adaptive Cards automatically adapt their UI to the host application&#39;s style but to make it responsive attention needs to given to layout is optimal in each of width groups. This can be achieved using Container layouts with &lt;code&gt;targetWidth&lt;/code&gt; property for different width.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;p&gt;In this blog:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;(Text features)[]&lt;/li&gt;
-&lt;li&gt;(Responsive Layouts)[]&lt;/li&gt;
-&lt;li&gt;(Collapsible Sections)[]&lt;/li&gt;
-&lt;li&gt;(Edge-to-edge content)[]&lt;/li&gt;
-&lt;li&gt;(Container layout)[]&lt;/li&gt;
-&lt;/ol&gt;
-&lt;hr&gt;
-&lt;h2 id=&quot;text-features&quot;&gt;Text features&lt;/h2&gt;
-&lt;h3 id=&quot;using-markdown&quot;&gt;Using Markdown&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;To insert text, we use the &#39;TextBlock&#39;.&lt;/li&gt;
-&lt;li&gt;It can be formatted using Markdown.&lt;/li&gt;
-&lt;li&gt;Find more here: https://adaptivecards.microsoft.com/?topic=text-formatting&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;date-and-time-formatting&quot;&gt;Date and time formatting&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;DATE and TIME functions are to be used. For DATE, default format is COMPACT.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;DATE syntax: &lt;code&gt;{{DATE(&amp;lt;date&amp;gt;|&amp;lt;date-time&amp;gt;[,COMPACT|SHORT|LONG])}}&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;TIME syntax: &lt;code&gt;{{TIME(&amp;lt;time&amp;gt;|&amp;lt;date-time&amp;gt;)}}&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;&amp;lt;date-time&amp;gt;&lt;/code&gt; is expressed in Zulu format: 2017-02-14T06:00:00Z&lt;/li&gt;
-&lt;li&gt;&lt;date&gt; is expressed as 2017-02-13&lt;/date&gt;&lt;/li&gt;
-&lt;li&gt;&lt;time&gt; is expressed as 06:00:00Z&lt;/time&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&quot;examples&quot;&gt;Examples&lt;/h4&gt;
-&lt;ol&gt;
-&lt;li&gt;Compact date: &lt;code&gt;{{DATE(2017-02-14T06:00:00Z)}}&lt;/code&gt; -&amp;gt; 14/2/2017&lt;/li&gt;
-&lt;li&gt;Short date: &lt;code&gt;{{DATE(2017-02-14T06:00:00Z,SHORT)}}&lt;/code&gt; -&amp;gt; Tue, 14 Feb, 2017&lt;/li&gt;
-&lt;li&gt;Long date: &lt;code&gt;{{DATE(2017-02-14T06:00:00Z,LONG)}}&lt;/code&gt; -&amp;gt; Tuesday, 14 February 2017&lt;/li&gt;
-&lt;li&gt;Date and time: &lt;code&gt;{{DATE(2017-02-14T06:00:00Z,LONG)}}, {{TIME(2017-02-14T06:00:00Z)}}&lt;/code&gt; -&amp;gt; Tuesday, 14 February 2017, 11:30 am&lt;/li&gt;
-&lt;/ol&gt;
-&lt;hr&gt;
-&lt;h2 id=&quot;responsive-layouts&quot;&gt;Responsive Layouts&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;The four width groups: Wide, Standard, Narrow, Very narrow&lt;/li&gt;
-&lt;li&gt;Make use of atLeast and atMost prefixes in targetWidth property to make an element visible only when the card width is &#39;standard or above&#39; or only when the card width is &#39;narrow or below&#39;. E.g. atLeast:standard&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&quot;wide-width&quot;&gt;Wide Width&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;It is applicable on mobile devices/ tablets in landscape orientation.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;standard-width&quot;&gt;Standard Width&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;It is applicable for chats on desktop.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;narrow-and-very-narrow-width&quot;&gt;Narrow and Very Narrow Width&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Narrow is applicable for mobile devices in portrait mode while Very narrow is applicable for compact side panels such as meeting chat pane in Teams where space is little.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h2 id=&quot;collapsible-sections&quot;&gt;Collapsible Sections&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;It allows content to be shown or hidden interactively.&lt;/li&gt;
-&lt;li&gt;Use Action.ShowCard or Action.ToggleVisibility to present information dynamically.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;action-showcard&quot;&gt;Action.ShowCard&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;It displays an embedded card within an Adaptive Card.&lt;/li&gt;
-&lt;li&gt;It allows to display additional information without going away from the current card.&lt;/li&gt;
-&lt;li&gt;Usage: multi-step forms, progressive information reveal&lt;/li&gt;
-&lt;li&gt;Example #1: User clicks a button to &#39;Reserve a seat&#39;, it then opens another card to enter name and email and a button to Submit.&lt;/li&gt;
-&lt;li&gt;Example #2: User clicks on &#39;Show graphical data&#39;, it shows a pie chart in a card.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;action-togglevisibility&quot;&gt;Action.ToggleVisibility&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;It allows elements within the card to hidden or shown on user interaction.&lt;/li&gt;
-&lt;li&gt;Usage: to save space when targeting the very narrow layout, interactive elements.&lt;/li&gt;
-&lt;li&gt;Example: User clicks on &#39;Show more&#39;.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h2 id=&quot;edge-to-edge-content&quot;&gt;Edge-to-edge content&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Elements can stretch to full width or full height of an Adaptive Card. Use &lt;code&gt;bleed&lt;/code&gt; property with &lt;code&gt;true/false&lt;/code&gt; on container elements.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Usage&lt;/strong&gt;: full-width background and images, edge-to-edge sections for banners.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;(Read more)[https://adaptivecards.microsoft.com/?topic=edge-to-edge-content]&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&quot;container-layouts&quot;&gt;Container Layouts&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Elements in containers are laid out in a top-to-bottom stack.&lt;/li&gt;
 &lt;/ul&gt;
 </content>
   </entry>
