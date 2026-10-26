@@ -27,3 +27,16 @@ tags: ["copilot studio", "visual studio code"]
 5. Activity: Tracks and logs interactions, providing visibility into user engagement with the agent.
 6. Analytics: Provides insights and performance metrics on agent usage, effectiveness, and user interactions.
 7. Channels: Configures deployment options, which allows the agent to be accessible on various platforms like Microsoft Teams or internal and external websites.
+
+## System Topic
+- System topics support essential behaviors, such as a custom request to speak to a person or end the conversation.
+- You can't create or delete system topics, but you can turn them off.
+
+## Custom Topic
+- The predefined custom topics cover common behaviors, such as greeting a customer, ending a conversation, or restarting conversation.
+- You can make changes to the predefined custom topics or remove them from your agent entirely.
+
+## Trigger Phrases
+-  Trigger phrases indicate to the agent what typical user utterances should trigger a specific topic.
+-  
+
