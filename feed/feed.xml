@@ -5,7 +5,7 @@
   <subtitle>This is a longer description about your blog.</subtitle>
   <link href="https://example.com/feed/feed.xml" rel="self" />
   <link href="https://example.com/" />
-  <updated>2026-10-19T11:39:32Z</updated>
+  <updated>2026-10-26T07:38:43Z</updated>
   <id>https://example.com/</id>
   <author>
     <name>Your Name</name>
@@ -13,7 +13,7 @@
   <entry>
     <title></title>
     <link href="https://example.com/blog/ms-learnings/part-1/" />
-    <updated>2026-10-19T11:39:32Z</updated>
+    <updated>2026-10-26T07:38:43Z</updated>
     <id>https://example.com/blog/ms-learnings/part-1/</id>
     <content type="html">&lt;h1 id=&quot;explore-microsoft-copilot-studio-and-agent-harnesses&quot;&gt;Explore Microsoft Copilot Studio and agent harnesses&lt;/h1&gt;
 &lt;h2 id=&quot;learning-path-1-get-started-with-ai-first-solutions&quot;&gt;Learning Path-1: Get started with Ai-first solutions&lt;/h2&gt;
@@ -66,7 +66,7 @@
   <entry>
     <title></title>
     <link href="https://example.com/blog/microsoft-foundry/foundry-basics/" />
-    <updated>2026-10-19T11:39:32Z</updated>
+    <updated>2026-10-26T07:38:43Z</updated>
     <id>https://example.com/blog/microsoft-foundry/foundry-basics/</id>
     <content type="html">&lt;h1 id=&quot;microsoft-foundry-basics&quot;&gt;Microsoft Foundry Basics:&lt;/h1&gt;
 &lt;h2 id=&quot;foundry-rbac-roles&quot;&gt;Foundry RBAC roles:&lt;/h2&gt;
@@ -94,7 +94,7 @@
   <entry>
     <title></title>
     <link href="https://example.com/blog/copilot-studio/new-copilot-studio/" />
-    <updated>2026-10-19T11:39:32Z</updated>
+    <updated>2026-10-26T07:38:43Z</updated>
     <id>https://example.com/blog/copilot-studio/new-copilot-studio/</id>
     <content type="html">&lt;h1 id=&quot;the-new-copilot-studio-experience&quot;&gt;The New Copilot Studio Experience&lt;/h1&gt;
 &lt;hr&gt;
@@ -142,7 +142,7 @@
   <entry>
     <title></title>
     <link href="https://example.com/blog/ai-fundamentals/" />
-    <updated>2026-10-19T11:39:32Z</updated>
+    <updated>2026-10-26T07:38:43Z</updated>
     <id>https://example.com/blog/ai-fundamentals/</id>
     <content type="html">&lt;h1 id=&quot;ai-fundamentals&quot;&gt;AI Fundamentals&lt;/h1&gt;
 &lt;ul&gt;
@@ -231,6 +231,22 @@ Agents | Evaluations | Files and datasets | Vector indexes | Flows | Connections
 &lt;/li&gt;
 &lt;li&gt;&lt;/li&gt;
 &lt;/ul&gt;
+</content>
+  </entry>
+  <entry>
+    <title>Admin Cost Governance</title>
+    <link href="https://example.com/blog/copilot-studio/interview-topics/" />
+    <updated>2026-10-19T00:00:00Z</updated>
+    <id>https://example.com/blog/copilot-studio/interview-topics/</id>
+    <content type="html">&lt;h2 id=&quot;interview-terms&quot;&gt;Interview Terms&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Topic: System topic, User topic&lt;/li&gt;
+&lt;li&gt;Trigger Phrases&lt;/li&gt;
+&lt;li&gt;Generative Answers&lt;/li&gt;
+&lt;li&gt;Data sources&lt;/li&gt;
+&lt;li&gt;Node: Question node, message node, condition node&lt;/li&gt;
+&lt;li&gt;Var&lt;/li&gt;
+&lt;/ol&gt;
 </content>
   </entry>
   <entry>
@@ -377,56 +393,6 @@ Agents | Evaluations | Files and datasets | Vector indexes | Flows | Connections
 &lt;p&gt;Control 5: Set up pay-as-you-go with Azure budgets and alerts.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</content>
-  </entry>
-  <entry>
-    <title>Harness in Microsoft Copilot Studio</title>
-    <link href="https://example.com/blog/copilot-studio/harness-in-copilot-studio/" />
-    <updated>2026-10-01T00:00:00Z</updated>
-    <id>https://example.com/blog/copilot-studio/harness-in-copilot-studio/</id>
-    <content type="html">&lt;h2 id=&quot;key&quot;&gt;Key&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;MCS: Microsoft Copilot Studio&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;what-is-a-harness&quot;&gt;What is a harness?&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;A harness is the operating layer between the model and the agent&#39;s configuration in MCS.&lt;/li&gt;
-&lt;li&gt;It determines how the model receives context, uses instructions and tools, interprets result and moves towards task completion.&lt;/li&gt;
-&lt;li&gt;The harness is a runtime that determines when to call the model, what components to send it, interprets what comes back and calls the right tools.&lt;/li&gt;
-&lt;li&gt;There are 3 types of harness: GitHub Copilot harness, standard harness and Copilot Chat harness.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;why-github-copilot-harness&quot;&gt;Why GitHub Copilot Harness?&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;It is built for reasoning-heavy agents and workflows that need to complete complex business processes.&lt;/li&gt;
-&lt;li&gt;It can take a goal, break it into steps, call the right tools across connectors, knowledge, MCP and connected agents.&lt;/li&gt;
-&lt;li&gt;It natively creates and edits Word, Excel, PowerPoint and PDF files.&lt;/li&gt;
-&lt;li&gt;It runs each task in a secure sandbox.&lt;/li&gt;
-&lt;li&gt;The agents and workflows using Copilot Credits.&lt;/li&gt;
-&lt;li&gt;Capabilities: Dynamic orchestration, Secure data processing, Larger shared context&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;why-use-standard-harness&quot;&gt;Why use Standard harness?&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;It is a dependable option for rule-based agents and repeated workflows where you want predictable behavior for well-understood requests.&lt;/li&gt;
-&lt;li&gt;You define the topics, prompts and paths so that it responds consistently.&lt;/li&gt;
-&lt;li&gt;It use case is good for an internal help-desk to answer common questions and route simple requests using a defined workflow.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;why-use-copilot-chat-harness&quot;&gt;Why use Copilot chat harness?&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;It allows to extend Microsoft 365 Copilot Chat.&lt;/li&gt;
-&lt;li&gt;You can connect your enterprise knowledge to M365 Copilot Chat.&lt;/li&gt;
-&lt;li&gt;It runs on current chat models.&lt;/li&gt;
-&lt;li&gt;You can publish to internal teams.&lt;/li&gt;
-&lt;li&gt;Billing is consumption-based or included in Microsoft 365 Copilot user subscription license.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;when-to-choose-what&quot;&gt;When to choose what?&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Choose standard harness when the work is short and bounded with explicit control matter the most.&lt;/li&gt;
-&lt;li&gt;Choose GitHub Copilot harness when the task is long-running, coordination-heavy, reasoning-intensive or refine work to reach an outcome.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;when-to-be-careful&quot;&gt;When to be careful?&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Without optimization, a more capable harness can overwork a simple problem, increasing Copilot Credit consumption.&lt;/li&gt;
 &lt;/ul&gt;
 </content>
   </entry>
