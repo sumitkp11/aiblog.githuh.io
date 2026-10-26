@@ -5,7 +5,7 @@
   <subtitle>This is a longer description about your blog.</subtitle>
   <link href="https://example.com/feed/feed.xml" rel="self" />
   <link href="https://example.com/" />
-  <updated>2026-10-26T10:03:27Z</updated>
+  <updated>2026-10-26T10:40:28Z</updated>
   <id>https://example.com/</id>
   <author>
     <name>Your Name</name>
@@ -13,7 +13,7 @@
   <entry>
     <title></title>
     <link href="https://example.com/blog/ms-learnings/part-1/" />
-    <updated>2026-10-26T10:03:27Z</updated>
+    <updated>2026-10-26T10:40:28Z</updated>
     <id>https://example.com/blog/ms-learnings/part-1/</id>
     <content type="html">&lt;h1 id=&quot;explore-microsoft-copilot-studio-and-agent-harnesses&quot;&gt;Explore Microsoft Copilot Studio and agent harnesses&lt;/h1&gt;
 &lt;h2 id=&quot;learning-path-1-get-started-with-ai-first-solutions&quot;&gt;Learning Path-1: Get started with Ai-first solutions&lt;/h2&gt;
@@ -66,7 +66,7 @@
   <entry>
     <title></title>
     <link href="https://example.com/blog/microsoft-foundry/foundry-basics/" />
-    <updated>2026-10-26T10:03:27Z</updated>
+    <updated>2026-10-26T10:40:28Z</updated>
     <id>https://example.com/blog/microsoft-foundry/foundry-basics/</id>
     <content type="html">&lt;h1 id=&quot;microsoft-foundry-basics&quot;&gt;Microsoft Foundry Basics:&lt;/h1&gt;
 &lt;h2 id=&quot;foundry-rbac-roles&quot;&gt;Foundry RBAC roles:&lt;/h2&gt;
@@ -94,7 +94,7 @@
   <entry>
     <title></title>
     <link href="https://example.com/blog/copilot-studio/new-copilot-studio/" />
-    <updated>2026-10-26T10:03:27Z</updated>
+    <updated>2026-10-26T10:40:28Z</updated>
     <id>https://example.com/blog/copilot-studio/new-copilot-studio/</id>
     <content type="html">&lt;h1 id=&quot;the-new-copilot-studio-experience&quot;&gt;The New Copilot Studio Experience&lt;/h1&gt;
 &lt;hr&gt;
@@ -142,7 +142,7 @@
   <entry>
     <title></title>
     <link href="https://example.com/blog/ai-fundamentals/" />
-    <updated>2026-10-26T10:03:27Z</updated>
+    <updated>2026-10-26T10:40:28Z</updated>
     <id>https://example.com/blog/ai-fundamentals/</id>
     <content type="html">&lt;h1 id=&quot;ai-fundamentals&quot;&gt;AI Fundamentals&lt;/h1&gt;
 &lt;ul&gt;
@@ -336,6 +336,21 @@ Agents | Evaluations | Files and datasets | Vector indexes | Flows | Connections
 &lt;li&gt;Analytics: Provides insights and performance metrics on agent usage, effectiveness, and user interactions.&lt;/li&gt;
 &lt;li&gt;Channels: Configures deployment options, which allows the agent to be accessible on various platforms like Microsoft Teams or internal and external websites.&lt;/li&gt;
 &lt;/ol&gt;
+&lt;h2 id=&quot;system-topic&quot;&gt;System Topic&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;System topics support essential behaviors, such as a custom request to speak to a person or end the conversation.&lt;/li&gt;
+&lt;li&gt;You can&#39;t create or delete system topics, but you can turn them off.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;custom-topic&quot;&gt;Custom Topic&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;The predefined custom topics cover common behaviors, such as greeting a customer, ending a conversation, or restarting conversation.&lt;/li&gt;
+&lt;li&gt;You can make changes to the predefined custom topics or remove them from your agent entirely.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;trigger-phrases&quot;&gt;Trigger Phrases&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Trigger phrases indicate to the agent what typical user utterances should trigger a specific topic.&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </content>
   </entry>
   <entry>
