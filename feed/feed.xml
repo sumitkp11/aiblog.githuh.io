@@ -5,7 +5,7 @@
   <subtitle>This is a longer description about your blog.</subtitle>
   <link href="https://example.com/feed/feed.xml" rel="self" />
   <link href="https://example.com/" />
-  <updated>2026-10-26T07:47:21Z</updated>
+  <updated>2026-10-26T10:03:27Z</updated>
   <id>https://example.com/</id>
   <author>
     <name>Your Name</name>
@@ -13,7 +13,7 @@
   <entry>
     <title></title>
     <link href="https://example.com/blog/ms-learnings/part-1/" />
-    <updated>2026-10-26T07:47:21Z</updated>
+    <updated>2026-10-26T10:03:27Z</updated>
     <id>https://example.com/blog/ms-learnings/part-1/</id>
     <content type="html">&lt;h1 id=&quot;explore-microsoft-copilot-studio-and-agent-harnesses&quot;&gt;Explore Microsoft Copilot Studio and agent harnesses&lt;/h1&gt;
 &lt;h2 id=&quot;learning-path-1-get-started-with-ai-first-solutions&quot;&gt;Learning Path-1: Get started with Ai-first solutions&lt;/h2&gt;
@@ -66,7 +66,7 @@
   <entry>
     <title></title>
     <link href="https://example.com/blog/microsoft-foundry/foundry-basics/" />
-    <updated>2026-10-26T07:47:21Z</updated>
+    <updated>2026-10-26T10:03:27Z</updated>
     <id>https://example.com/blog/microsoft-foundry/foundry-basics/</id>
     <content type="html">&lt;h1 id=&quot;microsoft-foundry-basics&quot;&gt;Microsoft Foundry Basics:&lt;/h1&gt;
 &lt;h2 id=&quot;foundry-rbac-roles&quot;&gt;Foundry RBAC roles:&lt;/h2&gt;
@@ -94,7 +94,7 @@
   <entry>
     <title></title>
     <link href="https://example.com/blog/copilot-studio/new-copilot-studio/" />
-    <updated>2026-10-26T07:47:21Z</updated>
+    <updated>2026-10-26T10:03:27Z</updated>
     <id>https://example.com/blog/copilot-studio/new-copilot-studio/</id>
     <content type="html">&lt;h1 id=&quot;the-new-copilot-studio-experience&quot;&gt;The New Copilot Studio Experience&lt;/h1&gt;
 &lt;hr&gt;
@@ -142,7 +142,7 @@
   <entry>
     <title></title>
     <link href="https://example.com/blog/ai-fundamentals/" />
-    <updated>2026-10-26T07:47:21Z</updated>
+    <updated>2026-10-26T10:03:27Z</updated>
     <id>https://example.com/blog/ai-fundamentals/</id>
     <content type="html">&lt;h1 id=&quot;ai-fundamentals&quot;&gt;AI Fundamentals&lt;/h1&gt;
 &lt;ul&gt;
@@ -305,6 +305,40 @@ Agents | Evaluations | Files and datasets | Vector indexes | Flows | Connections
 </content>
   </entry>
   <entry>
+    <title>Interview Topics in Detail</title>
+    <link href="https://example.com/blog/copilot-studio/interview-topics-detailed/" />
+    <updated>2026-10-26T00:00:00Z</updated>
+    <id>https://example.com/blog/copilot-studio/interview-topics-detailed/</id>
+    <content type="html">&lt;h2 id=&quot;autonomous-agent&quot;&gt;Autonomous Agent&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Autonomous agents in Copilot Studio extend the value of generative orchestration by enabling AI to take action without waiting for a user prompt.&lt;/li&gt;
+&lt;li&gt;These agents perceive events, make decisions, and execute tasks independently by using triggers, instructions, and guardrails you define.&lt;/li&gt;
+&lt;li&gt;Instead of responding only in conversations, they operate continuously in the background—monitoring data, reacting to conditions, and running workflows at scale.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;semi-autonomous-agent&quot;&gt;Semi-autonomous Agent&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;A semi-autonomous agent works similarly, but it pauses to check in with a human for approval before taking any important action.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;generative-orchestration&quot;&gt;Generative Orchestration&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Generative orchestration lets your custom agent answer user queries with relevant topics, tools, other agents, and knowledge sources, and respond to event triggers.&lt;/li&gt;
+&lt;li&gt;Generative orchestration builds a plan to address a user query or event trigger using the name, description, inputs, and outputs of available topics, tools, agents, and knowledge.&lt;/li&gt;
+&lt;li&gt;For conversations, the system references the last 10 turns of conversation history to fill in inputs.&lt;/li&gt;
+&lt;li&gt;Link (https://learn.microsoft.com/en-us/microsoft-copilot-studio/faqs-generative-orchestration)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;copilot-foundational-elements&quot;&gt;Copilot Foundational Elements&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Knowledge: Allows the agent to use predefined documents, FAQs, or external data sources to provide instructions for the agent to respond.&lt;/li&gt;
+&lt;li&gt;Topics: Manages the conversation flows by defining intents, triggers, and responses for user queries.&lt;/li&gt;
+&lt;li&gt;Actions: Defines what the agent can do, such as triggering an action or workflow, calling an API, sending an email, or integrating with external systems to trigger an external workflow.&lt;/li&gt;
+&lt;li&gt;Triggers: Event-based starting points that initiate an automated flow, which help define specific conditions that activate specific actions.&lt;/li&gt;
+&lt;li&gt;Activity: Tracks and logs interactions, providing visibility into user engagement with the agent.&lt;/li&gt;
+&lt;li&gt;Analytics: Provides insights and performance metrics on agent usage, effectiveness, and user interactions.&lt;/li&gt;
+&lt;li&gt;Channels: Configures deployment options, which allows the agent to be accessible on various platforms like Microsoft Teams or internal and external websites.&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+  </entry>
+  <entry>
     <title>Admin Cost Governance</title>
     <link href="https://example.com/blog/copilot-studio/cost-governance/" />
     <updated>2026-10-19T00:00:00Z</updated>
@@ -406,47 +440,6 @@ Agents | Evaluations | Files and datasets | Vector indexes | Flows | Connections
 &lt;ul&gt;
 &lt;li&gt;After adding knowledge sources, we can view, update and remove them from the Knowledge tab.&lt;/li&gt;
 &lt;li&gt;We can also turn web search on or off.&lt;/li&gt;
-&lt;li&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</content>
-  </entry>
-  <entry>
-    <title>Usage-based billing in GitHub Copilot Harness</title>
-    <link href="https://example.com/blog/copilot-studio/usage-billing-github-copilot-harness/" />
-    <updated>2026-10-01T00:00:00Z</updated>
-    <id>https://example.com/blog/copilot-studio/usage-billing-github-copilot-harness/</id>
-    <content type="html">&lt;h2 id=&quot;usage-billing&quot;&gt;Usage billing&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;All usage is billed based on consumption and measured in Copilot Credits.&lt;/li&gt;
-&lt;li&gt;Copilot Credits are charged for LLM tokens, tools, and the harness itself.&lt;/li&gt;
-&lt;li&gt;It charges credits from the moment you start building. Example previewing and testing an agent, generating and creating agent evaluations all consume credits.&lt;/li&gt;
-&lt;li&gt;The billing structure applies only to agents, workflows, and apps powered by GitHub Copilot harness.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;managing-copilot-credits&quot;&gt;Managing Copilot Credits&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Copilot credits are managed through the Power Platform admin center.&lt;/li&gt;
-&lt;li&gt;Admins allocate credits to environments and monitor usage.&lt;/li&gt;
-&lt;li&gt;Admins can opt for Copilot Studio pay-as-you-go model using an Azure subscription. At the end of each month, the admins pays for the actual Copilot Credits consumed for that month.&lt;/li&gt;
-&lt;li&gt;The Copilot Credits pre-purchase plan is a one year prepaid option. A pool of Copilot Credit Commit Units is usable.&lt;/li&gt;
-&lt;li&gt;Find Copilot Credit Estimator here: https://nptnlopppecostweb.azurewebsites.net/#/estimator&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;cost-controls&quot;&gt;Cost Controls&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Control 1: Allocate prepaid credits to an environment&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Control 2: Turn off drawing from tenant capacity&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Control 3: Set an agent-level monthly limit&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Control 4: Apply allocations programmatically&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Control 5: Set up pay-as-you-go with Azure budgets and alerts.&lt;/p&gt;
-&lt;/li&gt;
 &lt;li&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </content>
