@@ -5,7 +5,7 @@
   <subtitle>This is a longer description about your blog.</subtitle>
   <link href="https://example.com/feed/feed.xml" rel="self" />
   <link href="https://example.com/" />
-  <updated>2026-10-26T07:44:02Z</updated>
+  <updated>2026-10-26T07:47:21Z</updated>
   <id>https://example.com/</id>
   <author>
     <name>Your Name</name>
@@ -13,7 +13,7 @@
   <entry>
     <title></title>
     <link href="https://example.com/blog/ms-learnings/part-1/" />
-    <updated>2026-10-26T07:44:02Z</updated>
+    <updated>2026-10-26T07:47:21Z</updated>
     <id>https://example.com/blog/ms-learnings/part-1/</id>
     <content type="html">&lt;h1 id=&quot;explore-microsoft-copilot-studio-and-agent-harnesses&quot;&gt;Explore Microsoft Copilot Studio and agent harnesses&lt;/h1&gt;
 &lt;h2 id=&quot;learning-path-1-get-started-with-ai-first-solutions&quot;&gt;Learning Path-1: Get started with Ai-first solutions&lt;/h2&gt;
@@ -66,7 +66,7 @@
   <entry>
     <title></title>
     <link href="https://example.com/blog/microsoft-foundry/foundry-basics/" />
-    <updated>2026-10-26T07:44:02Z</updated>
+    <updated>2026-10-26T07:47:21Z</updated>
     <id>https://example.com/blog/microsoft-foundry/foundry-basics/</id>
     <content type="html">&lt;h1 id=&quot;microsoft-foundry-basics&quot;&gt;Microsoft Foundry Basics:&lt;/h1&gt;
 &lt;h2 id=&quot;foundry-rbac-roles&quot;&gt;Foundry RBAC roles:&lt;/h2&gt;
@@ -94,7 +94,7 @@
   <entry>
     <title></title>
     <link href="https://example.com/blog/copilot-studio/new-copilot-studio/" />
-    <updated>2026-10-26T07:44:02Z</updated>
+    <updated>2026-10-26T07:47:21Z</updated>
     <id>https://example.com/blog/copilot-studio/new-copilot-studio/</id>
     <content type="html">&lt;h1 id=&quot;the-new-copilot-studio-experience&quot;&gt;The New Copilot Studio Experience&lt;/h1&gt;
 &lt;hr&gt;
@@ -142,7 +142,7 @@
   <entry>
     <title></title>
     <link href="https://example.com/blog/ai-fundamentals/" />
-    <updated>2026-10-26T07:44:02Z</updated>
+    <updated>2026-10-26T07:47:21Z</updated>
     <id>https://example.com/blog/ai-fundamentals/</id>
     <content type="html">&lt;h1 id=&quot;ai-fundamentals&quot;&gt;AI Fundamentals&lt;/h1&gt;
 &lt;ul&gt;
@@ -273,7 +273,35 @@ Agents | Evaluations | Files and datasets | Vector indexes | Flows | Connections
 &lt;li&gt;Variables: Topic scoped &amp;amp; Global variables&lt;/li&gt;
 &lt;li&gt;Entities: Prebuilt &amp;amp; Custom entities&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id=&quot;know&quot;&gt;Know&lt;/h2&gt;
+&lt;h2 id=&quot;knowledge-grounding&quot;&gt;Knowledge Grounding&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Generative answers&lt;/li&gt;
+&lt;li&gt;Data Sources&lt;/li&gt;
+&lt;li&gt;Content moderation&lt;/li&gt;
+&lt;li&gt;Model selection&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;tools&quot;&gt;Tools&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Plugins / Custom Actions&lt;/li&gt;
+&lt;li&gt;Workflows&lt;/li&gt;
+&lt;li&gt;Connectors&lt;/li&gt;
+&lt;li&gt;API&lt;/li&gt;
+&lt;li&gt;Agent-as-a-skill&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;deployment&quot;&gt;Deployment&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Channels&lt;/li&gt;
+&lt;li&gt;Direct Line Protocol&lt;/li&gt;
+&lt;li&gt;App Integration&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;governance&quot;&gt;Governance&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Environment Strategy&lt;/li&gt;
+&lt;li&gt;Data Loss Prevention&lt;/li&gt;
+&lt;li&gt;Authentication&lt;/li&gt;
+&lt;li&gt;Activity Maps&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;analytics&quot;&gt;Analytics&lt;/h2&gt;
 </content>
   </entry>
   <entry>
