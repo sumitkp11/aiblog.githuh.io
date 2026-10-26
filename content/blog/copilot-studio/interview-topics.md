@@ -39,4 +39,30 @@ tags: ["copilot studio", "visual studio code"]
 5. Entities: Prebuilt & Custom entities
 
 
-## Know
+## Knowledge Grounding
+1. Generative answers
+2. Data Sources
+3. Content moderation
+4. Model selection
+
+## Tools
+1. Plugins / Custom Actions
+2. Workflows
+3. Connectors
+4. API
+5. Agent-as-a-skill
+
+## Deployment
+1. Channels
+2. Direct Line Protocol
+3. App Integration
+
+## Governance
+1. Environment Strategy
+2. Data Loss Prevention
+3. Authentication
+4. Activity Maps
+
+
+## Analytics
+
