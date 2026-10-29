@@ -32,7 +32,18 @@ tags: ["learning", "gen ai"]
 4. Dynamics 365 Copilot
 5. Power Platform Copilot
 
+## Types of Generative AI Models
+- Large Language Models - Chatbots, content creation (GPT-4.1, Cluade)
+- Code Models: Code completion, debugging (codex-mini)
+- Diffusion Models: generate images from text prompts (DALL_E, Stable Diffusion)
+- Multimodal models: Interactive assistants (GPT-4o)
+- Domain-specific models: Legal, healthcare, finance (Phi-4, DeepSeek)
 
+## Challenges in Generative AI
+1. It can produce information that sounds correct but can be factually wrong or entirely fabricated. This challenge can be reversed by investing in fact-checking systems.
+2. It may produce different answers to similar prompts, making predictable performance difficult. Inconsistent outputs can disrupt workflows and decision-making.
+3. Bias occurs when AI reflect prejudices or imbalances presents in its training data. It introduces ethical and legal risks that can damage brand reputation and erode customer trust.
+4. It raises data privacy, energy consumption issues.
 
 
 
