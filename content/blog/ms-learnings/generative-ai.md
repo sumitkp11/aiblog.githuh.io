@@ -45,6 +45,50 @@ tags: ["learning", "gen ai"]
 3. Bias occurs when AI reflect prejudices or imbalances presents in its training data. It introduces ethical and legal risks that can damage brand reputation and erode customer trust.
 4. It raises data privacy, energy consumption issues.
 
+# Understanding Prompt Engineering
+- A prompt is a simple question or an instruction to get a specific response.
+- Generative AI rely on prompts or instructions. How prompts are crafted influences the quality, accuracy and relevance of the AI output.
+- Poorly designed prompts can lead to irrelevant results, inaccurate information and wasted time in refining output.
+
+
+## Ground AI
+- Generative AI can produce convincing but incorrect information. To address this issue, there are 2 key strategies: grounding and retrieval-augmented generation or RAG.
+- Grounded AI uses real-time or enterprise-specific information to produce answers.
+- Grounding is critical for accuracy, compliance and trust.
+- RAG is a technique to ground a language model.
+- The RAG pattern is: retrieve grounded data based on initial user-entered prompt, augment the prompt with grounded data and use a language model to generate a grounded response.
+
+## Data readiness
+- For success with AI, we need data readiness. It includes:
+  1. Data inventory and classification
+  2. Data accessibility
+  3. Metadata and labeling
+  4. Data governance
+  5. Feedback loops
+ 
+## Responsible AI Principles
+1. Fairness
+2. Reliability
+3. Safety
+4. Accountability
+
+
+# Machine Learning
+- Its goal is to use data to create predictive models that can be used into applications or services.
+
+## Stages of Machine Learning lifecycle
+1. Define the task
+2. Collect and prepare the data
+3. Train and validate the model
+4. Deploy the model
+5. MLOps: Monitor and manage the lifecycle
+
+
+
+
+
+
+
 
 
 
