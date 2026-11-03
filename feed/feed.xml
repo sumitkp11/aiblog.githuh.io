@@ -5,7 +5,7 @@
   <subtitle>This is a longer description about your blog.</subtitle>
   <link href="https://example.com/feed/feed.xml" rel="self" />
   <link href="https://example.com/" />
-  <updated>2026-10-30T10:29:56Z</updated>
+  <updated>2026-11-03T08:28:01Z</updated>
   <id>https://example.com/</id>
   <author>
     <name>Your Name</name>
@@ -13,7 +13,7 @@
   <entry>
     <title></title>
     <link href="https://example.com/blog/ms-learnings/part-1/" />
-    <updated>2026-10-30T10:29:56Z</updated>
+    <updated>2026-11-03T08:28:01Z</updated>
     <id>https://example.com/blog/ms-learnings/part-1/</id>
     <content type="html">&lt;h1 id=&quot;explore-microsoft-copilot-studio-and-agent-harnesses&quot;&gt;Explore Microsoft Copilot Studio and agent harnesses&lt;/h1&gt;
 &lt;h2 id=&quot;learning-path-1-get-started-with-ai-first-solutions&quot;&gt;Learning Path-1: Get started with Ai-first solutions&lt;/h2&gt;
@@ -66,7 +66,7 @@
   <entry>
     <title></title>
     <link href="https://example.com/blog/microsoft-foundry/foundry-basics/" />
-    <updated>2026-10-30T10:29:56Z</updated>
+    <updated>2026-11-03T08:28:01Z</updated>
     <id>https://example.com/blog/microsoft-foundry/foundry-basics/</id>
     <content type="html">&lt;h1 id=&quot;microsoft-foundry-basics&quot;&gt;Microsoft Foundry Basics:&lt;/h1&gt;
 &lt;h2 id=&quot;foundry-rbac-roles&quot;&gt;Foundry RBAC roles:&lt;/h2&gt;
@@ -94,7 +94,7 @@
   <entry>
     <title></title>
     <link href="https://example.com/blog/copilot-studio/new-copilot-studio/" />
-    <updated>2026-10-30T10:29:56Z</updated>
+    <updated>2026-11-03T08:28:01Z</updated>
     <id>https://example.com/blog/copilot-studio/new-copilot-studio/</id>
     <content type="html">&lt;h1 id=&quot;the-new-copilot-studio-experience&quot;&gt;The New Copilot Studio Experience&lt;/h1&gt;
 &lt;hr&gt;
@@ -142,7 +142,7 @@
   <entry>
     <title></title>
     <link href="https://example.com/blog/ai-fundamentals/" />
-    <updated>2026-10-30T10:29:56Z</updated>
+    <updated>2026-11-03T08:28:01Z</updated>
     <id>https://example.com/blog/ai-fundamentals/</id>
     <content type="html">&lt;h1 id=&quot;ai-fundamentals&quot;&gt;AI Fundamentals&lt;/h1&gt;
 &lt;ul&gt;
@@ -252,6 +252,61 @@ Agents | Evaluations | Files and datasets | Vector indexes | Flows | Connections
 &lt;li&gt;Expressive&lt;/li&gt;
 &lt;li&gt;Purely declarative: No code is needed&lt;/li&gt;
 &lt;li&gt;Automatically styled&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;card-layouts&quot;&gt;Card Layouts&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Hero: Ideal for sharing articles where an image tells most of the story.&lt;/li&gt;
+&lt;li&gt;Thumbnail: for quick interactions&lt;/li&gt;
+&lt;li&gt;List: to pick an item from a list&lt;/li&gt;
+&lt;li&gt;Digest: for news digests or round-up posts&lt;/li&gt;
+&lt;li&gt;Video/Media: Combines text and media&lt;/li&gt;
+&lt;li&gt;Form: to collect quick inputs from users to create tasks&lt;/li&gt;
+&lt;li&gt;Quick Input: to collect quick inputs from users&lt;/li&gt;
+&lt;li&gt;Expandable: allows users to select buttons and gather additional input from the same card.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;collapisble-sections&quot;&gt;Collapisble Sections&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Action.ShowCard and Action.ToggleVisibility to show information dynamically.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;container-layouts&quot;&gt;Container Layouts&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Layout.Stack: stacks elements on top of each other. Used by default.&lt;/li&gt;
+&lt;li&gt;Layout.Flow: spreads elements horizontally and wraps them across multiple rows as needed.&lt;/li&gt;
+&lt;li&gt;Layout.AreaGrid: divides a container into named areas into which elements can be placed.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;elements&quot;&gt;Elements:&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;ActionSet: Displays a set of action, which can be placed anywhere in the card.&lt;/li&gt;
+&lt;li&gt;Table&lt;/li&gt;
+&lt;li&gt;Progressar&lt;/li&gt;
+&lt;li&gt;ImageSet&lt;/li&gt;
+&lt;li&gt;Image&lt;/li&gt;
+&lt;li&gt;Icon&lt;/li&gt;
+&lt;li&gt;FactSet&lt;/li&gt;
+&lt;li&gt;Container: to logically group a set of elements together, A container for other elements.&lt;/li&gt;
+&lt;li&gt;TextBlock:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;actions&quot;&gt;Actions&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Action.Execute&lt;/li&gt;
+&lt;li&gt;Action.InsertImage&lt;/li&gt;
+&lt;li&gt;Action.OpenUrl&lt;/li&gt;
+&lt;li&gt;Action.OpenUrlDialog&lt;/li&gt;
+&lt;li&gt;Action.Popover&lt;/li&gt;
+&lt;li&gt;Action.ResetInputs&lt;/li&gt;
+&lt;li&gt;Action.ShowCard&lt;/li&gt;
+&lt;li&gt;Action.Submit&lt;/li&gt;
+&lt;li&gt;Action.ToggleVisibilty&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;inputs&quot;&gt;Inputs&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Input.ChoiceSet&lt;/li&gt;
+&lt;li&gt;Input.Date&lt;/li&gt;
+&lt;li&gt;Input.Number&lt;/li&gt;
+&lt;li&gt;Input.Rating&lt;/li&gt;
+&lt;li&gt;Input.Text&lt;/li&gt;
+&lt;li&gt;Input.Time&lt;/li&gt;
+&lt;li&gt;Input.Toggle&lt;/li&gt;
 &lt;/ol&gt;
 </content>
   </entry>
