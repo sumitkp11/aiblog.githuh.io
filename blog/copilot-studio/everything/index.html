@@ -531,6 +531,38 @@ pre[class*="language-diff-"] {
 <li>Agents can use enterprise data from Power Platform, Dynamics 365 data, websites and external systems.</li>
 <li>At agent level we can use knowledge from Knowledge page but at the topic level, we can use generative answers node for knowledge.</li>
 <li>Supported knowledge sources are: Public websites, Documents, SharePoint, Dataverse, Enterprise data using connectors.</li>
+<li>Allow ungrounded responses setting manages whether the agent can generate responses using only the model's general knowledge.</li>
+<li>Official sources mark a knowledge sources to be highly trusted and can be used directly by the agent without verification but generative orchestration needs to be turned off.</li>
+<li>All knowledge sources added at agent level are added to the generative answers node in Conversational boosting system topic.</li>
+</ol>
+<h2 id="everything-tools">Everything tools</h2>
+<ol>
+<li>Tools let agent interact with external systems.</li>
+<li>Tools: Connectors, Agent flow, Prompt, REST API and Model Context Protocol (MCP) and Computer use with GUI.</li>
+<li>Agent flow response:
+a. Dont respond (default)
+b. Write the response with generative AI
+c. Send specific response
+d. Send an adaptive card</li>
+</ol>
+<h2 id="multi-agent-solution">Multi-agent solution</h2>
+<ol>
+<li>Agents can hand off user interactions to each other or respond to autonomous triggers.</li>
+<li>Ways to add other agent:
+a. Create child agents
+b. Connect to other Copilot Studio agents within same environment
+c. Connect to external agents: Over A2A protocol, Foundry agents, Fabric Data agents, Microsoft 365 Agents SDK.</li>
+<li>Potential impact: Increased latency due to extra orchestration hops, Increased testing, management and governance surface area.</li>
+<li>Use 'Add an agent' node to redirect to an agent from a topic.</li>
+<li>Issues: introduces a slightly longer execution time due to context switching, complexity in maintaining multiple agents.</li>
+<li>Best practices:
+a. Ensure only one agent talk to the user. Only the parent agent should deliver the final response.
+b. Always tell subagents that they are sub agents as sub agents inherently dont know they are part of an orchestration.
+c. Use clear, direct language in instructions. Avoid soft phrasing like &quot;please&quot;, &quot;try to&quot;, &quot;you should&quot; but instead use strong language like &quot;MUST&quot;, &quot;DO NOT&quot;, &quot;NEVER&quot;.
+d. Use one knowledge source per subagent.
+e. Write clear, distinct descriptions for each subagent visible to the parent. The parent agent uses subagent descriptions to decide routing.
+f. Tell the parent agent how to orchestrate. The parent needs explicit instructions on the pattern: invoke agents, wait for results, combine, then respond.
+g.</li>
 </ol>
 <h2 id="limitations">Limitations</h2>
 <ol>
@@ -539,8 +571,14 @@ pre[class*="language-diff-"] {
 <li>Avoid using periods (.) in your topic names. It isn't possible to export a solution.</li>
 <li>Text file to upload trigger phrases should be max 3 MB.</li>
 <li>Under knowledge sources: 25 websites under generative mode while 4 public URLs in classic mode.</li>
-<li>Under knowledge source: All/Any documents under generative node while Dataverse file storage under classic mode</li>
-<li>Under knowledge source: Unlimited Dataverse under generative node while 2 Dataverse knowledge source (15 tables per knowledge source) under classic node.</li>
+<li>Under knowledge source: All/Any documents under generative mode while Dataverse file storage under classic mode</li>
+<li>Under knowledge source: Unlimited Dataverse under generative mode while 2 Dataverse knowledge source (15 tables per knowledge source) under classic mode.</li>
+<li>Under knowledge source: Unlimited connectors under generative mode while 2 per custom agent in classic mode.</li>
+<li>In knowledge source, the agent only shows content that the specific user can access.</li>
+<li>File uploads to agent are limited to 15 MB.</li>
+<li>Agent flow must respond to the agent within the 100-second action limit.</li>
+<li>Under generative mode, the orchestrator supports up to 128 tools per agent. For best performance, limit to 25-30 tools.</li>
+<li></li>
 </ol>
 
 <ul class="links-nextprev"><li class="links-nextprev-prev">← Previous<br> <a href="/blog/ai-fundamentals/"></a></li><li class="links-nextprev-next">Next →<br><a href="/blog/copilot-studio/new-copilot-studio/"></a></li>
@@ -552,7 +590,7 @@ pre[class*="language-diff-"] {
 		<footer>
 		</footer>
 
-		<!-- This page `/blog/copilot-studio/everything/` was built on 2026-11-03T08:58:23.169Z -->
+		<!-- This page `/blog/copilot-studio/everything/` was built on 2026-11-03T09:48:12.816Z -->
 		<script type="module" src="/dist/cC8wS6ZjFU.js"></script>
 	</body>
 </html>

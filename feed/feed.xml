@@ -5,7 +5,7 @@
   <subtitle>This is a longer description about your blog.</subtitle>
   <link href="https://example.com/feed/feed.xml" rel="self" />
   <link href="https://example.com/" />
-  <updated>2026-11-03T08:58:08Z</updated>
+  <updated>2026-11-03T09:48:03Z</updated>
   <id>https://example.com/</id>
   <author>
     <name>Your Name</name>
@@ -13,7 +13,7 @@
   <entry>
     <title></title>
     <link href="https://example.com/blog/ms-learnings/part-1/" />
-    <updated>2026-11-03T08:58:08Z</updated>
+    <updated>2026-11-03T09:48:03Z</updated>
     <id>https://example.com/blog/ms-learnings/part-1/</id>
     <content type="html">&lt;h1 id=&quot;explore-microsoft-copilot-studio-and-agent-harnesses&quot;&gt;Explore Microsoft Copilot Studio and agent harnesses&lt;/h1&gt;
 &lt;h2 id=&quot;learning-path-1-get-started-with-ai-first-solutions&quot;&gt;Learning Path-1: Get started with Ai-first solutions&lt;/h2&gt;
@@ -66,7 +66,7 @@
   <entry>
     <title></title>
     <link href="https://example.com/blog/microsoft-foundry/foundry-basics/" />
-    <updated>2026-11-03T08:58:08Z</updated>
+    <updated>2026-11-03T09:48:03Z</updated>
     <id>https://example.com/blog/microsoft-foundry/foundry-basics/</id>
     <content type="html">&lt;h1 id=&quot;microsoft-foundry-basics&quot;&gt;Microsoft Foundry Basics:&lt;/h1&gt;
 &lt;h2 id=&quot;foundry-rbac-roles&quot;&gt;Foundry RBAC roles:&lt;/h2&gt;
@@ -94,7 +94,7 @@
   <entry>
     <title></title>
     <link href="https://example.com/blog/copilot-studio/new-copilot-studio/" />
-    <updated>2026-11-03T08:58:08Z</updated>
+    <updated>2026-11-03T09:48:03Z</updated>
     <id>https://example.com/blog/copilot-studio/new-copilot-studio/</id>
     <content type="html">&lt;h1 id=&quot;the-new-copilot-studio-experience&quot;&gt;The New Copilot Studio Experience&lt;/h1&gt;
 &lt;hr&gt;
@@ -142,7 +142,7 @@
   <entry>
     <title></title>
     <link href="https://example.com/blog/copilot-studio/everything/" />
-    <updated>2026-11-03T08:58:08Z</updated>
+    <updated>2026-11-03T09:48:03Z</updated>
     <id>https://example.com/blog/copilot-studio/everything/</id>
     <content type="html">&lt;h3 id=&quot;everything-start-to-finish&quot;&gt;Everything Start to Finish&lt;/h3&gt;
 &lt;h2 id=&quot;create-an-agent&quot;&gt;Create an agent&lt;/h2&gt;
@@ -169,6 +169,38 @@
 &lt;li&gt;Agents can use enterprise data from Power Platform, Dynamics 365 data, websites and external systems.&lt;/li&gt;
 &lt;li&gt;At agent level we can use knowledge from Knowledge page but at the topic level, we can use generative answers node for knowledge.&lt;/li&gt;
 &lt;li&gt;Supported knowledge sources are: Public websites, Documents, SharePoint, Dataverse, Enterprise data using connectors.&lt;/li&gt;
+&lt;li&gt;Allow ungrounded responses setting manages whether the agent can generate responses using only the model&#39;s general knowledge.&lt;/li&gt;
+&lt;li&gt;Official sources mark a knowledge sources to be highly trusted and can be used directly by the agent without verification but generative orchestration needs to be turned off.&lt;/li&gt;
+&lt;li&gt;All knowledge sources added at agent level are added to the generative answers node in Conversational boosting system topic.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;everything-tools&quot;&gt;Everything tools&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Tools let agent interact with external systems.&lt;/li&gt;
+&lt;li&gt;Tools: Connectors, Agent flow, Prompt, REST API and Model Context Protocol (MCP) and Computer use with GUI.&lt;/li&gt;
+&lt;li&gt;Agent flow response:
+a. Dont respond (default)
+b. Write the response with generative AI
+c. Send specific response
+d. Send an adaptive card&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;multi-agent-solution&quot;&gt;Multi-agent solution&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Agents can hand off user interactions to each other or respond to autonomous triggers.&lt;/li&gt;
+&lt;li&gt;Ways to add other agent:
+a. Create child agents
+b. Connect to other Copilot Studio agents within same environment
+c. Connect to external agents: Over A2A protocol, Foundry agents, Fabric Data agents, Microsoft 365 Agents SDK.&lt;/li&gt;
+&lt;li&gt;Potential impact: Increased latency due to extra orchestration hops, Increased testing, management and governance surface area.&lt;/li&gt;
+&lt;li&gt;Use &#39;Add an agent&#39; node to redirect to an agent from a topic.&lt;/li&gt;
+&lt;li&gt;Issues: introduces a slightly longer execution time due to context switching, complexity in maintaining multiple agents.&lt;/li&gt;
+&lt;li&gt;Best practices:
+a. Ensure only one agent talk to the user. Only the parent agent should deliver the final response.
+b. Always tell subagents that they are sub agents as sub agents inherently dont know they are part of an orchestration.
+c. Use clear, direct language in instructions. Avoid soft phrasing like &amp;quot;please&amp;quot;, &amp;quot;try to&amp;quot;, &amp;quot;you should&amp;quot; but instead use strong language like &amp;quot;MUST&amp;quot;, &amp;quot;DO NOT&amp;quot;, &amp;quot;NEVER&amp;quot;.
+d. Use one knowledge source per subagent.
+e. Write clear, distinct descriptions for each subagent visible to the parent. The parent agent uses subagent descriptions to decide routing.
+f. Tell the parent agent how to orchestrate. The parent needs explicit instructions on the pattern: invoke agents, wait for results, combine, then respond.
+g.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&quot;limitations&quot;&gt;Limitations&lt;/h2&gt;
 &lt;ol&gt;
@@ -177,15 +209,21 @@
 &lt;li&gt;Avoid using periods (.) in your topic names. It isn&#39;t possible to export a solution.&lt;/li&gt;
 &lt;li&gt;Text file to upload trigger phrases should be max 3 MB.&lt;/li&gt;
 &lt;li&gt;Under knowledge sources: 25 websites under generative mode while 4 public URLs in classic mode.&lt;/li&gt;
-&lt;li&gt;Under knowledge source: All/Any documents under generative node while Dataverse file storage under classic mode&lt;/li&gt;
-&lt;li&gt;Under knowledge source: Unlimited Dataverse under generative node while 2 Dataverse knowledge source (15 tables per knowledge source) under classic node.&lt;/li&gt;
+&lt;li&gt;Under knowledge source: All/Any documents under generative mode while Dataverse file storage under classic mode&lt;/li&gt;
+&lt;li&gt;Under knowledge source: Unlimited Dataverse under generative mode while 2 Dataverse knowledge source (15 tables per knowledge source) under classic mode.&lt;/li&gt;
+&lt;li&gt;Under knowledge source: Unlimited connectors under generative mode while 2 per custom agent in classic mode.&lt;/li&gt;
+&lt;li&gt;In knowledge source, the agent only shows content that the specific user can access.&lt;/li&gt;
+&lt;li&gt;File uploads to agent are limited to 15 MB.&lt;/li&gt;
+&lt;li&gt;Agent flow must respond to the agent within the 100-second action limit.&lt;/li&gt;
+&lt;li&gt;Under generative mode, the orchestrator supports up to 128 tools per agent. For best performance, limit to 25-30 tools.&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
 &lt;/ol&gt;
 </content>
   </entry>
   <entry>
     <title></title>
     <link href="https://example.com/blog/ai-fundamentals/" />
-    <updated>2026-11-03T08:58:08Z</updated>
+    <updated>2026-11-03T09:48:03Z</updated>
     <id>https://example.com/blog/ai-fundamentals/</id>
     <content type="html">&lt;h1 id=&quot;ai-fundamentals&quot;&gt;AI Fundamentals&lt;/h1&gt;
 &lt;ul&gt;
