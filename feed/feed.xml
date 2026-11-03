@@ -5,7 +5,7 @@
   <subtitle>This is a longer description about your blog.</subtitle>
   <link href="https://example.com/feed/feed.xml" rel="self" />
   <link href="https://example.com/" />
-  <updated>2026-11-03T08:28:01Z</updated>
+  <updated>2026-11-03T08:58:08Z</updated>
   <id>https://example.com/</id>
   <author>
     <name>Your Name</name>
@@ -13,7 +13,7 @@
   <entry>
     <title></title>
     <link href="https://example.com/blog/ms-learnings/part-1/" />
-    <updated>2026-11-03T08:28:01Z</updated>
+    <updated>2026-11-03T08:58:08Z</updated>
     <id>https://example.com/blog/ms-learnings/part-1/</id>
     <content type="html">&lt;h1 id=&quot;explore-microsoft-copilot-studio-and-agent-harnesses&quot;&gt;Explore Microsoft Copilot Studio and agent harnesses&lt;/h1&gt;
 &lt;h2 id=&quot;learning-path-1-get-started-with-ai-first-solutions&quot;&gt;Learning Path-1: Get started with Ai-first solutions&lt;/h2&gt;
@@ -66,7 +66,7 @@
   <entry>
     <title></title>
     <link href="https://example.com/blog/microsoft-foundry/foundry-basics/" />
-    <updated>2026-11-03T08:28:01Z</updated>
+    <updated>2026-11-03T08:58:08Z</updated>
     <id>https://example.com/blog/microsoft-foundry/foundry-basics/</id>
     <content type="html">&lt;h1 id=&quot;microsoft-foundry-basics&quot;&gt;Microsoft Foundry Basics:&lt;/h1&gt;
 &lt;h2 id=&quot;foundry-rbac-roles&quot;&gt;Foundry RBAC roles:&lt;/h2&gt;
@@ -94,7 +94,7 @@
   <entry>
     <title></title>
     <link href="https://example.com/blog/copilot-studio/new-copilot-studio/" />
-    <updated>2026-11-03T08:28:01Z</updated>
+    <updated>2026-11-03T08:58:08Z</updated>
     <id>https://example.com/blog/copilot-studio/new-copilot-studio/</id>
     <content type="html">&lt;h1 id=&quot;the-new-copilot-studio-experience&quot;&gt;The New Copilot Studio Experience&lt;/h1&gt;
 &lt;hr&gt;
@@ -141,8 +141,51 @@
   </entry>
   <entry>
     <title></title>
+    <link href="https://example.com/blog/copilot-studio/everything/" />
+    <updated>2026-11-03T08:58:08Z</updated>
+    <id>https://example.com/blog/copilot-studio/everything/</id>
+    <content type="html">&lt;h3 id=&quot;everything-start-to-finish&quot;&gt;Everything Start to Finish&lt;/h3&gt;
+&lt;h2 id=&quot;create-an-agent&quot;&gt;Create an agent&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;You can change the primary language, solution and schema name for the agent.&lt;/li&gt;
+&lt;li&gt;The description can have up to 1024 characters.&lt;/li&gt;
+&lt;li&gt;To change agent&#39;s introduction: System topic -&amp;gt; Conversation Start -&amp;gt; Message node&lt;/li&gt;
+&lt;li&gt;We can configure up to 10 suggested prompts that users can from to start a conversation with the agent. It isnt visible when testing the agent.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;everything-topics&quot;&gt;Everything Topics:&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;To respond to users, agents use either generative orchestration or classic orchestration.&lt;/li&gt;
+&lt;li&gt;In generative orchestrations, agent selects the most appropriate combination of topics, tools and knowledge. Each topic has a description to inform the agent its purpose.&lt;/li&gt;
+&lt;li&gt;In classic orchestration, each topic has trigger phrases, keywords and questions that is likely to match with user input. Agents use Natural Language Understanding the select the topic.&lt;/li&gt;
+&lt;li&gt;A topic contains one or more nodes and determines the conversational paths.&lt;/li&gt;
+&lt;li&gt;There are 2 kinds of topics: System and Custom topics.&lt;/li&gt;
+&lt;li&gt;System topics cant be created, deleted but can be turned off.&lt;/li&gt;
+&lt;li&gt;Types of nodes: Message, Question, Adaptive Card, Condition, Variable Management, Topic Management, Tool, HTTP requests.&lt;/li&gt;
+&lt;li&gt;Node name can be up to 500 characters in length.&lt;/li&gt;
+&lt;li&gt;The topics can be edited with YAML code editor.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;everything-knowledge&quot;&gt;Everything Knowledge&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Agents can use enterprise data from Power Platform, Dynamics 365 data, websites and external systems.&lt;/li&gt;
+&lt;li&gt;At agent level we can use knowledge from Knowledge page but at the topic level, we can use generative answers node for knowledge.&lt;/li&gt;
+&lt;li&gt;Supported knowledge sources are: Public websites, Documents, SharePoint, Dataverse, Enterprise data using connectors.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;limitations&quot;&gt;Limitations&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;The description can have up to 1024 characters.&lt;/li&gt;
+&lt;li&gt;Node names can be up to 500 characters in length.&lt;/li&gt;
+&lt;li&gt;Avoid using periods (.) in your topic names. It isn&#39;t possible to export a solution.&lt;/li&gt;
+&lt;li&gt;Text file to upload trigger phrases should be max 3 MB.&lt;/li&gt;
+&lt;li&gt;Under knowledge sources: 25 websites under generative mode while 4 public URLs in classic mode.&lt;/li&gt;
+&lt;li&gt;Under knowledge source: All/Any documents under generative node while Dataverse file storage under classic mode&lt;/li&gt;
+&lt;li&gt;Under knowledge source: Unlimited Dataverse under generative node while 2 Dataverse knowledge source (15 tables per knowledge source) under classic node.&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+  </entry>
+  <entry>
+    <title></title>
     <link href="https://example.com/blog/ai-fundamentals/" />
-    <updated>2026-11-03T08:28:01Z</updated>
+    <updated>2026-11-03T08:58:08Z</updated>
     <id>https://example.com/blog/ai-fundamentals/</id>
     <content type="html">&lt;h1 id=&quot;ai-fundamentals&quot;&gt;AI Fundamentals&lt;/h1&gt;
 &lt;ul&gt;
@@ -470,36 +513,6 @@ Agents | Evaluations | Files and datasets | Vector indexes | Flows | Connections
 &lt;li&gt;Agents can access Google calendar becoming a more personalized AI assistant.&lt;/li&gt;
 &lt;li&gt;Claude Code can generate an entire web app using Figma design.&lt;/li&gt;
 &lt;li&gt;Enterprise chatbots can connect to multiple databases across an organization.&lt;/li&gt;
-&lt;/ul&gt;
-</content>
-  </entry>
-  <entry>
-    <title>Tools in GitHub Copilot Harness</title>
-    <link href="https://example.com/blog/copilot-studio/tools-in-gc-harness/" />
-    <updated>2026-10-06T00:00:00Z</updated>
-    <id>https://example.com/blog/copilot-studio/tools-in-gc-harness/</id>
-    <content type="html">&lt;h2 id=&quot;tools&quot;&gt;Tools&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Tools let the agent interact with external systems.&lt;/li&gt;
-&lt;li&gt;Examples of tools: send emails, check current weather conditions, read and write data from Dataverse, read and post messages to Teams.&lt;/li&gt;
-&lt;li&gt;The agents use tools to respond to users automatically using generative orchestration.&lt;/li&gt;
-&lt;li&gt;Tools can be called explicitly within a topic.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;mechanisms-to-add-tools&quot;&gt;Mechanisms to add tools&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Connector: Connect to proprietary APIs and services by using Power Platform Connectors using prebuilt connector or custom connector.&lt;/li&gt;
-&lt;li&gt;Agent flow&lt;/li&gt;
-&lt;li&gt;Prompt&lt;/li&gt;
-&lt;li&gt;REST API&lt;/li&gt;
-&lt;li&gt;Model Context Protocol&lt;/li&gt;
-&lt;li&gt;Computer use&lt;/li&gt;
-&lt;li&gt;Tool-like behaviour using Azure Bot Service Skills and Client tools&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;limitations-on-tools&quot;&gt;Limitations on tools&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;A generative orchestrator supports up to 128 tools per agent.&lt;/li&gt;
-&lt;li&gt;For best performance, limit to 25 to 30.&lt;/li&gt;
-&lt;li&gt;When you use multi-agent orchestration with child agents, each child agent has its own orchestration and can manage its own set of up to 128 tools.&lt;/li&gt;
 &lt;/ul&gt;
 </content>
   </entry>
